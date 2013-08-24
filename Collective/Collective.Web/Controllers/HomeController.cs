@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Caching;
-using System.Runtime.Serialization;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,6 +9,13 @@ namespace Collective.Web.Controllers
 {
     public class HomeController : Controller
     {
+        #region Constructors
+        public IRepository Repository { get; set; }
+        public HomeController(IRepository repository) 
+        {
+            Repository = repository;
+        }
+        #endregion
 
         #region Views & Partials
         public ActionResult Index() { return View(); }
@@ -37,7 +42,7 @@ namespace Collective.Web.Controllers
         {
             IEnumerable<object> result = Enumerable.Empty<object>();
 
-            new Repository(MemoryCache.Default).GetAll((IQueryable<Item> response) => {
+            Repository.GetAll((IQueryable<Item> response) => {
                 var data = (from item in response
                             where item.UseAsBackground
                             select new { 

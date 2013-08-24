@@ -19,7 +19,7 @@ namespace Collective.Model
         public void GetAll(Action<IQueryable<Frame>> callback)
         {
             Func<Context, IQueryable<Frame>> contextCallback = ((IRepository<Frame>)this).GetAll;
-            RunOrExecute<Frame>(CACHE_KEY_GETALL_ARTISTS, contextCallback, callback);
+            RunOrExecute<Frame>(CACHE_KEY_GETALL_FRAMES, contextCallback, callback);
         }
         #endregion
 

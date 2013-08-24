@@ -12,6 +12,10 @@ namespace Collective.Model
     {
         #region Constants
         public const string CACHE_KEY_GETALL_ARTISTS = "appGetAllArtist";
+        public const string CACHE_KEY_GETALL_FRAMES = "appGetAllFrame";
+        public const string CACHE_KEY_GETALL_SIZES = "appGetAllSize";
+        public const string CACHE_KEY_GETALL_TAGS = "appGetAllTag";
+        public const string CACHE_KEY_GETALL_USERS = "appGetAllUser";
         #endregion
 
         #region Fields

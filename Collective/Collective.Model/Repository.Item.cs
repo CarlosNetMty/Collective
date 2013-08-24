@@ -18,7 +18,7 @@ namespace Collective.Model
         public void GetAll(Action<IQueryable<Item>> callback)
         {
             Func<Context, IQueryable<Item>> contextCallback = ((IRepository<Item>)this).GetAll;
-            RunOrExecute<Item>(CACHE_KEY_GETALL_ARTISTS, contextCallback, callback);
+            RunOrExecute<Item>(string.Empty, contextCallback, callback);
         }
         #endregion
 

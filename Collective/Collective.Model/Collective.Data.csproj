@@ -52,6 +52,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Model\Artist.cs" />
     <Compile Include="Model\Sale.cs" />
+    <Compile Include="Model\SaleDetail.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Frame.cs" />
     <Compile Include="Model\Item.cs" />

@@ -4,11 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Collective.Web;
+using Collective.Model;
 
 namespace Collective.Web.Controllers
 {
     public class AdminController : Controller
     {
+        #region Constructors
+        public IRepository Repository { get; set; }
+        public AdminController(IRepository repository) 
+        {
+            Repository = repository;
+        }
+        #endregion
+
         #region Views & Partials
         public ActionResult Index(string id) 
         {
