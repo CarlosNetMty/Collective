@@ -1,0 +1,34 @@
+﻿@using Combres.Mvc
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="js no-touch svg inlinesvg svgclippaths no-ie8compat">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>C O L E C 7 I V A  -  Contemporary. Art. Style  -  Administration</title>
+
+        @* Styles *@
+        @Html.CombresLink("adminStyles")
+        @Html.CombresLink("scripts")
+    </head>
+    <body>
+
+        @Html.Partial("Header")
+
+        <div class="row">
+            <div class="large-9 push-3 columns">
+                <h3 style="margin:0px;">@ViewBag.Title</h3>
+                <hr />
+                @RenderBody()
+            </div>      
+
+            @Html.Partial("Sidebar")
+        </div>
+
+        @Html.Partial("Footer")
+
+        @*Scripts Rendering*@
+        @Html.CombresLink("adminFramework")
+        @Html.CombresLink("application")
+    </body>
+</html>

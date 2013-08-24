@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  This file contains basic settings needed for most web apps.
+  For full Combres settings (with explanation), refer to the sample definition file: combres_full_with_annotation.xml
+  Also, refer to Combres' documentation: http://combres.codeplex.com/documentation	
+-->
+<combres xmlns='urn:combres'>
+  <filters>
+    <filter type="Combres.Filters.FixUrlsInCssFilter, Combres" />
+  </filters>
+  <resourceSets url="~/combres.axd"
+                defaultDuration="30"
+                defaultVersion="auto"
+                defaultDebugEnabled="true"
+                defaultIgnorePipelineWhenDebug="true"
+                localChangeMonitorInterval="30"
+                remoteChangeMonitorInterval="60"
+                >
+    <resourceSet name="styles" type="css">
+      <!--<resource path="~/content/c7css.css" />-->
+      <resource path="~/content/normalize.css" />      
+      <resource path="~/content/main.css" />
+    </resourceSet>
+
+    <resourceSet name="adminStyles" type="css">
+      <resource path="~/content/foundation.css" />
+    </resourceSet>
+
+    <resourceSet name="scripts" type="js">
+      <!--<resource path="~/scripts/framework/modernizr-2.0.6-development-only.js" />-->
+      <resource path="~/scripts/framework/modernizr-2.6.2.min.js" />
+      <resource path="~/scripts/framework/jquery-1.10.2.min.js" />
+    </resourceSet>
+
+    <resourceSet name="framework" type="js">
+      <resource path="~/scripts/framework/jquery-ui-1.8.11.js" />
+      <!--<resource path="~/scripts/framework/jquery.unobtrusive-ajax.js" />-->
+      <resource path="~/scripts/framework/jquery.validate.js" />
+      <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
+      <resource path="~/scripts/framework/knockout-2.3.0.js" />
+      <resource path="~/scripts/framework/jquery.linq.js" />
+      <resource path="~/scripts/framework/jquery.slabtext.js" />
+      <resource path="~/scripts/framework/json2.js" />
+      <resource path="~/scripts/framework/jstorage.js" />
+      <resource path="~/scripts/framework/jquery.timers.js" />
+      <resource path="~/scripts/framework/plugins.js" />
+      <resource path="~/scripts/namespace.js" />
+    </resourceSet>
+
+    <resourceSet name="adminFramework" type="js">
+      <resource path="~/scripts/framework/jquery-ui-1.8.11.js" />
+      <!--<resource path="~/scripts/framework/jquery.unobtrusive-ajax.js" />-->
+      <resource path="~/scripts/framework/jquery.validate.js" />
+      <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
+      <resource path="~/scripts/framework/knockout-2.3.0.js" />
+      <resource path="~/scripts/framework/jquery.linq.js" />
+      <resource path="~/scripts/framework/jquery.slabtext.js" />
+      <resource path="~/scripts/framework/json2.js" />
+      <resource path="~/scripts/framework/jstorage.js" />
+      <resource path="~/scripts/framework/jquery.timers.js" />
+      <resource path="~/scripts/framework/plugins.js" />
+      <resource path="~/scripts/framework/foundation.js" />
+      <!--<resource path="~/scripts/framework/zepto.js" />-->
+      <resource path="~/scripts/namespace.js" />
+    </resourceSet>    
+    
+    <resourceSet name="application" type="js">
+      <!--Common-->
+      <resource path="~/scripts/Utils/Storage.js" />      
+      <resource path="~/scripts/Utils/Global.js" />
+      <resource path="~/scripts/Utils/Translations.js" />
+      <resource path="~/scripts/Utils/Utils.js" />
+      <!--Section-->
+      <resource path="~/scripts/Sales/Index.js" />
+      <resource path="~/scripts/Home/Index.js" />
+      <resource path="~/scripts/Home/Header.js" />
+      <resource path="~/scripts/Home/Footer.js" />
+      <!--Adminstration-->
+      <resource path="~/scripts/Admin/Header.js" />
+      <resource path="~/scripts/Admin/Sidebar.js" />
+      <resource path="~/scripts/Admin/Index.js" />
+      <resource path="~/scripts/Admin/Artists.js" />
+      <resource path="~/scripts/Admin/Users.js" />
+      <resource path="~/scripts/Admin/UsersDetail.js" />
+      <resource path="~/scripts/Admin/Products.js" />
+      <!--ViewModels-->
+      <resource path="~/scripts/ViewModels/Collection.js" />
+      <resource path="~/scripts/ViewModels/Sale.js" />
+      <resource path="~/scripts/ViewModels/Footer.js" />
+      <resource path="~/scripts/ViewModels/User.js" />
+    </resourceSet>
+  </resourceSets>
+</combres>

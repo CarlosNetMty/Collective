@@ -1,0 +1,39 @@
+﻿<footer data-type="module" data-module="Collective.Home.Footer">
+
+	<div class="shopping-cart">
+        <img src="@Url.Content("~/Content/Images/myColec7iva-logoweb.png")" width="114" height="14" alt="MY COLEC7IVA" />
+        <img class="colectiva-car" src="@Url.Content("~/Content/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
+        <span class="redbox" data-bind="text: ItemCount"></span>
+    </div>
+
+  	<p>
+        <span data-key="Welcome"></span>&nbsp;
+        <span data-bind="text: FirstName"></span>!
+  	</p>
+
+  	<p>
+        <span class="total-cont"data-bind="text: SubTotal"></span>
+        <span class="secure-payment" data-key="SecurePayment">Secure Payment</span>
+        <span class="order-history"  data-key="OrderHistory">Order History</span>
+    </p>
+
+    <p>
+        <span data-key="Language"></span>: 
+        <span data-bind="css: { red: IsEnglish() }, click: ChangeLanguage">ENG</span> 
+        <span data-bind="css: { red: IsSpanish() }, click: ChangeLanguage">SPA</span>
+    </p>
+
+    <form>
+        <input type="search" placeholder="Search">
+    </form>
+
+    <img src="@Url.Content("~/Content/Images/c7-facebook.png")" width="19" height="18" alt="COLEC7IVA - FACEBOOK" />
+    <img src="@Url.Content("~/Content/Images/c7-twitter.png")" width="19" height="18" alt="COLEC7IVA - TWITTER" />
+    <img src="@Url.Content("~/Content/Images/c7-pinterest.png")" width="19" height="18" alt="COLEC7IVA - PINTEREST" />
+
+  	<small>
+        <strong data-key="TermsOfService"></strong>
+        ©2013 COLEC7IVA <span data-key="AllRightsReserved">All rights reserved</span>.
+  	</small>
+
+</footer>

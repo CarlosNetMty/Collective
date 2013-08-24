@@ -1,0 +1,5 @@
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.csprojResolveAssemblyReference.cache
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.pdb

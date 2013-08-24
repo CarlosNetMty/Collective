@@ -1,0 +1,27 @@
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\bin\Collective.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\bin\Collective.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\obj\Debug\Collective.csprojResolveAssemblyReference.cache
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\obj\Debug\Collective.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\obj\Debug\Collective.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\bin\Collective.Model.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\bin\EntityFramework.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\bin\Collective.Model.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective\bin\EntityFramework.xml
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\bin\Collective.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\bin\Collective.pdb
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\bin\Collective.Model.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\bin\EntityFramework.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\bin\Collective.Model.pdb
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\bin\EntityFramework.xml
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\obj\Debug\Collective.csprojResolveAssemblyReference.cache
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\obj\Debug\Collective.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective\obj\Debug\Collective.pdb
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\bin\Collective.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\bin\Collective.pdb
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\bin\Collective.Model.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\bin\EntityFramework.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\bin\Collective.Model.pdb
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\bin\EntityFramework.xml
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\obj\Debug\Collective.csprojResolveAssemblyReference.cache
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\obj\Debug\Collective.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective\obj\Debug\Collective.pdb

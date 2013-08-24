@@ -1,0 +1,17 @@
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Console\bin\Debug\Collective.Console.exe.config
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Console\bin\Debug\Collective.Console.exe
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Console\bin\Debug\Collective.Console.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Console\obj\Debug\Collective.Console.exe
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Console\obj\Debug\Collective.Console.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Console\obj\Debug\Collective.Console.csprojResolveAssemblyReference.cache
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Console\bin\Debug\Collective.Console.exe.config
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Console\obj\Debug\Collective.Console.exe
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Console\obj\Debug\Collective.Console.pdb
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Console\bin\Debug\Collective.Console.exe
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Console\bin\Debug\Collective.Console.pdb
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Console\obj\Debug\Collective.Console.csprojResolveAssemblyReference.cache
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\bin\Debug\Collective.Console.exe.config
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\bin\Debug\Collective.Console.exe
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\bin\Debug\Collective.Console.pdb
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\obj\Debug\Collective.Console.exe
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\obj\Debug\Collective.Console.pdb

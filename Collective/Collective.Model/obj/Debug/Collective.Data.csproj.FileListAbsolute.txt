@@ -1,0 +1,23 @@
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.dll.config
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.pdb
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\EntityFramework.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\bin\Debug\EntityFramework.xml
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Data.csprojResolveAssemblyReference.cache
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.dll
+C:\Users\CarlosEmmanuel\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.pdb
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.dll.config
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\bin\Debug\Collective.Model.pdb
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\bin\Debug\EntityFramework.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\bin\Debug\EntityFramework.xml
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Data.csprojResolveAssemblyReference.cache
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.dll
+C:\Users\carlos.martinez\Dropbox\Collective\Collective.Model\obj\Debug\Collective.Model.pdb
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\bin\Debug\Collective.Model.dll.config
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\bin\Debug\Collective.Model.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\bin\Debug\Collective.Model.pdb
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\bin\Debug\EntityFramework.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\bin\Debug\EntityFramework.xml
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\obj\Debug\Collective.Model.dll
+C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\obj\Debug\Collective.Model.pdb

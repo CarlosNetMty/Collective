@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Product Administration";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div data-type="module" data-module="Collective.Admin.Products">
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Artist Name</th>
+                <th>Name</th>
+                <th style="width: 150px">Price</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Items">
+            <tr>
+                <td data-bind="text: ArtistName"></td>
+                <td data-bind="text: Description"></td>
+                <td data-bind="text: Price"></td>
+                <td data-bind="click: $parent.GoToDetail"><a>Detail</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

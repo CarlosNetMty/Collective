@@ -1,0 +1,59 @@
+﻿@charset "UTF-8";
+
+/*-----------------------------------------------------------------------------------------------------
+
+00. GENERAL 
+
+-----------------------------------------------------------------------------------------------------*/
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0;padding:0;}
+
+body { background-color: #000; font-family: "Helvetica Neue", Arial, sans-serif; color:white; font-size:12px; }
+p { color:white; font-size:12px; letter-spacing:1px;  }
+h1 { color:white; font-size:20px;  }
+.red { color:#f7323f; font-size:12px; letter-spacing:1px; font-weight:bold;  }
+
+/*-----------------------------------------------------------------------------------------------------
+
+01. HEADER & MENU
+
+-----------------------------------------------------------------------------------------------------*/
+
+#header { width:300px; top:0; margin:100px 0 0 100px; position:fixed; }
+#header img { margin-bottom:5px; }
+
+.tagline { font-size:18px; font-weight:500; text-decoration:line-through; letter-spacing:1px; }
+
+.nav { font-size:16px; font-weight:500; margin-top:40px; letter-spacing:1px; }
+.nav li { display: inline; list-style-type: none; padding-right: 25px; }
+.nav li a{ text-decoration:none; color:white; }
+.nav li a:hover{ text-decoration:line-through; color:#f7323f; }
+
+/*-----------------------------------------------------------------------------------------------------
+
+02. FOOTER
+
+-----------------------------------------------------------------------------------------------------*/
+
+#footer { width:300px; height:320px; bottom:0; margin:0 0 0 100px; position:fixed; }
+#cart_cont { width:100%;font-size:12px; letter-spacing:1px; margin-bottom:40px; }
+	.myc7 { float:left; width:115px; }
+	.myc7 img { padding-top:10px; }
+	.shopping_cart { float:right; width:100px; }
+	.shopping_cart img { margin-top:5px; margin-right:2px; }
+		.redbox { background-color:#f7323f; padding:3px 5px; width:auto; margin-top:5px; position:absolute;}
+#user_cont { clear:both; width:100%;font-size:13px; letter-spacing:1px; margin-bottom:16px; }
+#total_cont { width:100%; font-size:11px; letter-spacing:1px; margin-bottom:16px; line-height:18px; }
+#lang_cont { width:100%; font-size:11px; letter-spacing:1px; margin-bottom:16px; }
+#search_cont { width:100%; font-size:11px; letter-spacing:1px; margin-bottom:16px; }
+	.search { width: 180px; font-size: 11px; letter-spacing: 1px; margin-bottom: 16px; border: 1px solid grey; padding: 3px; float: left; margin-right:10px; }
+#legal_cont { clear:both; width:100%; font-size:10px; letter-spacing:1px; font-weight:normal; line-height:15px; }
+
+/*-----------------------------------------------------------------------------------------------------
+
+03. HOME BANNER
+
+-----------------------------------------------------------------------------------------------------*/
+
+#feature_cont { width:600px; height:200px; position:absolute; top:50%; left:0; margin-top:-120px; /* this is half the height of your div*/   margin-left:100px; /*this is half of width of your div*/ }
+.feat_red { color:#f7323f; font-size:100px; letter-spacing:1px; font-weight:bold; margin-left:-7px; line-height:100px;  }
