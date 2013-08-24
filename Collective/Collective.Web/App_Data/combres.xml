@@ -80,6 +80,7 @@
       <resource path="~/scripts/Admin/Sidebar.js" />
       <resource path="~/scripts/Admin/Index.js" />
       <resource path="~/scripts/Admin/Artists.js" />
+      <resource path="~/scripts/Admin/ArtistsDetail.js" />
       <resource path="~/scripts/Admin/Users.js" />
       <resource path="~/scripts/Admin/UsersDetail.js" />
       <resource path="~/scripts/Admin/Products.js" />
@@ -88,6 +89,7 @@
       <resource path="~/scripts/ViewModels/Sale.js" />
       <resource path="~/scripts/ViewModels/Footer.js" />
       <resource path="~/scripts/ViewModels/User.js" />
+      <resource path="~/scripts/ViewModels/Artist.js" />
     </resourceSet>
   </resourceSets>
 </combres>

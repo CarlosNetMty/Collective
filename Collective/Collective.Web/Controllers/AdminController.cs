@@ -258,45 +258,63 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Contributors() 
         {
+            IEnumerable<object> result = Enumerable.Empty<object>();
+
+            Repository.GetAll((IQueryable<Artist> response) => {
+                var data = (from item in response
+                            select new { 
+                                Id = item.ArtistId,
+                                Name = item.Name,
+                                PhotoUrl = item.PhotoUrl
+                            }).ToList();
+
+                result = data.OfType<object>();
+            });
+
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new List<object>() 
-                { 
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                    new { Id = 10001, Name = "Joh Doe", Bio = "Lorem ipsum est ..." },
-                }
+                Data = result
             };
         }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public JsonResult ContributorDetail() 
+        public JsonResult ContributorDetail(int id) 
         {
+            Artist instance = default(Artist);
+            object result = new object();
+
+            Repository.GetAll((IQueryable<Artist> response) =>
+            {
+                instance = (from item in response
+                            where item.ArtistId == id
+                            select item)
+                            .FirstOrDefault();
+
+                var data = new
+                {
+                    Name = instance.Name,
+                    SpanishBio = "Esta es una biografia prueba",
+                    EnglishBio = "This ia a test bio",
+                    Stock = instance.Items.Select((Item item) => {
+                        return new { 
+                            Id = item.ItemId,
+                            ArtistName = instance.Name,
+                            Description = item.Description,
+                            Price = 12345.69
+                        };
+                    }).ToList()
+                };
+
+                result = (object)data;
+            });
+
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new
-                {
-                    Name = "John Doe",
-                    SpanishBio = "Esta es la biografia de un artista",
-                    EnglishBio = "This is an artist bio",
-                    Stock = new List<object>() 
-                    { 
-                        new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                        new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                        new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                        new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                        new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                        new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 }
-                    }
-                }
+                Data = result
             };
         }
         #endregion

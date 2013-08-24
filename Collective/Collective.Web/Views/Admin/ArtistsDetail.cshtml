@@ -5,5 +5,58 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>ArtistsDetail</h2>
-<h3>Current Index: @Model</h3>
+<div data-type="module" data-module="Collective.Admin.ArtistsDetail" class="large-9 columns">    
+
+        <div class="row">            
+        	<div class="large-6 columns">              
+              <p>Name</p> 
+              <input type="text" placeholder="Artist Name" data-bind="value: Name"> 
+                
+			</div>
+		</div>           
+
+        <div class="row">            
+        	<div class="large-6 columns">              
+            	 <label>Bio - (Spanish) </label>
+                 <textarea data-bind="value: SpanishBio"></textarea>
+            </div>
+        	<div class="large-6 columns">                                     
+            	 <label>Bio - (English) </label>
+                 <textarea data-bind="value: EnglishBio"></textarea>
+        	</div>             
+		</div>
+        
+        <div class="row">
+        	<div class="large-10 columns">              
+            	<h3>Items</h3>
+                <table style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Items">
+                        <tr>
+                            <td data-bind="text: Id"></td>
+                            <td data-bind="text: Description"></td>
+                            <td data-bind="text: Price"></td>
+                            <td><span data-bind="click: $parent.GoToDetail">&gt;</span></td>
+                        </tr>
+                    </tbody>
+              </table>    
+            </div>    
+        </div>
+              
+            
+        <div class="row">  
+	        <div class="large-12 columns">               
+            	<hr>            
+                <a data-bind="click: Save" class="button">Save</a>                                  
+            	<a data-bind="click: Cancel" class="button disabled">Cancel</a>                                  
+            </div>    
+        </div>  
+              
+    </div>

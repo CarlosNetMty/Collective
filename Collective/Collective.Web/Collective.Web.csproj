@@ -218,6 +218,7 @@
     <Content Include="Photos\orderedList8.png" />
     <Content Include="Photos\orderedList9.png" />
     <Content Include="Scripts\Admin\Artists.js" />
+    <Content Include="Scripts\Admin\ArtistsDetail.js" />
     <Content Include="Scripts\Admin\UsersDetail.js" />
     <Content Include="Scripts\Admin\Header.js" />
     <Content Include="Scripts\Admin\Index.js" />
@@ -276,6 +277,7 @@
     <Content Include="Scripts\Utils\Utils.Functions.ToMoney.js" />
     <Content Include="Scripts\Utils\Utils.js" />
     <Content Include="Scripts\ViewModels\Collection.js" />
+    <Content Include="Scripts\ViewModels\Artist.js" />
     <Content Include="Scripts\ViewModels\Footer.js" />
     <Content Include="Scripts\ViewModels\Sale.js" />
     <Content Include="Scripts\ViewModels\User.js" />
