@@ -5,5 +5,11 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>UsersDetail</h2>
-<h3>Current Index: @Model</h3>
+<!--<h2>UsersDetail</h2>
+<h3>Current Index: @Model</h3>-->
+
+<div data-type="module" data-module="Collective.Admin.UserDetail">
+    <div data-bind="foreach: Items">
+        <div data-bind="text: FirstName"></div>
+    </div>
+</div>

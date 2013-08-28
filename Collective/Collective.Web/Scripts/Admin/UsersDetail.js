@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Admin.UserDetail = {
-        DataUrl: "/Admin/ContributorDetail",
+        DataUrl: "/Admin/CredentialDetail",
         Server: true,
         ViewModel: {},
         View: {},
@@ -13,7 +13,7 @@
 
             //menu initializarion
             function init(data) {
-                self.ViewModel = new Collective.ViewModels.User(data);
+                self.ViewModel = new Collective.ViewModels.Collection(data);
                 ko.applyBindings(self.ViewModel, control.context);
             }
 
