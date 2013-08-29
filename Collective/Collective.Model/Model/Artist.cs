@@ -12,6 +12,8 @@ namespace Collective.Model
         public int ArtistId { get; set; }
         public string PhotoUrl { get; set; }
         public string Name { get; set; }
+        public string SpanishBio { get; set; }
+        public string EnglishBio { get; set; }
         #endregion
 
         #region Navigation Properties

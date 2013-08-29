@@ -30,6 +30,11 @@ namespace Collective.Model
         /// </summary>
         /// <returns></returns>
         void GetAll(Action<IQueryable<Tag>> contextCallback);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        void GetAll(Action<IQueryable<User>> contextCallback);
     }
 
     public interface IRepository<T> where T : IPersistibleObject
