@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository.User.cs">
+      <DependentUpon>Repository.cs</DependentUpon>
+    </Compile>
     <Compile Include="Context.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Abstract\IRepository.cs" />

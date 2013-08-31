@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Collective.Model
 {
-    public class User
+    public class User : IPersistibleObject
     {
         #region Properties
         public int UserID { get; set; }
@@ -13,6 +13,11 @@ namespace Collective.Model
         public string Password { get; set; }
         public string Email { get; set; }
         public bool IsActive { get; set; }
+        public bool IsAdministrator { get; set; }
+        #endregion
+
+        #region Navigation Properties
+        
         #endregion
     }
 }

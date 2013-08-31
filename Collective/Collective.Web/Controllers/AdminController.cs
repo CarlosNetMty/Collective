@@ -123,26 +123,26 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Credentials() 
         {
+            IEnumerable<object> result = Enumerable.Empty<object>();
+
+            Repository.GetAll((IQueryable<User> response) =>
+            {
+                var data = (from item in response
+                            select new
+                            {
+                                Id = item.UserID,
+                                UserName = item.Name,
+                                Email = item.Email,
+                                Status = item.IsActive ? "Active" : "Inactive" 
+                            }).ToList();
+
+                result = data.OfType<object>();
+            });
+
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new List<object>() 
-                { 
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" },
-                    new { Id = 10001, UserName = "John Doe", Email = "test@testServer.com", Status = "Open" }
-                }
+                Data = result
             };
         }
         /// <summary>
@@ -150,23 +150,38 @@ namespace Collective.Web.Controllers
         /// </summary>
         public JsonResult CredentialDetail(int id)
         {
+            User instance = default(User);
+            object result = new object();
+
+            Repository.GetAll((IQueryable<User> response) =>
+            {
+                instance = (from item in response
+                            where item.UserID == id
+                            select item)
+                            .FirstOrDefault();
+
+                var data = new
+                {
+                    Active = instance.IsActive,
+                    IsAdministrator = instance.IsAdministrator,
+                    Name = instance.Name,
+                    History = new List<object>()
+                    {
+                        new { Id = 10001, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
+                        new { Id = 10001, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
+                        new { Id = 10001, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
+                        new { Id = 10001, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
+                        new { Id = 10001, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  }
+                    }
+                };
+
+                result = (object)data;
+            });
+
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new
-                {
-                    Stock = new List<object>() 
-                    { 
-                        new { Id = 10001, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
-                        new { Id = 10002, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
-                        new { Id = 10003, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
-                        new { Id = 10004, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  },
-                        new { Id = 10005, Date = DateTime.Now.AddDays(-5).ToString("MMMM dd, yyyy"), UserId = 101, UserName = "John Doe", Status = "Open", Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large"  }                        
-                    },
-                    UserName = "John Doe",
-                    MemberSince = DateTime.Now.AddYears(-1),
-                    Active = true
-                },
+                Data = result
             };
         }        
         /// <summary>
@@ -175,46 +190,55 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Stock() 
         {
+            IEnumerable<object> result = Enumerable.Empty<object>();
+
+            Repository.GetAll((IQueryable<Item> response) =>
+            {
+                var data = (from item in response
+                            select new
+                            {
+                                Id = item.ItemId,
+                                ArtistName = item.Artist.Name,
+                                Description = item.Description,
+                                Price = item.Price
+                            }).ToList();
+
+                result = data.OfType<object>();
+            });
+
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new List<object>()
-                {
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 },
-                    new { Id = 10001, ArtistName = "John Doe", Description = "Infinity", Price = 9999.99 }
-                }
+                Data = result
             };
         }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public JsonResult StockDetail()
+        public JsonResult StockDetail(int id)
         {
-            return new JsonResult()
+            Item instance = default(Item);
+            object result = new object();
+
+            Repository.GetAll((IQueryable<Item> response) =>
             {
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new
+                instance = (from item in response
+                            where item.ItemId == id
+                            select item)
+                            .FirstOrDefault();
+
+                var data = new
                 {
-                    AvailableArtists = new List<object> 
-                    {
-                        new { Id = 1, Name = "John Doe" },
-                        new { Id = 2, Name = "John Doe" },
-                        new { Id = 3, Name = "John Doe" },
-                        new { Id = 4, Name = "John Doe" },
-                        new { Id = 5, Name = "John Doe" }
-                    },
-                    ArtistId = 5,
-                    Price = 12345.67,
+                    AvailableArtists = new List<object>().LoadFrom<Artist>(Repository),
+                    AvailableTags = new List<object>().LoadFrom<Tag>(Repository),
+                    Tags = instance.Tags.Select(item => item.TagId).ToList(),
+                    AvailableFrames = new List<object>().LoadFrom<Frame>(Repository),
+                    Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
+                    AvailableSizes = new List<object>().LoadFrom<Size>(Repository),
+                    Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
+                    ArtistId = instance.Artist.ArtistId,
+                    Price = instance.Price,
                     Spanish = new
                     {
                         Name = "Panorama",
@@ -224,32 +248,16 @@ namespace Collective.Web.Controllers
                     {
                         Name = "Landscape",
                         Description = "This is a landscape test"
-                    },
-                    AvailableTags = new List<object>() 
-                    { 
-                        new { Id = 1, Name = "Architecture" },
-                        new { Id = 2, Name = "Contemporary" },
-                        new { Id = 3, Name = "Landscape" },
-                        new { Id = 4, Name = "Portrait" },
-                    },
-                    Tags = new[] { 1, 2, 3 },
-                    AvailableSizes = new List<object>() 
-                    { 
-                        new { Id = 1, Name = "Architecture" },
-                        new { Id = 2, Name = "Contemporary" },
-                        new { Id = 3, Name = "Landscape" },
-                        new { Id = 4, Name = "Portrait" },
-                    },
-                    Sizes = new[] { 1, 2, 3 },
-                    AvailableFrames = new List<object>() 
-                    { 
-                        new { Id = 1, Name = "Architecture" },
-                        new { Id = 2, Name = "Contemporary" },
-                        new { Id = 3, Name = "Landscape" },
-                        new { Id = 4, Name = "Portrait" },
-                    },
-                    Frames = new[] { 1, 2, 3 },
-                }
+                    }
+                };
+
+                result = (object)data;
+            });
+
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = result
             };
         }
         /// <summary>
@@ -296,14 +304,14 @@ namespace Collective.Web.Controllers
                 var data = new
                 {
                     Name = instance.Name,
-                    SpanishBio = "Esta es una biografia prueba",
-                    EnglishBio = "This ia a test bio",
+                    SpanishBio = instance.SpanishBio,
+                    EnglishBio = instance.EnglishBio,
                     Stock = instance.Items.Select((Item item) => {
                         return new { 
                             Id = item.ItemId,
                             ArtistName = instance.Name,
                             Description = item.Description,
-                            Price = 12345.69
+                            Price = item.Price
                         };
                     }).ToList()
                 };
@@ -318,5 +326,62 @@ namespace Collective.Web.Controllers
             };
         }
         #endregion
+    }
+
+    public static class Extensions
+    {
+        public static List<object> LoadFrom<T>(this List<object> collection, IRepository repository) where T : IPersistibleObject
+        {
+            return LoadFrom(collection, (dynamic)repository);
+        }
+
+        static List<object> LoadFrom(this List<object> collection, IRepository<Artist> repository)
+        {
+            Action<IQueryable<Artist>> callback = (IQueryable<Artist> data) =>
+            {
+                foreach (var item in data)
+                    collection.Add(new { Id = item.ArtistId, Name = item.ArtistId });
+            };
+
+            return collection;
+        }
+
+        static List<object> LoadFrom(this List<object> collection, IRepository<Frame> repository)
+        {
+            Action<IQueryable<Frame>> callback = (IQueryable<Frame> data) =>
+            {
+                foreach (var item in data)
+                    collection.Add(new { Id = item.FrameId, Name = item.Description });
+            };
+
+            return collection;
+        }
+
+        static List<object> LoadFrom(this List<object> collection, IRepository<Tag> repository)
+        {
+            Action<IQueryable<Tag>> callback = (IQueryable<Tag> data) =>
+            {
+                foreach (var item in data)
+                    collection.Add(new { Id = item.TagId, Name = item.Name });
+            };
+
+            return collection;
+        }
+
+        static List<object> LoadFrom(this List<object> collection, IRepository<Size> repository)
+        {
+            Action<IQueryable<Size>> callback = (IQueryable<Size> data) =>
+            {
+                foreach (var item in data)
+                    collection.Add(new { Id = item.SizeId, Name = item.Description });
+            };
+
+            return collection;
+        }
+
+        public static string AsString(this DateTime value)
+        {
+            return value.ToString("MMMM dd, yyyy");
+        }
     }
 }
