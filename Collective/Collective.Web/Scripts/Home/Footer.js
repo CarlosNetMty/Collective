@@ -6,7 +6,7 @@
         Server: false,
         ViewModel: {},
         View: {},
-        Load: function (control) {
+        Load: function (control, args) {
 
             var self = this;
             self.View = control;
@@ -27,6 +27,15 @@
                     Collective.Global.LanguageCallbacks.fire();
                 };
 
+                self.View.find("input").keypress(function (event) {
+                    if (event.key === "Enter")
+                    {
+                        var location = window.location;
+                        window.location = "{0}//{1}/Home/Gallery/?search={2}".format(location.protocol, location.host, this.value);
+                    }
+                })
+                
+                self.ViewModel.SearchText(args.search);
                 ko.applyBindings(self.ViewModel, control.context);
             }
             //Get server data (if needed)

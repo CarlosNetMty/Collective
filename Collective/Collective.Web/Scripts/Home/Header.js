@@ -14,9 +14,9 @@
             function loadMenuItems(viewModel)
             {
                 viewModel.Items.removeAll();
-                viewModel.Items.push({ title: Collective.Translations.Get("Galleries"), url: "#" });
-                viewModel.Items.push({ title: Collective.Translations.Get("About"), url: "#" });
-                viewModel.Items.push({ title: Collective.Translations.Get("Contact"), url: "#" });
+                viewModel.Items.push({ title: Collective.Translations.Get("Galleries"), url: "/Home/Gallery" });
+                viewModel.Items.push({ title: Collective.Translations.Get("About"), url: "/Home/About" });
+                viewModel.Items.push({ title: Collective.Translations.Get("Contact"), url: "/Home/Contact" });
             }
             //Language change
             Collective.Global.LanguageCallbacks.add(function () {
@@ -28,8 +28,8 @@
                 self.ViewModel = new Collective.ViewModels.Header({});
                 //Actions
                 self.ViewModel.Navigate = function (menuItem) {
-                    alert("Navigate to: {0}".format(menuItem.title));
-                    //TODO: Impement Navigation
+                    var location = window.location;
+                    window.location = "{0}//{1}{2}".format(location.protocol, location.host, menuItem.url);
                 }
 
                 ko.applyBindings(self.ViewModel, control.context);

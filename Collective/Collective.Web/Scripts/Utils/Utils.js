@@ -34,6 +34,18 @@ $(document).ready(function () {
         for (var i = 1; i < namespace.length; i++)
             resultModule = resultModule[namespace[i]];
 
-        resultModule.Load(control);
+        var moduleParameters = {};
+        if (window.location.search)
+        {
+            var searchQuery = window.location.search.replace("?", "");
+            searchElements = searchQuery.split("&");
+
+            $.each(searchElements, function () {
+
+                var itemElements = arguments[1].split("=");
+                moduleParameters[itemElements[0]]=itemElements[1];
+            });
+        }
+        resultModule.Load(control, moduleParameters);
     });
 });

@@ -10,7 +10,10 @@ Collective.Translations = {
         SecurePayment: "Pago Seguro",
         OrderHistory: "Hisorial de Pagos",
         TermsOfService: "Terminos de Servicio",
-        AllRightsReserved: "Todos los derechos reservados"
+        AllRightsReserved: "Todos los derechos reservados",
+        Login: "Login",
+        Register: "Registrar",
+        FilterBy: "Filtar Por"
     },
     ENG: {
         Galleries: "Galleries",
@@ -21,7 +24,10 @@ Collective.Translations = {
         SecurePayment: "Secure Payment",
         OrderHistory: "Order History",
         TermsOfService: "Terms of Service",
-        AllRightsReserved: "All rights reserved"
+        AllRightsReserved: "All rights reserved",
+        Login: "Login",
+        Register: "Register",
+        FilterBy: "Filter By"
     },
     Get: function (key)
     {
@@ -35,7 +41,19 @@ Collective.Translations = {
         $.each(view.find("[data-key]"), function () {
 
             var control = $(this);
-            control.text(translations[control.data("key")]);
+            var text = translations[control.data("key")];
+
+            var hasTransform = control.is("[data-transform]");
+            if (hasTransform)
+            {
+                switch (control.data("transform"))
+                {
+                    case "AllCaps":
+                        text = text.toUpperCase();
+                        break;
+                }
+            }
+            control.text(text);
         });
     }
 };

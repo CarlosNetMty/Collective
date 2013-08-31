@@ -60,13 +60,14 @@ namespace Collective.Web.Controllers
                 Data = result
             };
         }
-        public JsonResult Products()
+        public JsonResult Products(string search)
         {
             IEnumerable<object> result = Enumerable.Empty<object>();
-
+            if (string.IsNullOrEmpty(search)) search = string.Empty;
             Repository.GetAll((IQueryable<Item> response) =>
             {
                 var data = (from item in response
+                            where (item.Artist.Name == search || search == "") || (item.Description == search || search == "")
                             select new
                             {
                                 Artist = item.Artist.Name,
@@ -81,13 +82,16 @@ namespace Collective.Web.Controllers
 
             var responseData = new
             {
+                Artists = new List<object>().LoadFrom((IRepository<Artist>)Repository),
+                Themes = new List<object>().LoadFrom((IRepository<Tag>)Repository),
+                Formats = new List<object>().LoadFrom((IRepository<Size>)Repository),
                 Items = result.OfType<dynamic>().Select(item => {
                     return new
                     {
                         Artist = item.Artist,
                         Name = item.Name,
                         Photo = item.Photo,
-                        Filters = string.Format("{0} {1} {2}", item.Artist,
+                        Filters = string.Format("{0} {1} {2}", item.Artist.Replace(" ", ""),
                             string.Join(" ", (List<string>)item.Tags),
                             string.Join(" ", (List<string>)item.Sizes)
                         )

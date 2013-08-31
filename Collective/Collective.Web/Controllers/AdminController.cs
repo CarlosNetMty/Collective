@@ -230,12 +230,12 @@ namespace Collective.Web.Controllers
 
                 var data = new
                 {
-                    AvailableArtists = new List<object>().LoadFrom<Artist>(Repository),
-                    AvailableTags = new List<object>().LoadFrom<Tag>(Repository),
+                    AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository),
+                    AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository),
                     Tags = instance.Tags.Select(item => item.TagId).ToList(),
-                    AvailableFrames = new List<object>().LoadFrom<Frame>(Repository),
+                    AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository),
                     Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
-                    AvailableSizes = new List<object>().LoadFrom<Size>(Repository),
+                    AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository),
                     Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
                     ArtistId = instance.Artist.ArtistId,
                     Price = instance.Price,
@@ -330,52 +330,55 @@ namespace Collective.Web.Controllers
 
     public static class Extensions
     {
-        public static List<object> LoadFrom<T>(this List<object> collection, IRepository repository) where T : IPersistibleObject
+        public static List<object> LoadFrom(this List<object> collection, IRepository<Artist> repository, bool appendDefault = true)
         {
-            return LoadFrom(collection, (dynamic)repository);
-        }
-
-        static List<object> LoadFrom(this List<object> collection, IRepository<Artist> repository)
-        {
+            if(appendDefault) collection.Add(new { Id = -1, Name = "*" });
             Action<IQueryable<Artist>> callback = (IQueryable<Artist> data) =>
             {
                 foreach (var item in data)
-                    collection.Add(new { Id = item.ArtistId, Name = item.ArtistId });
+                    collection.Add(new { Id = item.ArtistId, Name = item.Name });
             };
 
+            ((IRepository)repository).GetAll(callback);
             return collection;
         }
 
-        static List<object> LoadFrom(this List<object> collection, IRepository<Frame> repository)
+        public static List<object> LoadFrom(this List<object> collection, IRepository<Frame> repository, bool appendDefault = true)
         {
+            if (appendDefault) collection.Add(new { Id = -1, Name = "*" });
             Action<IQueryable<Frame>> callback = (IQueryable<Frame> data) =>
             {
                 foreach (var item in data)
                     collection.Add(new { Id = item.FrameId, Name = item.Description });
             };
 
+            ((IRepository)repository).GetAll(callback);
             return collection;
         }
 
-        static List<object> LoadFrom(this List<object> collection, IRepository<Tag> repository)
+        public static List<object> LoadFrom(this List<object> collection, IRepository<Tag> repository, bool appendDefault = true)
         {
+            if (appendDefault) collection.Add(new { Id = -1, Name = "*" });
             Action<IQueryable<Tag>> callback = (IQueryable<Tag> data) =>
             {
                 foreach (var item in data)
                     collection.Add(new { Id = item.TagId, Name = item.Name });
             };
 
+            ((IRepository)repository).GetAll(callback);
             return collection;
         }
 
-        static List<object> LoadFrom(this List<object> collection, IRepository<Size> repository)
+        public static List<object> LoadFrom(this List<object> collection, IRepository<Size> repository, bool appendDefault = true)
         {
+            if (appendDefault) collection.Add(new { Id = -1, Name = "*" });
             Action<IQueryable<Size>> callback = (IQueryable<Size> data) =>
             {
                 foreach (var item in data)
                     collection.Add(new { Id = item.SizeId, Name = item.Description });
             };
 
+            ((IRepository)repository).GetAll(callback);
             return collection;
         }
 

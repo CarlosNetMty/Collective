@@ -6,10 +6,15 @@
         <span class="redbox" data-bind="text: ItemCount"></span>
     </div>
 
-  	<p>
+  	<p data-bind="if: IsLoggedIn()">
         <span data-key="Welcome"></span>&nbsp;
         <span data-bind="text: FirstName"></span>!
   	</p>
+
+    <p class="red" data-bind="if: !IsLoggedIn()">
+        <a><span data-key="Login" data-transform="AllCaps"></span></a>&nbsp;|
+        <a><span data-key="Register" data-transform="AllCaps"></span></a>&nbsp;
+    </p>
 
   	<p>
         <span class="total-cont"data-bind="text: SubTotal"></span>
@@ -19,13 +24,13 @@
 
     <p>
         <span data-key="Language"></span>: 
-        <span data-bind="css: { red: IsEnglish() }, click: ChangeLanguage">ENG</span> 
-        <span data-bind="css: { red: IsSpanish() }, click: ChangeLanguage">SPA</span>
+        <a><span data-bind="css: { red: IsEnglish() }, click: ChangeLanguage">ENG</span></a> 
+        <a><span data-bind="css: { red: IsSpanish() }, click: ChangeLanguage">SPA</span></a>
     </p>
 
-    <form>
-        <input type="search" placeholder="Search">
-    </form>
+    <div>
+        <input data-bind="value: SearchText" type="search" placeholder="Search" style="width: 200px">
+    </div>
 
     <img src="@Url.Content("~/Content/Images/c7-facebook.png")" width="19" height="18" alt="COLEC7IVA - FACEBOOK" />
     <img src="@Url.Content("~/Content/Images/c7-twitter.png")" width="19" height="18" alt="COLEC7IVA - TWITTER" />

@@ -7,7 +7,7 @@ Collective.ViewModels.Footer = function (model) {
     //Header Items
     self.FirstName = ko.observable("Carlos");
     self.LastName = ko.observable("Martinez");
-
+    self.IsLoggedIn = ko.observable(false);
     //Language Specific
     self.CurrentLanguage = ko.observable(Collective.Global.CurrentLanguage);
     self.IsSpanish = ko.computed(function () { return self.CurrentLanguage() == "SPA"; });
@@ -16,14 +16,13 @@ Collective.ViewModels.Footer = function (model) {
      self.UserName = ko.computed(function () {
         return "{0} {1}".format(self.FirstName(), self.LastName());
     });
-
     self.ShoppingCart = new Collective.ViewModels.Sale();
-
     self.SubTotal = ko.computed(function () {
         return "Total: ${0}".format(self.ShoppingCart.SubTotal());
     });
-
     self.ItemCount = ko.computed(function () {
         return self.ShoppingCart.Details().length;
     });
+
+    self.SearchText = ko.observable("");
 }

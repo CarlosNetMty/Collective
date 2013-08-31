@@ -34,6 +34,16 @@ namespace Collective.Model
         /// 
         /// </summary>
         /// <returns></returns>
+        void GetAll(Action<IQueryable<Frame>> contextCallback);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        void GetAll(Action<IQueryable<Size>> contextCallback);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         void GetAll(Action<IQueryable<User>> contextCallback);
     }
 

@@ -14,7 +14,7 @@ namespace Collective.Model
         public string PhotoUrl { get; set; }
         public DateTime PublishingDate { get; set; }
         public bool UseAsBackground { get; set; }
-        public double Price { get; set; }
+        public double? Price { get; set; }
         #endregion
 
         #region Navigation Properties
