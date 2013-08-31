@@ -1,15 +1,7 @@
-/*
- * HTML5 Boilerplate
- *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
+/* HTML5 Boilerplate */
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
 html,
 button,
 input,
@@ -17,32 +9,23 @@ select,
 textarea {
     color: #222;
 }
-
 body {
-    font-size: 1em;
+    font-size: .8em;
     line-height: 1.4;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
-
-/*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
-
+small{
+	font-size:1em
+	}
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
-/*
- * A better looking default horizontal rule
- */
-
 hr {
     display: block;
     height: 1px;
@@ -50,98 +33,79 @@ hr {
     border-top: 1px solid #ccc;
     margin: 1em 0;
     padding: 0;
+	clear:both;
 }
-
-/*
- * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
- */
-
 img {
     vertical-align: middle;
 }
-
-/*
- * Remove default fieldset styles.
- */
-
 fieldset {
     border: 0;
     margin: 0;
     padding: 0;
 }
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
 textarea {
     resize: vertical;
 }
-
+a {
+	text-decoration:none
+	}
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
-
 .chromeframe {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-
 /* ==========================================================================
-   Author's custom styles
+   COLECTIVA - Global Styles
    ========================================================================== */
 * { 
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
 	}
-
 html{
-	background-image:url(../imgs/home/nydialilian01-home.jpg);
+	/*background:url(../imgs/home/nydialilian01-home.jpg) top right no-repeat;*/
+	/*background:url(../Gallery.jpg) top right no-repeat; 	*/
+	background-position:fixed;
 	background-color:#000;
-	color:#fff
+	color:#fff;	
+	font-weight:100;
 	}
-	
-a{	
-color:#f7323f; 
+a{
+	color:#f7323f;
 	}	
-
-/* HTML5 Structure*/	
+p{
+	letter-spacing: 1px; 
+	color:#fff;
+	}
 header, article, footer, aside{
-	width:45%;
+	width:35%;
 	position:fixed;
-	padding:0px 0 0 7.7%;
-	 animation-duration: 3s;
-	 z-index:20;
+	padding:0px 0 0 40px;
+	animation-duration: 3s;
+	z-index:20;
 	}	
-/* HEADER*/	
 header{
-	padding-top:80px
+	padding-top:47px
 	}		
-header img{
-	height:100%
-	}
-header h1{
-	font-size:18px; 
-	font-weight:500; 
+header h1{ 
+	font-weight:100; 
 	letter-spacing:.1em;
 	color:#fff;
-	margin:.4em 0px
+	margin: 3px 0px 0px;
+	font-size:.9em
 	}
-header h1 span{
-		text-decoration:line-through; 
-		}	
 header nav{
-	font-size: 16px;
-	font-weight: 500;
-	margin-top: 40px;
+	margin-top:29px;
 	letter-spacing: 1px;
 	}		
 header nav  ul{
 	padding:0px;
-	list-style:none
+	list-style:none;
+	margin-bottom:0px
 	}		
 header nav li { 
 	display: inline; 
@@ -151,7 +115,6 @@ header nav li {
 header nav li a, nav.submenu a{ 
 	text-decoration:none; 
 	color:#fff
-
 	}
 header nav li a:hover, 
 header nav li.active a,
@@ -159,13 +122,6 @@ nav.submenu a:hover,
 nav.submenu li.active a{ 
 	text-decoration:line-through; 
 	color:#f7323f;  
-	}
-	
-/* HTML5 Section TEXT*/
-
-p{
-	font-size: 12px;
-	letter-spacing: 1px;
 	}
 big{
 	color: #f7323f;
@@ -176,34 +132,28 @@ big{
 	 margin-left:-7px;
 	}
 aside{
-	top:40%;
+	top:30%;
+	z-index: 999;
 	}
-aside.gallery{
-	top:35%;
-	width:450px;
-	font-weight:lighter
-	}
-aside.gallery h2{
-	margin:0px;
-	color:#f7323f;  
-	}		
+aside p{
+	font-size:.82em
+	}	
 section{
 	position:absolute;
-	width:74%;
-	margin-right:-10%;
-	right:0px;	
+	width:72%;
+	right: 0px;
 	top:30%;
 	color:#fff;
 	z-index:10;
-
+	padding-bottom:100px;
 	}
 nav.submenu{
 	position:fixed;
-	top:29%;
-	left:7.7%
+	top:139px;
+	padding:0px 0 0 40px;
+	z-index:99999
 	}
 nav.submenu a{
-	font-size:.9em;
 	margin-right:30px
 	}	
 nav.submenu ul{
@@ -216,118 +166,382 @@ nav.submenu ul{
 nav.submenu ul li{
 	float:left;
 	}
-/* 	FOOTER		*/		
+.home-img{
+	display:none
+	}		
+/* ==========================================================================
+   COLECTIVA - Gallery 
+   ========================================================================== */
+aside.gallery{
+	width:25%;
+	}
+aside.gallery p{
+ }	
+aside.gallery h2{
+	margin:0px;
+	color:#f7323f;
+	}
+aside.gallery span{
+	color:red;
+	float:left
+	}	
+/* 	Filtering STYLES  */	
+.isotope-item {
+  z-index: 2;
+  margin-bottom:22px;
+}
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}			
+div.selectBox{
+	position:relative;
+	display:inline-block;
+	cursor:pointer;
+	line-height:26px;
+	clear:both;
+	color:#fff;
+	margin-left:10px;
+	width:60%
+}
+section.artwork div.selectBox{
+	width:90%
+	}
+a.selected{
+	text-indent:20px;
+	overflow:hidden;
+	color:#fff;
+}
+section.artwork a.selected{
+	text-indent:5px
+	}
+span.selectArrow{
+	width:100%;
+	text-align:right;
+	position:absolute;
+	left:0px;
+	border:1px solid #333;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	padding-right:15px;
+	font-size:.5em;
+	color:#f7323f;
+}
+span.selectArrow,a.selected
+{
+	float:left;
+	height:25px;
+	z-index:1;
+}
+div.selectOptions
+{
+	position:absolute;
+	top:27px;
+	left:0;
+	width:198px;
+	border:1px solid #333;
+	overflow:hidden;
+	padding-top:2px;
+	display:none;
+	background-color:#000;
+	z-index:99999;
+	border-top:none;
+}
+a.selectOption:before{
+	content:"";
+	display:inline-block;
+	background-color:#f7323f;
+	width:5px;
+	height:5px;
+	border-radius:50%;
+	margin-right:10px
+	}	
+a.selectOption{
+	display:block;
+	width:100%;
+	line-height:20px;
+	padding:5px 10%;
+	text-decoration:none;
+	color:#fff;
+	}
+a.selectOption:hover{
+	color:#f7323f;
+	}			
+#container h2, #container h3{
+	margin:0px;
+	font-weight:lighter;
+	color:#fff
+	}		
+#container h2{
+	margin-top:1em;
+	color:#f7323f;
+	}
+
+/* ==========================================================================
+   COLECTIVA - Artwork Detail 
+   ========================================================================== */
+aside.gallery ul, 
+section.artwork ul{
+	margin:0px;
+	padding-left:20px;
+	color:#f7323f}
+aside.gallery ul li a, 
+section.artwork ul a{
+	text-decoration:none;
+	}	
+section.artwork ul{
+	margin-top:1em
+	}	
+.artwork{
+	width: 69%;
+	right: 0px;
+	margin:0;
+	padding:0
+	}
+.artwork header{
+	display:block;
+	position:relative;
+	margin:0px;
+	padding:0px;
+	width:100%
+	}
+.artwork header img{ 
+	width:70%;
+	float:left
+	}
+.artwork aside{ 
+	width:25%;
+	padding:0px;
+	position:relative;
+	float:right;
+	margin-right: 20px;
+	}
+.artwork aside h4, .artwork aside h3, .artwork aside p{
+	margin:0px;
+	padding:0px;
+	}	
+.artwork aside h4,artwork aside h3	{
+	color:#f7323f
+	}
+.artwork aside h4{
+	font-weight:100
+	}	
+.artwork aside .selectBox{
+	display:block;
+	float:none;
+	margin:0px;
+	bottom:0px
+	} 
+.artwork aside a.selected{
+	color:#fff
+	}
+.artwork aside .selectBox .selectArrow, .artwork aside .selectBox .selectOptions{
+	width:100%;
+	float:right;
+	right:0px
+	}		
+.artwork aside .label{
+	margin:1em 0em .8em;
+	display:block
+	}	
+.artwork aside strong{
+	font-weight:100;
+	display:block
+	}	
+.artwork aside .collection ul a{ 
+	color:#fff
+	}
+.artwork aside .collection img{
+	width:40%;
+	margin:10px 10px 0px 0px 
+	}
+.buy{
+	margin:3em 0
+	}
+.buy a{ text-decoration:none}
+/* ==========================================================================
+   COLECTIVA - Shopping Cart 
+   ========================================================================== */
+.breadcrumb{
+	margin: 1em 0 3em
+}		
+.breadcrumb a{
+	text-decoration: none
+}
+section.shopping-cart{
+	top:29%;
+	padding-right:10%
+	}
+section.shopping-cart ul{
+	padding: 0px	
+	}
+section.shopping-cart h2{
+	margin: 0px;
+	color: #f7323f;
+	margin-top: .5em;
+	}
+section.shopping-cart header{
+	display: block;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	width:100%
+	}
+section.shopping-cart table{
+	border-top:solid 1px #333;
+	width:100%;
+	font-weight:100
+	}	
+section.shopping-cart table thead{
+	text-align:left
+	}	
+section.shopping-cart table tr{
+	border-bottom:solid 1px #333
+	}	
+section.shopping-cart table td, section.shopping-cart table th{
+	padding:15px 0px;
+	width:14%;
+	padding-right:20px
+	}		
+section.shopping-cart table td:last-child, 
+section.shopping-cart table th:last-child{
+	width:1%;
+	text-align:center
+	}	
+section.shopping-cart table td:nth-child(2),
+section.shopping-cart table th:nth-child(2) {
+	width:24%
+	}	
+section.shopping-cart table td:nth-child(4) span{
+	background-color:#fff;
+	color:#000;
+	display:inline-block;
+	padding:5px 10px;
+	font-weight:600
+	}	
+section.shopping-cart table td:nth-child(6){
+	color:#f7323f
+	}	
+.totals *{
+	margin:0px;
+	padding:0px;
+	text-align:right;
+	line-height:normal;
+	font-weight:100
+	}	
+.totals, .totals big, .totals .gran-total{
+	padding:33px 0;
+	display:block
+	}
+.totals big, .totals .gran-total{
+	font-size:1.5em
+	}	
+.totals big{ color:#fff} 
+.totals .gran-total{ color:#f7323f}	
+
+.totals div{
+	width:18%;
+	float:right
+	}
+.totals .labels	{
+	width:30%
+	}
+.totals span{
+	display:block;
+	margin-bottom:3px
+	}			
 	
+section.shopping-cart input{
+	width:100%;
+	background-color:#fff
+	}	
+/* ==========================================================================
+   COLECTIVA - Footer
+   ========================================================================== */		
 footer{
+	width:24%;
 	bottom:8%; 
 	letter-spacing:1px ;
+	font-weight: 100;
+	font-size:.8em
 	}
 footer p{
 	display:block;
 	clear:both;
-	margin:.8em 0px}		
-footer form{
-	float:left
-	}
+	margin:2em 0px;
+	font-weight: 100
+}		
+footer .login{
+	display: block;
+	color:#f7323f;
+	clear: both;
+}
+
+footer .login a:first-child{
+	border-right: solid 1px #f7323f;;
+	padding-right: 10px
+}
+footer .login a{
+	margin:10px 0px;
+	display: inline-block; 
+	margin-right: 10px
+}
+
 .total-cont, .secure-payment, .order-history{
-	line-height:1.7em;
+	line-height:1.2em;
 	display:block;
 	}
-.shopping-cart img{
-	float:left;
-	}
-.colectiva-car{
-	margin-left:130px;
-	}	
 .redbox{
-	background-color:#f7323f;;
+	background-color:#f7323f;
 	display:inline-block;
 	padding:0px 3px;
-	font-size:.8em;
-	left:71%;
 	color:#fff;
-	float:left
+	left:215px
 	}
+img.colectiva-car,
+.redbox{
+	position:absolute;
+	}		
+img.colectiva-car{
+	left:190px;
+	top:-3px
+	}	
 h3{
-	color:red
+	color:#f7323f;
 	}	
 input{
-	width: 180px;
-	font-size: 11px;
 	letter-spacing: 1px;
 	margin-bottom: 16px;
 	border: 1px solid grey;
 	padding: 3px;
-	float: left;
-	margin-right: 10px;
-	background:none
+	background:none;
+	width:90%
+	}
+.social-media, .search{
+	width:30%;
+	float:left;
+	}	
+.social-media{
+	text-align:right}	
+.search{
+	width:70%;
 	}
 footer small{
-	font-size:.7em;
 	display:block; clear:both
 	}	
 footer strong{
 	display: block;
 	}
-.home-img{
-	display:none
-	}	
-/**** Isotope filtering ****/
 
-.isotope-item {
-  z-index: 2;
-  margin-bottom:22px;
-}
-
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-}
-	
-/**** FILTER COMBO-BOX ****/ 
-#filters{
-	display: inline-block;
-	margin:0px;
-	color:#f7323f;
-	width:200px;
-	z-index:99999;
-	position:relative;
-	background-color:#000;
-	padding:0px
-	}
-#filters li a {
-	font-size:.9em
-	}
-
-#filters li {
-    position: relative;
-	margin-left:20px
-}
-#filters li ul {
-    display: none;
-    position: absolute;
-	margin-left:-20px;
-	z-index:99999;
-	background-color:#000;
-	width:200px;
-	top:0px
-	 
-}
-#filters:hover ul {
-    display: block;	
-}
-#filters li li {
-	list-style-type:disc;
-}
-
+		
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
-/*
- * Image replacement
- */
-
 .ir {
     background-color: transparent;
     border: 0;
@@ -343,19 +557,10 @@ footer strong{
     height: 150%;
 }
 
-/*
- * Hide from both screenreaders and browsers: h5bp.com/u
- */
-
 .hidden {
     display: none !important;
     visibility: hidden;
 }
-
-/*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
-
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -367,11 +572,6 @@ footer strong{
     width: 1px;
 }
 
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
-
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
@@ -381,114 +581,529 @@ footer strong{
     position: static;
     width: auto;
 }
-
-/*
- * Hide visually and from screenreaders, but maintain layout
- */
-
 .invisible {
     visibility: hidden;
 }
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
-
 .clearfix:after {
     clear: both;
 }
-
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-
 .clearfix {
     *zoom: 1;
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Media Queries
    ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-	
+@media screen and (max-height: 900px){
+/*footer{
+	bottom:4%
+	}*/
 }
-
-@media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
 @media screen and (max-height: 800px){
-	aside{
-		top:35%;
-	}
+/*	aside{
+		top:32%;
+	}*/
 }
 @media screen and (max-height: 700px){
-	
 	header, article, footer, aside, nav.submenu{
 		display:block;
-		position:static
+		position: relative
 	}
 	aside, footer{
-		margin-top:4em
+		margin-top:6em
 		}		
 	nav.submenu{
-		margin-left:7.7%
+		padding-top: 0px;
+		top: 16px;
+	}	
+	section.artwork aside{
+		margin-top:0px
 		}
 }
 
+@media only screen and (max-width: 600px) {	
+
+	form input[type=submit], form input[type=button]{
+		width:100% ;
+		text-align:center
+	}
+}
+			
 @media only screen and (max-width: 800px) {
-    /* Style adjustments for viewports that meet the condition */
-	
-	
+    html{
+		background:none;
+		background-color:#000;
+		}
+	/* Global */
 	header, article, footer, aside, section, nav.submenu{
 		display:block;
 		position:relative;
-		width:95%;
-	}	
+		width:93%;
+		}
+	big{
+		font-size:80px
+		}	
 	aside, footer{
 		margin-top:3.8em
-		}
-	section{
-		margin-left:7.7%
 		}	
+	section{
+		left:40px;
+		padding-bottom:0px;
+		margin-top:40px
+		}	
+	section img{
+		width:100%
+		}								
 	footer{
 		text-align:left;
 		margin-bottom:4em
-		}
+		}	
+		
+	/* HOME */
 	.home-img{
 		display: block;
-		margin-left:8%
-		}	
+		margin-left:0%;
+		padding-bottom:5%
+		}
+	.home-img img{
+		width:85%;
+		}		
 	.home-img strong{
 		display:block;
 		color:#f7323f;
 		margin-top:1em
-		}			
+		}	
+					
+	/* Gallery */
+	nav.submenu{
+		top: 12px;
+		margin-left: 0px
+		}		
+	aside.gallery, aside.gallery p{
+		width:90%
+		}
+		
+	/* Shopping Cart */	
+	section.shopping-cart{
+		padding-right:0px
+		}				
+	
+	section.artwork,  section.artwork aside	{
+		width:100%;
+		margin:1em 0px 1em;
+		padding:0px;
+		clear:both;
+		overflow:hidden		
+		}
+ 	section.artwork aside{
+		left:0px;
+		}
+	.artwork aside .selectBox .selectArrow, .artwork aside .selectBox .selectOptions{
+		width:69%
+		}	
+	.artwork aside .collection img{
+		width:32%;
+		margin:5% 5% 0px 0px 
+		}
+		
+	/*  Shooping cart */	
+	section.shopping-cart{
+		width:79%;
+		}
+	.totals *{
+		width:100%;
+		}
+	.totals{
+		padding-bottom:0px;
+		}	
+	.totals ul li{	
+		margin:1em 0;
+		display: inline;
+		margin-left:30px
+		}	
+	.totals ul li a.next{
+		display:inline-block;
+		width:30%;
+		text-align:center
+		}
+		
+	/*  Loggin */	
+	
+	}
+
+@media only screen and (max-width: 1098px) {
+	
+	.social-media{
+		display:block;
+		float:none;
+		text-align:left;
+		width:50%;
+		clear:both;
+		margin-bottom:1em
+		}
+	
 }
 
 
 
+/* ==========================================================================
+	Fancy Box
+   ========================================================================== */
+   
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+}
+
+.fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+
+.fancybox-skin {
+	position: relative;
+	background: #010101;
+	color: #fff;
+	text-shadow: none;
+	border:solid 1px #242424;
+	
+}
+.fancybox-skin input{
+	background-color:#fff;
+	width:100%
+	}
+.fancybox-skin h3, .fancybox-skin h2{
+	font-weight:lighter;
+	letter-spacing:1px;
+	font-size:1em
+	}	
+.fancybox-skin h2{
+	font-size:1.5em;
+	
+	}
+.fancybox-skin hr{
+	border-top:solid 1px #232323
+	}	
+.fancybox-opened {
+	z-index: 8030;
+}
+
+.fancybox-opened .fancybox-skin {
+	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.fancybox-outer, .fancybox-inner {
+	position: relative;
+}
+
+.fancybox-inner {
+	overflow: hidden;
+}
+
+.fancybox-type-iframe .fancybox-inner {
+	-webkit-overflow-scrolling: touch;
+}
+
+.fancybox-error {
+	color: #444;
+	font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin: 0;
+	padding: 15px;
+	white-space: nowrap;
+}
+
+.fancybox-image, .fancybox-iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.fancybox-image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('../imgs/fancybox/fancybox_sprite.png');
+}
+
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 8060;
+}
+
+#fancybox-loading div {
+	width: 44px;
+	height: 44px;
+	background: url('../imgs/fancybox/fancybox_loading.gif') center center no-repeat;
+}
+
+.fancybox-close {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 8040;
+}
+
+.fancybox-nav {
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+	text-decoration: none;
+	background: transparent url('../imgs/fancybox/blank.gif'); /* helps IE */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	z-index: 8040;
+}
+
+.fancybox-prev {
+	left: 0;
+}
+
+.fancybox-next {
+	right: 0;
+}
+
+.fancybox-nav span {
+	position: absolute;
+	top: 50%;
+	width: 36px;
+	height: 34px;
+	margin-top: -18px;
+	cursor: pointer;
+	z-index: 8040;
+	visibility: hidden;
+}
+
+.fancybox-prev span {
+	left: 10px;
+	background-position: 0 -36px;
+}
+
+.fancybox-next span {
+	right: 10px;
+	background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+	visibility: visible;
+}
+
+.fancybox-tmp {
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+	visibility: hidden;
+	max-width: 99999px;
+	max-height: 99999px;
+	overflow: visible !important;
+}
+
+/* Overlay helper */
+
+.fancybox-lock {
+    overflow: hidden !important;
+    width: auto;
+}
+
+.fancybox-lock body {
+    overflow: hidden !important;
+}
+
+.fancybox-lock-test {
+    overflow-y: hidden !important;
+}
+
+.fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background: url('../imgs/fancybox/fancybox_overlay.png');
+}
+
+.fancybox-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.fancybox-lock .fancybox-overlay {
+	overflow: auto;
+	overflow-y: scroll;
+}
+
+/* Title helper */
+
+.fancybox-title {
+	visibility: hidden;
+	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	position: relative;
+	text-shadow: none;
+	z-index: 8050;
+}
+
+.fancybox-opened .fancybox-title {
+	visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	margin-bottom: -35px;
+	z-index: 8050;
+	text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+	display: inline-block;
+	margin-right: -100%;
+	padding: 2px 20px;
+	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
+	background: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+	        border-radius: 15px;
+	text-shadow: 0 1px 2px #222;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 24px;
+	white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+	position: relative;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.fancybox-title-inside-wrap {
+	padding-top: 10px;
+}
+
+.fancybox-title-over-wrap {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #fff;
+	padding: 10px;
+	background: #000;
+	background: rgba(0, 0, 0, .8);
+}
 
 
+
+/*Retina graphics!*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	   only screen and (min--moz-device-pixel-ratio: 1.5),
+	   only screen and (min-device-pixel-ratio: 1.5){
+
+	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+		background-image: url('../imgs/fancybox/fancybox_sprite@2x.png');
+		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
+	}
+
+	#fancybox-loading div {
+		background-image: url('../imgs/fancybox/fancybox_loading@2x.gif');
+		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
+	}
+}
+
+/* CONTROLS */
+.col-left{
+	width:48%;
+	float:left
+	}
+.col-right{	
+	width:48%;
+	float: right
+	}
+
+.controls {
+	clear:both;
+	overflow:hidden;
+	list-style-type:none;
+
+	width:auto;
+	display:inline-block;
+	float:right
+	
+	}
+.controls li{
+	float:left;
+	width:100px;
+	margin:0px;
+	padding:0px;
+	height:45px;
+	position:relative
+}	
+.controls li:first-child:before{
+	content:"|";
+	position:absolute;
+	right:0px;
+	top:12px;
+	color:#F9343D;
+	
+	}
+.controls a, input[type="button"] {
+	color:#F9343D;
+	background:none;
+	display:inline-block;
+	border:none;
+	width:75%;
+	text-align:right;
+	float:left;
+	margin-top:13px
+	}	
+.controls .next, input.next{
+	background-color:#F9343D;
+	float: right;
+	width:100%;
+	padding:13px 27px;
+	color:#fff;
+	border:none;
+	margin-top:0px;
+	text-align:center;	
+	}	
+input.next {
+	width:20%;
+	float: right
+	}	
+		
+	

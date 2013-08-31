@@ -7,15 +7,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbtp0zr0NdE+XSyulpt0GRgAAAAACAAAAAAAQZgAAAAEAACAAAACOrTdtIlQz2Six5aRX2IXZVTIlTav5cqq8/EGz4RKzfgAAAAAOgAAAAAIAACAAAABan3dNhf1X0ZIe5XvO1UFWHhS/QoAufag42LlCl/ehhyAAAADM3s7NsYseEejLseGoX6HP8brDC94VMG9XzOtXs/h4JkAAAADLKjUROaBBUKI9udd/kgK5RzbvLhP0FGybNY+11Mch8O95eIcNvtnR/wOUjAXMBkXFgSZBK8o7Q5ZG7oGgZTQT</EncryptedPassword>
-    <LastUsedBuildConfiguration />
-    <LastUsedPlatform />
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Code/Extensions.cs">
       <publishTime>08/03/2013 13:45:12</publishTime>
     </File>
     <File Include="App_Data/combres.xml">
-      <publishTime>08/03/2013 20:49:35</publishTime>
+      <publishTime>08/24/2013 15:08:38</publishTime>
     </File>
     <File Include="bin/AjaxMin.dll">
       <publishTime>07/20/2013 13:54:03</publishTime>
@@ -24,10 +24,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 13:49:38</publishTime>
     </File>
     <File Include="bin/Collective.Model.dll">
-      <publishTime>08/20/2013 11:09:30</publishTime>
+      <publishTime>08/24/2013 15:57:20</publishTime>
+    </File>
+    <File Include="bin/Collective.Model.pdb">
+      <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Collective.Web.dll">
-      <publishTime>08/20/2013 11:14:19</publishTime>
+      <publishTime>08/24/2013 15:57:20</publishTime>
+    </File>
+    <File Include="bin/Collective.Web.pdb">
+      <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Combres.dll">
       <publishTime>07/20/2013 13:54:03</publishTime>
@@ -47,14 +53,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Fasterflect.dll">
       <publishTime>07/20/2013 13:54:02</publishTime>
     </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>08/24/2013 14:01:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
+      <publishTime>08/24/2013 14:01:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>08/24/2013 14:01:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>08/24/2013 14:01:31</publishTime>
+    </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/20/2013 13:49:33</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>07/20/2013 13:49:33</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>07/10/2012 23:52:12</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>07/20/2013 13:49:35</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>07/10/2012 23:52:12</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>07/20/2013 13:49:34</publishTime>
@@ -85,6 +109,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
       <publishTime>07/20/2013 13:49:34</publishTime>
+    </File>
+    <File Include="bin/Unity.Mvc3.dll">
+      <publishTime>08/24/2013 14:01:31</publishTime>
     </File>
     <File Include="bin/WebActivator.dll">
       <publishTime>07/20/2013 13:54:03</publishTime>
@@ -168,7 +195,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 13:49:15</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/20/2013 13:54:09</publishTime>
+      <publishTime>08/24/2013 14:01:34</publishTime>
     </File>
     <File Include="Photos/accent.png">
       <publishTime>07/20/2013 13:49:14</publishTime>
@@ -218,6 +245,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/Admin/Artists.js">
       <publishTime>08/05/2013 17:18:27</publishTime>
     </File>
+    <File Include="Scripts/Admin/ArtistsDetail.js">
+      <publishTime>08/24/2013 15:29:12</publishTime>
+    </File>
     <File Include="Scripts/Admin/Header.js">
       <publishTime>08/03/2013 20:29:25</publishTime>
     </File>
@@ -233,11 +263,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/Admin/Users.js">
       <publishTime>08/05/2013 17:19:32</publishTime>
     </File>
+    <File Include="Scripts/Admin/UsersDetail.js">
+      <publishTime>08/24/2013 12:23:36</publishTime>
+    </File>
     <File Include="Scripts/Framework/foundation.js">
       <publishTime>07/23/2013 23:07:30</publishTime>
     </File>
     <File Include="Scripts/Framework/jquery-1.10.2.min.js">
-      <publishTime>07/20/2013 19:11:20</publishTime>
+      <publishTime>07/20/2013 19:11:37</publishTime>
     </File>
     <File Include="Scripts/Framework/jquery-1.6.2.js">
       <publishTime>03/28/2012 14:28:22</publishTime>
@@ -360,7 +393,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 15:44:30</publishTime>
     </File>
     <File Include="Scripts/Utils/Global.js">
-      <publishTime>07/27/2013 15:18:53</publishTime>
+      <publishTime>07/27/2013 15:19:10</publishTime>
     </File>
     <File Include="Scripts/Utils/Storage.js">
       <publishTime>07/27/2013 15:30:27</publishTime>
@@ -373,6 +406,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/Utils/Utils.js">
       <publishTime>07/30/2013 15:47:00</publishTime>
+    </File>
+    <File Include="Scripts/ViewModels/Artist.js">
+      <publishTime>08/24/2013 15:24:47</publishTime>
     </File>
     <File Include="Scripts/ViewModels/Collection.js">
       <publishTime>08/03/2013 20:09:07</publishTime>
@@ -390,10 +426,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 13:49:28</publishTime>
     </File>
     <File Include="Views/Admin/Artists.cshtml">
-      <publishTime>08/03/2013 20:51:00</publishTime>
+      <publishTime>08/24/2013 14:58:55</publishTime>
     </File>
     <File Include="Views/Admin/ArtistsDetail.cshtml">
-      <publishTime>08/03/2013 19:57:10</publishTime>
+      <publishTime>08/24/2013 15:26:10</publishTime>
     </File>
     <File Include="Views/Admin/Content.cshtml">
       <publishTime>08/03/2013 14:12:22</publishTime>
@@ -420,7 +456,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/03/2013 19:56:15</publishTime>
     </File>
     <File Include="Views/Admin/Sidebar.cshtml">
-      <publishTime>08/03/2013 13:07:39</publishTime>
+      <publishTime>08/03/2013 13:08:11</publishTime>
     </File>
     <File Include="Views/Admin/Users.cshtml">
       <publishTime>08/03/2013 20:03:33</publishTime>
@@ -456,7 +492,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 13:49:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/20/2013 11:14:20</publishTime>
+      <publishTime>08/24/2013 16:24:08</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -44,6 +44,8 @@
       <resource path="~/scripts/framework/jstorage.js" />
       <resource path="~/scripts/framework/jquery.timers.js" />
       <resource path="~/scripts/framework/plugins.js" />
+      <resource path="~/scripts/framework/jquery.fancybox.pack.js" />
+      <resource path="~/scripts/framework/jquery.isotope.min.js" />
       <resource path="~/scripts/namespace.js" />
     </resourceSet>
 
@@ -59,6 +61,8 @@
       <resource path="~/scripts/framework/jstorage.js" />
       <resource path="~/scripts/framework/jquery.timers.js" />
       <resource path="~/scripts/framework/plugins.js" />
+      <resource path="~/scripts/framework/jquery.fancybox.pack.js" />
+      <resource path="~/scripts/framework/jquery.isotope.min.js" />
       <resource path="~/scripts/framework/foundation.js" />
       <!--<resource path="~/scripts/framework/zepto.js" />-->
       <resource path="~/scripts/namespace.js" />
@@ -75,6 +79,8 @@
       <resource path="~/scripts/Home/Index.js" />
       <resource path="~/scripts/Home/Header.js" />
       <resource path="~/scripts/Home/Footer.js" />
+      <resource path="~/scripts/Home/Gallery.js" />
+
       <!--Adminstration-->
       <resource path="~/scripts/Admin/Header.js" />
       <resource path="~/scripts/Admin/Sidebar.js" />

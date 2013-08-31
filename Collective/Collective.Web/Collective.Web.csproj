@@ -202,6 +202,15 @@
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\Collective.pubxml" />
     <None Include="Scripts\Framework\jquery-1.6.2-vsdoc.js" />
+    <Content Include="Images\Gallery\gall_01.jpg" />
+    <Content Include="Images\Gallery\gall_02.jpg" />
+    <Content Include="Images\Gallery\gall_03.jpg" />
+    <Content Include="Images\Gallery\gall_04.jpg" />
+    <Content Include="Images\Gallery\gall_05.jpg" />
+    <Content Include="Images\Gallery\gall_06.jpg" />
+    <Content Include="Images\Gallery\gall_07.jpg" />
+    <Content Include="Images\Gallery\gall_08.jpg" />
+    <Content Include="Images\Gallery\gall_09.jpg" />
     <Content Include="Photos\accent.png" />
     <Content Include="Photos\bullet.png" />
     <Content Include="Photos\heroAccent.png" />
@@ -251,6 +260,7 @@
     <Content Include="Scripts\Framework\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\Framework\plugins.js" />
     <Content Include="Scripts\Framework\zepto.js" />
+    <Content Include="Scripts\Home\Gallery.js" />
     <Content Include="Scripts\Home\Footer.js" />
     <Content Include="Scripts\Home\Header.js" />
     <Content Include="Scripts\Home\Index.js" />
@@ -313,9 +323,9 @@
     <Content Include="Views\Admin\UsersDetail.cshtml" />
     <Content Include="Views\Admin\ProductsDetail.cshtml" />
     <Content Include="Views\Admin\ArtistsDetail.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,41 @@
+﻿<nav class="submenu">
+    <ul>
+        <li class="active">Artist</li>
+        <li><a href="#">Theme</a></li>
+        <li><a href="#">Format</a></li>
+    </ul>    
+</nav>
+
+<div data-type="module" data-module="Collective.Home.Gallery">
+
+<aside class="gallery">		        	
+			
+    <span>Filter by:</span>
+    <div class='selectBox'>
+        <a class='selected'></a>
+        <span class='selectArrow'> &#9660 </span>
+        <div class="selectOptions" id="filters" >
+            <a class="selectOption" value="Option 1" href="#" data-filter="*">  All </a>		 
+            <a class="selectOption" value="Option 1" href="#" data-filter=".Contemporary">     Contemporary</a>		 
+            <a class="selectOption" value="Option 1" href="#" data-filter=".Landscape">         Landscape</a> 
+            <a class="selectOption" value="Option 1" href="#" data-filter=".Nature">      Nature</a>		 		                                                                             
+        </div>
+    </div>                               
+    <h2>Contemporary Art </h2>
+    <p>
+        In the Contemporary Art category you can discover up-and-coming artist who have recently entered the Art Market and have impressed COLECTIVA with their innovative concepts. Their works are usually displayed in local galleries and museums.
+        Their works are usually displayed in local galleries and museums.
+    </p>
+</aside>
+
+<section>
+    <div id="container" data-bind="foreach: Items">                      
+        <div data-bind="attr: { class: Filters }">
+            <a href="#"><img data-bind="attr: { src: Photo }" width="200"></a>
+		    <h2 data-bind="text: Artist"></h2>                    
+            <h3 data-bind="text: Name"></h3>                     
+        </div>                                                            
+    </div>
+</section>
+
+</div>

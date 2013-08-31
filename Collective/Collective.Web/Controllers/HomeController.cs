@@ -19,6 +19,7 @@ namespace Collective.Web.Controllers
 
         #region Views & Partials
         public ActionResult Index() { return View(); }
+        public ActionResult Gallery() { return View(); }
         public PartialViewResult Header() { return PartialView(); }
         public PartialViewResult Footer() { return PartialView(); }
         #endregion
@@ -59,6 +60,71 @@ namespace Collective.Web.Controllers
                 Data = result
             };
         }
+        public JsonResult Products()
+        {
+            IEnumerable<object> result = Enumerable.Empty<object>();
+
+            Repository.GetAll((IQueryable<Item> response) =>
+            {
+                var data = (from item in response
+                            select new
+                            {
+                                Artist = item.Artist.Name,
+                                Name = item.Description,
+                                Photo = item.PhotoUrl,
+                                Tags = item.Tags.Select(tag => tag.Name),
+                                Sizes = item.AvailableSizes.Select(size => size.Description)
+                            }).ToList();
+
+                result = data.OfType<object>();
+            });
+
+            var responseData = new
+            {
+                Items = result.OfType<dynamic>().Select(item => {
+                    return new
+                    {
+                        Artist = item.Artist,
+                        Name = item.Name,
+                        Photo = item.Photo,
+                        Filters = string.Format("{0} {1} {2}", item.Artist,
+                            string.Join(" ", (List<string>)item.Tags),
+                            string.Join(" ", (List<string>)item.Sizes)
+                        )
+                    };
+                })
+            };
+
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = responseData
+            };
+        }
         #endregion
+
+        #region Actions
+
+        public JsonResult LogIn(string userName, string password) 
+        {
+            return new JsonResult
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = new
+                {
+                    IsAuthenticated = true,
+                    User = new 
+                    {
+                        IsLogged = true,
+                        FirstName = "Carlos",
+                        LastName = "Martinez",
+                        IsAdministrator = true
+                    }
+                }
+            };
+        }
+
+        #endregion
+
     }
 }
