@@ -42,6 +42,7 @@
                 self.ViewModel.ShowOptions = function(item, event) { $(event.currentTarget).siblings(".selectOptions").toggle(); }
                 //Changes the current filter group
                 self.ViewModel.ChangeFilter = function (newFilter) {
+
                     self.ViewModel.CurrentFilter(newFilter);
                     self.ViewModel.CurrentValue("All");
                     $container.isotope({ filter: "*" });
@@ -56,6 +57,12 @@
                 //Sets initial filter values
                 self.ViewModel.CurrentFilter("Artist");
                 self.ViewModel.CurrentValue("All");
+
+                self.ViewModel.GoToDetail = function (item)
+                {
+                    var location = window.location;
+                    window.location = "{0}//{1}/Home/Detail/?id={2}".format(location.protocol, location.host, item.Id);
+                }
 
                 ko.applyBindings(self.ViewModel, control.context);
             }

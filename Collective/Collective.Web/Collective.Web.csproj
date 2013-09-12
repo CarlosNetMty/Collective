@@ -259,6 +259,7 @@
     <Content Include="Scripts\Framework\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\Framework\plugins.js" />
     <Content Include="Scripts\Framework\zepto.js" />
+    <Content Include="Scripts\Home\Detail.js" />
     <Content Include="Scripts\Home\Gallery.js" />
     <Content Include="Scripts\Home\Footer.js" />
     <Content Include="Scripts\Home\Header.js" />
@@ -323,10 +324,11 @@
     <Content Include="Views\Admin\ProductsDetail.cshtml" />
     <Content Include="Views\Admin\ArtistsDetail.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

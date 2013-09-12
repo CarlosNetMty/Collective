@@ -1,0 +1,73 @@
+﻿<div data-type="module" data-module="Collective.Home.Detail">
+
+    <aside class="gallery">		        				
+        <h2 data-bind="text: ArtistName"></h2>
+        <p>
+            In the Contemporary Art category you can discover up-and-coming artist who have recently entered the Art Market and have impressed COLECTIVA with their innovative concepts. Their works are usually displayed in local galleries and museums.
+            Their works are usually displayed in local galleries and museums.
+        </p>
+        <ul>
+            <li>
+                <a href="#" 
+                    data-key="ViewArtistGallery" 
+                    data-bind="click: NavigateToArtist">
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <section class="artwork">               	 	        	 
+        <header> <img data-bind="attr: { src: PhotoUrl }" /> </header>
+        
+        <aside>             	
+            <p data-key="Photography"></p>
+            <h3 data-bind="text: Name"></h3>
+            <h4 data-bind="text: Code"></h4>
+                
+            <span class="label" data-key="Size"></span>
+            <div class='selectBox'>                
+                <a class='selected' data-bind="text: SelectedSizeName"></a>
+                <span class='selectArrow'> &#9660 </span>
+                <div class="selectOptions" data-bind="foreach: AvailableSizes">	 
+                    <a class="selectOption" href="#" data-bind="text: Name"></a>		  	                                                                             
+                </div>
+            </div>    
+                
+            <div class="clearfix"></div>
+                
+            <span class="label" data-key="Framing"></span>
+            <div class='selectBox'>
+                <a class='selected' data-bind="text: SelectedFrameName"></a>
+                <span class='selectArrow'> &#9660 </span>
+                <div class="selectOptions" data-bind="foreach: AvailableFrames">	 
+                    <a class="selectOption" href="#" data-bind="text: Name"></a>		 
+                </div>
+            </div>    
+                
+            <div class="clearfix"></div>
+     			
+            <div class="buy">           
+	            <span class="label" data-bind="text: TotalText">
+                    <strong data-key="ExcludingPrice"></strong>
+	            </span>  
+    	        <span class="shopp">
+                    <a href="#" data-key="AddToCart"></a>
+    	        </span>     
+		    </div>
+                
+            <div class="collection">
+                <ul>
+                    <li>
+                        <a href="#" data-key="Related">Related</a>
+                    </li>
+                </ul>
+
+                <div data-bind="foreach: Related"> 
+                    <img data-bind="attr: { src: $data }, click: $parent.NavigateToArtist" />
+                </div>
+            </div>  
+                            
+        </aside>             
+    </section>
+
+</div>

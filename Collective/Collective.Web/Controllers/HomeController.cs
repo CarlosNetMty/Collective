@@ -20,8 +20,12 @@ namespace Collective.Web.Controllers
         #region Views & Partials
         public ActionResult Index() { return View(); }
         public ActionResult Gallery() { return View(); }
+        public ActionResult Detail() { return View(); }
         public PartialViewResult Header() { return PartialView(); }
         public PartialViewResult Footer() { return PartialView(); }
+
+        public ActionResult About() { return View(); }
+        public ActionResult Contact() { return View(); }
         #endregion
 
         #region Data
@@ -60,6 +64,59 @@ namespace Collective.Web.Controllers
                 Data = result
             };
         }
+        public JsonResult Product(int id) 
+        {
+            Item instance = default(Item);
+            object result = new object();
+
+            Repository.GetAll((IQueryable<Item> response) =>
+            {
+                instance = (from item in response
+                            where item.ItemId == id
+                            select item)
+                            .FirstOrDefault();
+
+                var data = new
+                {
+                    AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
+                    AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
+                    Tags = instance.Tags.Select(item => item.TagId).ToList(),
+                    AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository, false),
+                    Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
+                    AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository, false),
+                    Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
+                    ArtistId = instance.Artist.ArtistId,
+                    ArtistName = instance.Artist.Name,
+                    Price = instance.Price,
+                    Code = instance.Code,
+                    PhotoUrl = instance.PhotoUrl,
+                    Spanish = new
+                    {
+                        Name = "Panorama",
+                        Description = "Esta es una prueba de un paisaje"
+                    },
+                    English = new
+                    {
+                        Name = "Landscape",
+                        Description = "This is a landscape test"
+                    },
+                    Related = new List<string>()
+                };
+
+                result = (object)data;
+            });
+
+            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
+            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
+            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
+            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
+
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = result
+            };
+        }
         public JsonResult Products(string search)
         {
             IEnumerable<object> result = Enumerable.Empty<object>();
@@ -70,6 +127,7 @@ namespace Collective.Web.Controllers
                             where (item.Artist.Name == search || search == "") || (item.Description == search || search == "")
                             select new
                             {
+                                Id = item.ItemId,
                                 Artist = item.Artist.Name,
                                 Name = item.Description,
                                 Photo = item.PhotoUrl,
@@ -88,6 +146,7 @@ namespace Collective.Web.Controllers
                 Items = result.OfType<dynamic>().Select(item => {
                     return new
                     {
+                        Id = item.Id,
                         Artist = item.Artist,
                         Name = item.Name,
                         Photo = item.Photo,

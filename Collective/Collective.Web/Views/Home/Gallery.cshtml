@@ -28,7 +28,7 @@
 <section>
     <div id="container" data-bind="foreach: Items">                      
         <div data-bind="attr: { class: Filters }">
-            <a href="#">
+            <a href="#" data-bind="click: $parent.GoToDetail">
                 <img data-bind="attr: { src: Photo }" width="200">
             </a>
 

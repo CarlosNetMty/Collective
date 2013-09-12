@@ -80,6 +80,7 @@
       <resource path="~/scripts/Home/Header.js" />
       <resource path="~/scripts/Home/Footer.js" />
       <resource path="~/scripts/Home/Gallery.js" />
+      <resource path="~/scripts/Home/Detail.js" />
 
       <!--Adminstration-->
       <resource path="~/scripts/Admin/Header.js" />

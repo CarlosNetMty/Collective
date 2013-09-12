@@ -13,7 +13,14 @@ Collective.Translations = {
         AllRightsReserved: "Todos los derechos reservados",
         Login: "Login",
         Register: "Registrar",
-        FilterBy: "Filtar Por"
+        FilterBy: "Filtar Por",
+        ExcludingPrice: "(excluyendo impuestos y envio)",
+        AddToCart: "Agregar a carrito de compra",
+        Framing: "Enmarcado",
+        Size: "Tamaño",
+        Photography: "Fotografia",
+        ViewArtistGallery: "Ver Galeria del Artista",
+        Related: "Relacionados"
     },
     ENG: {
         Galleries: "Galleries",
@@ -27,7 +34,14 @@ Collective.Translations = {
         AllRightsReserved: "All rights reserved",
         Login: "Login",
         Register: "Register",
-        FilterBy: "Filter By"
+        FilterBy: "Filter By",
+        ExcludingPrice: "(excluding TAX & Shipping)",
+        AddToCart: "Add to Shopping Cart",
+        Framing: "Framing",
+        Size: "Size",
+        Photography: "Photography",
+        ViewArtistGallery: "View Artist´s Gallery",
+        Related: "Related"
     },
     Get: function (key)
     {
