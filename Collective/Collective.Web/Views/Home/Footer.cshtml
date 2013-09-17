@@ -16,7 +16,7 @@
         <a><span data-key="Register" data-transform="AllCaps"></span></a>&nbsp;
     </p>
 
-  	<p data-bind="if: !IsHomePage()">
+  	<p data-bind="if: !IsHomePage() && IsLoggedIn()">
         <span class="total-cont"data-bind="text: SubTotal"></span>
         <span class="secure-payment" data-key="SecurePayment">Secure Payment</span>
         <span class="order-history"  data-key="OrderHistory">Order History</span>

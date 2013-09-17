@@ -20,10 +20,24 @@
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.DetailOfProduct(data);
 
+                self.ViewModel.SetSize = function (item, event) {
+
+                    $(event.currentTarget).parent().toggle();
+                    self.ViewModel.SelectedSize(item);
+                };
+
+                self.ViewModel.SetFrame = function (item, event) {
+
+                    $(event.currentTarget).parent().toggle();
+                    self.ViewModel.SelectedFrame(item);
+                };
+
                 self.ViewModel.NavigateToArtist = function () {
                     var location = window.location;
                     window.location = "{0}//{1}/Home/Gallery/?search={2}".format(location.protocol, location.host, self.ViewModel.ArtistName.replace(" ",  ""));
                 };
+
+                self.ViewModel.ShowOptions = function (item, event) { $(event.currentTarget).siblings(".selectOptions").toggle(); }
                 ko.applyBindings(self.ViewModel, control.context);
             }
 

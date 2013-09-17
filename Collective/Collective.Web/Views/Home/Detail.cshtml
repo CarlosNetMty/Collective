@@ -26,10 +26,10 @@
                 
             <span class="label" data-key="Size"></span>
             <div class='selectBox'>                
-                <a class='selected' data-bind="text: SelectedSizeName"></a>
-                <span class='selectArrow'> &#9660 </span>
+                <a class='selected' data-bind="click: ShowOptions, text: SelectedSizeName"></a>
+                <span class='selectArrow' data-bind="click: ShowOptions"> &#9660 </span>
                 <div class="selectOptions" data-bind="foreach: AvailableSizes">	 
-                    <a class="selectOption" href="#" data-bind="text: Name"></a>		  	                                                                             
+                    <a class="selectOption" href="#" data-bind="click: $parent.SetSize, text: Name"></a>		  	                                                                             
                 </div>
             </div>    
                 
@@ -37,10 +37,10 @@
                 
             <span class="label" data-key="Framing"></span>
             <div class='selectBox'>
-                <a class='selected' data-bind="text: SelectedFrameName"></a>
-                <span class='selectArrow'> &#9660 </span>
+                <a class='selected' data-bind="click: ShowOptions, text: SelectedFrameName"></a>
+                <span class='selectArrow' data-bind="click: ShowOptions"> &#9660 </span>
                 <div class="selectOptions" data-bind="foreach: AvailableFrames">	 
-                    <a class="selectOption" href="#" data-bind="text: Name"></a>		 
+                    <a class="selectOption" href="#" data-bind="click: $parent.SetFrame, text: Name"></a>		 
                 </div>
             </div>    
                 
