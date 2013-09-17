@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Home.Index = {
-        DataUrl: "Home/Cover",
+        DataUrl: "/Home/Cover",
         Server: true,
         ViewModel: {},
         View: {},
