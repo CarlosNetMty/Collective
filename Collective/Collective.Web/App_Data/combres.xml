@@ -33,13 +33,15 @@
     </resourceSet>
 
     <resourceSet name="framework" type="js">
-      <resource path="~/scripts/framework/jquery-ui-1.8.11.js" />
+      <!--<resource path="~/scripts/framework/jquery-ui-1.8.11.js" />-->
+      <resource path="~/scripts/framework/jquery-ui-1.10.3.js" />
       <!--<resource path="~/scripts/framework/jquery.unobtrusive-ajax.js" />-->
       <resource path="~/scripts/framework/jquery.validate.js" />
       <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
       <resource path="~/scripts/framework/knockout-2.3.0.js" />
       <resource path="~/scripts/framework/jquery.linq.js" />
       <resource path="~/scripts/framework/jquery.slabtext.js" />
+      <resource path="~/scripts/framework/jquery.noty.js" />
       <resource path="~/scripts/framework/json2.js" />
       <resource path="~/scripts/framework/jstorage.js" />
       <resource path="~/scripts/framework/jquery.timers.js" />
@@ -81,6 +83,8 @@
       <resource path="~/scripts/Home/Footer.js" />
       <resource path="~/scripts/Home/Gallery.js" />
       <resource path="~/scripts/Home/Detail.js" />
+      <resource path="~/scripts/Home/Login.js" />
+      <resource path="~/scripts/Home/Register.js" />
 
       <!--Adminstration-->
       <resource path="~/scripts/Admin/Header.js" />

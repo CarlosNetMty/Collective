@@ -20,7 +20,13 @@ Collective.Translations = {
         Size: "Tamaño",
         Photography: "Fotografia",
         ViewArtistGallery: "Ver Galeria del Artista",
-        Related: "Relacionados"
+        Related: "Relacionados",
+        Username: "Nombre de Usuario",
+        Password: "Contraseña",
+        Email: "Email",
+        ConfirmPassword: "Confirmar contraseña",
+        HeaderLogin: "Para continuar es necesario hacer login, si no cuentas con una cuenta registrate!",
+        HeaderRegister: "No tienes una cuenta? Registrate!"
     },
     ENG: {
         Galleries: "Galleries",
@@ -41,7 +47,13 @@ Collective.Translations = {
         Size: "Size",
         Photography: "Photography",
         ViewArtistGallery: "View Artist´s Gallery",
-        Related: "Related"
+        Related: "Related",
+        Username: "Username",
+        Password: "Password",
+        Email: "Email",
+        ConfirmPassword: "Confirm password",
+        HeaderLogin: "In order to proceed with your order. First you need to login or if you don´t have an account, register!",
+        HeaderRegister: "Don´t have an Account? Register!"
     },
     Get: function (key)
     {

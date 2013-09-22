@@ -23,6 +23,8 @@ namespace Collective.Web.Controllers
         public ActionResult Detail() { return View(); }
         public PartialViewResult Header() { return PartialView(); }
         public PartialViewResult Footer() { return PartialView(); }
+        public PartialViewResult Login() { return PartialView(); }
+        public PartialViewResult Register() { return PartialView(); }
 
         public ActionResult About() { return View(); }
         public ActionResult Contact() { return View(); }

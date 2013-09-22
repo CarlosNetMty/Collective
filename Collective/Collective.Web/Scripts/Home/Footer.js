@@ -50,6 +50,9 @@
                         window.location = "{0}//{1}/Home/Gallery/?search={2}".format(location.protocol, location.host, this.value);
                     }
                 })
+
+                self.View.find("[data-key='Login']").click(function () { Collective.Home.Login.Open(); });
+                self.View.find("[data-key='Register']").click(function () { Collective.Home.Register.Open(); });
                 
                 self.ViewModel.SearchText(args.search);
                 ko.applyBindings(self.ViewModel, control.context);

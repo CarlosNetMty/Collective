@@ -15,6 +15,12 @@ body {
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+input{ 
+	border:none; 
+	height:20px;
+	margin-bottom:10px;
+	padding-left:5px
+}
 small{
 	font-size:1em
 	}
@@ -47,8 +53,31 @@ textarea {
     resize: vertical;
 }
 a {
-	text-decoration:none
+	text-decoration: underline;
+	color:#fff
 	}
+h2{
+	font-size:2em;
+	font-weight: 400;
+	letter-spacing:1px
+	}
+h3{
+	/*color:#f7323f;*/
+	font-size:1.5em;
+	letter-spacing:1px
+	}		
+label{
+	margin-bottom:5px;
+	display:inline-block
+	}		
+legend{
+	text-align:center;
+	width:100%;
+	background-color:#f7323f;
+	padding:15px;
+	text-transform:uppercase;
+	font-size:.8em  
+	}	
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -67,16 +96,14 @@ a {
     box-sizing: border-box;         /* Opera/IE 8+ */
 	}
 html{
-	/*background:url(../imgs/home/nydialilian01-home.jpg) top right no-repeat;*/
+	background: top right no-repeat;
 	/*background:url(../Gallery.jpg) top right no-repeat; 	*/
 	background-position:fixed;
 	background-color:#000;
 	color:#fff;	
 	font-weight:100;
 	}
-a{
-	color:#f7323f;
-	}	
+	
 p{
 	letter-spacing: 1px; 
 	color:#fff;
@@ -140,13 +167,18 @@ aside p{
 	}	
 section{
 	position:absolute;
-	width:72%;
+	width:70%;
 	right: 0px;
 	top:30%;
 	color:#fff;
 	z-index:10;
 	padding-bottom:100px;
+	clear: both;
+overflow: hidden;
 	}
+section hr{
+	border-color:#333
+	}		
 nav.submenu{
 	position:fixed;
 	top:139px;
@@ -173,7 +205,7 @@ nav.submenu ul li{
    COLECTIVA - Gallery 
    ========================================================================== */
 aside.gallery{
-	width:25%;
+	width:27%;
 	}
 aside.gallery p{
  }	
@@ -214,7 +246,7 @@ a.selected{
 }
 section.artwork a.selected{
 	text-indent:5px
-	}
+}
 span.selectArrow{
 	width:100%;
 	text-align:right;
@@ -228,18 +260,17 @@ span.selectArrow{
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	padding-right:15px;
+	padding-right:3%;
 	font-size:.5em;
 	color:#f7323f;
 }
-span.selectArrow,a.selected
-{
+span.selectArrow,a.selected{
 	float:left;
 	height:25px;
 	z-index:1;
+	text-decoration:none;
 }
-div.selectOptions
-{
+div.selectOptions{
 	position:absolute;
 	top:27px;
 	left:0;
@@ -260,7 +291,7 @@ a.selectOption:before{
 	height:5px;
 	border-radius:50%;
 	margin-right:10px
-	}	
+}	
 a.selectOption{
 	display:block;
 	width:100%;
@@ -268,19 +299,20 @@ a.selectOption{
 	padding:5px 10%;
 	text-decoration:none;
 	color:#fff;
-	}
+}
 a.selectOption:hover{
 	color:#f7323f;
-	}			
+}			
 #container h2, #container h3{
 	margin:0px;
 	font-weight:lighter;
-	color:#fff
-	}		
+	color:#fff;
+	font-size:1em
+}		
 #container h2{
 	margin-top:1em;
 	color:#f7323f;
-	}
+}
 
 /* ==========================================================================
    COLECTIVA - Artwork Detail 
@@ -289,11 +321,8 @@ aside.gallery ul,
 section.artwork ul{
 	margin:0px;
 	padding-left:20px;
-	color:#f7323f}
-aside.gallery ul li a, 
-section.artwork ul a{
-	text-decoration:none;
-	}	
+	color:#f7323f;
+	}
 section.artwork ul{
 	margin-top:1em
 	}	
@@ -321,21 +350,28 @@ section.artwork ul{
 	float:right;
 	margin-right: 20px;
 	}
+.artwork aside img{
+	width:auto;
+	}	
 .artwork aside h4, .artwork aside h3, .artwork aside p{
 	margin:0px;
 	padding:0px;
 	}	
-.artwork aside h4,artwork aside h3	{
+	
+.artwork aside h4, .artwork aside h3{
 	color:#f7323f
 	}
 .artwork aside h4{
-	font-weight:100
+	font-weight:100;
+	margin-bottom:25px;
 	}	
 .artwork aside .selectBox{
 	display:block;
 	float:none;
 	margin:0px;
-	bottom:0px
+	bottom:0px;
+	overflow:hidden;
+	margin-bottom:25px
 	} 
 .artwork aside a.selected{
 	color:#fff
@@ -343,10 +379,10 @@ section.artwork ul{
 .artwork aside .selectBox .selectArrow, .artwork aside .selectBox .selectOptions{
 	width:100%;
 	float:right;
-	right:0px
+	right:0px;
 	}		
 .artwork aside .label{
-	margin:1em 0em .8em;
+	margin:25px 0;
 	display:block
 	}	
 .artwork aside strong{
@@ -361,9 +397,14 @@ section.artwork ul{
 	margin:10px 10px 0px 0px 
 	}
 .buy{
-	margin:3em 0
+	margin:25px 0
 	}
-.buy a{ text-decoration:none}
+.buy .shopp a{
+	color:#f7323f;
+	text-decoration:none;
+	letter-spacing:.09em;
+	font-size:1.2em
+	}	
 /* ==========================================================================
    COLECTIVA - Shopping Cart 
    ========================================================================== */
@@ -375,7 +416,7 @@ section.artwork ul{
 }
 section.shopping-cart{
 	top:29%;
-	padding-right:10%
+	padding-right:20%;
 	}
 section.shopping-cart ul{
 	padding: 0px	
@@ -417,6 +458,15 @@ section.shopping-cart table td:nth-child(2),
 section.shopping-cart table th:nth-child(2) {
 	width:24%
 	}	
+section.shopping-cart table td:nth-child(2) span{
+	 color:#f7323f;
+	 display:block;
+	 line-height:1.2em
+	}
+section.shopping-cart table td:nth-child(2) span strong{
+	display:block
+	}	
+
 section.shopping-cart table td:nth-child(4) span{
 	background-color:#fff;
 	color:#000;
@@ -455,17 +505,47 @@ section.shopping-cart table td:nth-child(6){
 	display:block;
 	margin-bottom:3px
 	}			
-	
 section.shopping-cart input{
 	width:100%;
 	background-color:#fff
+	}	
+div.credit-card-info input{
+	width:30%;
+	display:block
+	}
+div.credit-card{
+	border:solid 1px red;
+	width:50%
+	}	
+section.shopping-cart .col-right{
+	width:45%
+	}
+section.shopping-cart h4{
+	color:#fff;
+	font-size:1.6em;
+	font-weight:100;
+	}	
+section.shopping-cart hgroup h2, hgroup h3, hgroup h4{
+	margin:0px;
+	}	
+.client{
+	display:block;
+	}	
+.client.name{
+	color:#f7323f;
+	font-weight:600;
+	font-size:1.2em;
+	margin-top:2em
+	}
+.client.address{
+	margin:2em 0
 	}	
 /* ==========================================================================
    COLECTIVA - Footer
    ========================================================================== */		
 footer{
 	width:24%;
-	bottom:8%; 
+	bottom:4%; 
 	letter-spacing:1px ;
 	font-weight: 100;
 	font-size:.8em
@@ -489,7 +569,8 @@ footer .login a:first-child{
 footer .login a{
 	margin:10px 0px;
 	display: inline-block; 
-	margin-right: 10px
+	margin-right: 10px;
+	color:#f7323f
 }
 
 .total-cont, .secure-payment, .order-history{
@@ -511,26 +592,7 @@ img.colectiva-car{
 	left:190px;
 	top:-3px
 	}	
-h3{
-	color:#f7323f;
-	}	
-input{
-	letter-spacing: 1px;
-	margin-bottom: 16px;
-	border: 1px solid grey;
-	padding: 3px;
-	background:none;
-	width:90%
-	}
-.social-media, .search{
-	width:30%;
-	float:left;
-	}	
-.social-media{
-	text-align:right}	
-.search{
-	width:70%;
-	}
+
 footer small{
 	display:block; clear:both
 	}	
@@ -538,7 +600,39 @@ footer strong{
 	display: block;
 	}
 
-		
+footer input[type=search]{
+	border:solid 1px #333;
+	color:#fff;
+	background:#000;
+	height:20px;
+	padding-left:10px;
+	margin-bottom:2em
+	
+	}
+footer input[type=search], .social-media{
+	width:50%;
+	float:left;
+	
+	}
+.social-media{
+	width:40%;
+	float: right;
+	
+	}
+.social-media a{
+	display:inline-block;
+	width:19px;
+	height:19px;
+	background:url(../imgs/sprite.png);
+	margin-left:8px;
+	text-indent:99999px;
+	}					
+.social-media a.twitter{
+	background-position:-30px 0px
+	}	
+.social-media a.pinterest{
+	background-position:-57px 0px
+	}		
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -595,161 +689,6 @@ footer strong{
 .clearfix {
     *zoom: 1;
 }
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media screen and (max-height: 900px){
-/*footer{
-	bottom:4%
-	}*/
-}
-@media screen and (max-height: 800px){
-/*	aside{
-		top:32%;
-	}*/
-}
-@media screen and (max-height: 700px){
-	header, article, footer, aside, nav.submenu{
-		display:block;
-		position: relative
-	}
-	aside, footer{
-		margin-top:6em
-		}		
-	nav.submenu{
-		padding-top: 0px;
-		top: 16px;
-	}	
-	section.artwork aside{
-		margin-top:0px
-		}
-}
-
-@media only screen and (max-width: 600px) {	
-
-	form input[type=submit], form input[type=button]{
-		width:100% ;
-		text-align:center
-	}
-}
-			
-@media only screen and (max-width: 800px) {
-    html{
-		background:none;
-		background-color:#000;
-		}
-	/* Global */
-	header, article, footer, aside, section, nav.submenu{
-		display:block;
-		position:relative;
-		width:93%;
-		}
-	big{
-		font-size:80px
-		}	
-	aside, footer{
-		margin-top:3.8em
-		}	
-	section{
-		left:40px;
-		padding-bottom:0px;
-		margin-top:40px
-		}	
-	section img{
-		width:100%
-		}								
-	footer{
-		text-align:left;
-		margin-bottom:4em
-		}	
-		
-	/* HOME */
-	.home-img{
-		display: block;
-		margin-left:0%;
-		padding-bottom:5%
-		}
-	.home-img img{
-		width:85%;
-		}		
-	.home-img strong{
-		display:block;
-		color:#f7323f;
-		margin-top:1em
-		}	
-					
-	/* Gallery */
-	nav.submenu{
-		top: 12px;
-		margin-left: 0px
-		}		
-	aside.gallery, aside.gallery p{
-		width:90%
-		}
-		
-	/* Shopping Cart */	
-	section.shopping-cart{
-		padding-right:0px
-		}				
-	
-	section.artwork,  section.artwork aside	{
-		width:100%;
-		margin:1em 0px 1em;
-		padding:0px;
-		clear:both;
-		overflow:hidden		
-		}
- 	section.artwork aside{
-		left:0px;
-		}
-	.artwork aside .selectBox .selectArrow, .artwork aside .selectBox .selectOptions{
-		width:69%
-		}	
-	.artwork aside .collection img{
-		width:32%;
-		margin:5% 5% 0px 0px 
-		}
-		
-	/*  Shooping cart */	
-	section.shopping-cart{
-		width:79%;
-		}
-	.totals *{
-		width:100%;
-		}
-	.totals{
-		padding-bottom:0px;
-		}	
-	.totals ul li{	
-		margin:1em 0;
-		display: inline;
-		margin-left:30px
-		}	
-	.totals ul li a.next{
-		display:inline-block;
-		width:30%;
-		text-align:center
-		}
-		
-	/*  Loggin */	
-	
-	}
-
-@media only screen and (max-width: 1098px) {
-	
-	.social-media{
-		display:block;
-		float:none;
-		text-align:left;
-		width:50%;
-		clear:both;
-		margin-bottom:1em
-		}
-	
-}
-
-
 
 /* ==========================================================================
 	Fancy Box
@@ -961,27 +900,22 @@ footer strong{
 	position: fixed;
 	bottom: 0;
 	right: 0;
-}
-
+	}
 .fancybox-lock .fancybox-overlay {
 	overflow: auto;
 	overflow-y: scroll;
-}
-
+	}
 /* Title helper */
-
 .fancybox-title {
 	visibility: hidden;
 	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 	position: relative;
 	text-shadow: none;
 	z-index: 8050;
-}
-
+	}	
 .fancybox-opened .fancybox-title {
 	visibility: visible;
-}
-
+	}
 .fancybox-title-float-wrap {
 	position: absolute;
 	bottom: 0;
@@ -989,8 +923,7 @@ footer strong{
 	margin-bottom: -35px;
 	z-index: 8050;
 	text-align: center;
-}
-
+	}
 .fancybox-title-float-wrap .child {
 	display: inline-block;
 	margin-right: -100%;
@@ -1005,18 +938,15 @@ footer strong{
 	font-weight: bold;
 	line-height: 24px;
 	white-space: nowrap;
-}
-
+	}
 .fancybox-title-outside-wrap {
 	position: relative;
 	margin-top: 10px;
 	color: #fff;
-}
-
+	}
 .fancybox-title-inside-wrap {
 	padding-top: 10px;
-}
-
+	}
 .fancybox-title-over-wrap {
 	position: absolute;
 	bottom: 0;
@@ -1025,24 +955,6 @@ footer strong{
 	padding: 10px;
 	background: #000;
 	background: rgba(0, 0, 0, .8);
-}
-
-
-
-/*Retina graphics!*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-	   only screen and (min--moz-device-pixel-ratio: 1.5),
-	   only screen and (min-device-pixel-ratio: 1.5){
-
-	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-		background-image: url('../imgs/fancybox/fancybox_sprite@2x.png');
-		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
-	}
-
-	#fancybox-loading div {
-		background-image: url('../imgs/fancybox/fancybox_loading@2x.gif');
-		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
-	}
 }
 
 /* CONTROLS */
@@ -1054,16 +966,22 @@ footer strong{
 	width:48%;
 	float: right
 	}
-
+.col-third{
+	width:33.333%;
+	float:left;
+	padding:10px 20px 20px 0px
+	}
+.col-third.last{ 
+	float:right;
+	padding-right:0px
+	}
 .controls {
 	clear:both;
 	overflow:hidden;
 	list-style-type:none;
-
 	width:auto;
 	display:inline-block;
 	float:right
-	
 	}
 .controls li{
 	float:left;
@@ -1072,14 +990,13 @@ footer strong{
 	padding:0px;
 	height:45px;
 	position:relative
-}	
+	}	
 .controls li:first-child:before{
 	content:"|";
 	position:absolute;
 	right:0px;
 	top:12px;
 	color:#F9343D;
-	
 	}
 .controls a, input[type="button"] {
 	color:#F9343D;
@@ -1099,11 +1016,280 @@ footer strong{
 	color:#fff;
 	border:none;
 	margin-top:0px;
-	text-align:center;	
+	text-align:center;
+	height:40px
 	}	
 input.next {
 	width:20%;
 	float: right
 	}	
-		
+input[type="search"]{
+	width:70%;
+	float:left
+	}	
 	
+/* ==========================================================================
+   ABOUT US 
+   ========================================================================== */
+	
+section.about-us{
+	padding-right:25%
+	}
+section.about-us h2{ 
+	margin:0px; 
+	padding:0px; 
+	margin-bottom:1em;
+	color:#f7323f
+}
+section.about-us legend{
+	text-indent:9999px;
+	height:200px
+	}
+section.about-us div h2, section.about-us div h3{
+	margin:0px;
+	font-size:1.2em
+	}	
+	
+/* ==========================================================================
+   CONTACTO
+   ========================================================================== */
+section.contact{
+	padding-right:10%
+	}	
+section.contact input{
+	width:100%
+	}
+section.contact .col-left{
+	width:40%
+	}	
+section.contact .col-right{
+	width:50%
+	}		
+section.contact .col-right a{
+	position:absolute;
+	right:13.5%;
+	}		
+textarea{
+	width:100%;
+	height:170px;
+	border:none;
+	padding:10px
+	}	
+iframe{
+	margin-top:1.6em
+	}	
+	
+/* Flexible iFrame */
+.map {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.map iframe,   
+.map object,  
+.map embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+		
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media screen and (max-height: 900px){
+/*footer{
+	bottom:4%
+	}*/
+}
+@media screen and (max-height: 800px){
+/*	aside{
+		top:32%;
+	}*/
+}
+@media screen and (max-height: 700px){
+	header, article, footer, aside, nav.submenu{
+		display:block;
+		position: relative
+	}
+	aside, footer{
+		margin-top:6em
+		}		
+	nav.submenu{
+		padding-top: 0px;
+		top: 16px;
+	}	
+	section.artwork aside{
+		margin-top:0px
+		}
+}
+
+@media only screen and (max-width: 600px) {	
+
+	form input[type=submit], form input[type=button]{
+		width:100% ;
+		text-align:center
+	}
+}
+			
+@media only screen and (max-width: 800px) {
+    html{
+		background:none;
+		background-color:#000;
+		}
+	/* Global */
+	header, article, footer, aside, section, nav.submenu{
+		display:block;
+		position:relative;
+		width:93%;
+		}	
+	big{
+		font-size:80px
+		}	
+	aside, footer{
+		margin-top:3.8em
+		}	
+	section{
+		left:40px;
+		padding-bottom:0px;
+		margin-top:40px;
+		}	
+	section img{
+		width:100%
+		}	
+									
+	footer{
+		text-align:left;
+		margin-bottom:4em
+		}	
+		
+	/* HOME */
+	.home-img{
+		display: block;
+		margin-left:0%;
+		padding-bottom:5%
+		}
+	.home-img img{
+		width:85%;
+		}		
+	.home-img strong{
+		display:block;
+		color:#f7323f;
+		margin-top:1em
+		}	
+					
+	/* Gallery */
+	nav.submenu{
+		top: 12px;
+		margin-left: 0px
+		}		
+	aside.gallery, aside.gallery p{
+		width:90%
+		}
+		
+	/* Shopping Cart */	
+	section.shopping-cart{
+		padding-right:0px
+		}				
+	
+	section.artwork,  section.artwork aside	{
+		width:100%;
+		margin:2em 0px 2em;
+		padding:0px;
+		clear:both;
+		overflow:hidden		
+		}
+ 	section.artwork aside{
+		left:0px;
+		}
+	.artwork aside .selectBox .selectArrow, .artwork aside .selectBox .selectOptions{
+		width:69%
+		}	
+	.artwork aside .collection img{
+		width:32%;
+		margin:5% 5% 0px 0px 
+		}
+		
+	/*  Shooping cart */	
+	section.shopping-cart{
+		width:79%;
+		}
+	
+	section.shopping-cart div div label{
+
+		}	
+	section.shopping-cart div, 
+	section.shopping-cart .col-right, 
+	section.contact .col-right, 
+	section.contact .col-left
+	{
+		width:100%;
+		padding:0px;
+		float:none
+		}		
+	/*  Loggin */	
+	section.contact{
+		padding-right:60px
+		}
+	
+	}
+
+@media only screen and (max-width: 1098px) {
+	footer input[type=search], .social-media{
+		width:100%;
+		margin-bottom:1em
+		}
+	.social-media{
+		overflow:hidden
+		}	
+}
+
+/*Retina graphics!*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	   only screen and (min--moz-device-pixel-ratio: 1.5),
+	   only screen and (min-device-pixel-ratio: 1.5){
+
+	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+		background-image: url('../imgs/fancybox_sprite@2x.png');
+		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
+	}
+
+	#fancybox-loading div {
+		background-image: url('../imgs/fancybox_loading@2x.gif');
+		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
+	}
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+
+

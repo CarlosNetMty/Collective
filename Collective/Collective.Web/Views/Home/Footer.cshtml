@@ -11,9 +11,9 @@
         <span data-bind="text: FirstName"></span>!
   	</p>
 
-    <p class="red" data-bind="if: !IsLoggedIn()">
-        <a><span data-key="Login" data-transform="AllCaps"></span></a>&nbsp;|
-        <a><span data-key="Register" data-transform="AllCaps"></span></a>&nbsp;
+    <p class="login" data-bind="if: !IsLoggedIn()">
+        <a data-key="Login" data-transform="AllCaps"></a>&nbsp;
+        <a data-key="Register" data-transform="AllCaps"></a>&nbsp;
     </p>
 
   	<p data-bind="if: !IsHomePage() && IsLoggedIn()">
@@ -42,3 +42,7 @@
   	</small>
 
 </footer>
+
+
+@Html.Partial("Login")
+@Html.Partial("Register")
