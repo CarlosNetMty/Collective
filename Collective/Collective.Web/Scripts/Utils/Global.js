@@ -29,6 +29,28 @@ Collective.Global.Loader =
     }
 };
 
+Collective.Global.CurrentUser = function (data)
+{
+    if (!data) {
+        Collective.Global.Get({ Server: true, DataUrl: "/Home/CurrentUser/" }, {}, function (response) {
+            Collective.Global.CurrentUserFromJson(response);
+        });
+    }
+    else {
+        Collective.Global.CurrentUserFromJson(data);
+    }
+}
+
+Collective.Global.CurrentUserFromJson = function (data)
+{
+    if (data && data.UserID) {
+        var viewModel = Collective.Home.Footer.ViewModel;
+        viewModel.FirstName(data.Name);
+        viewModel.Email(data.Email);
+        viewModel.IsLoggedIn(true);
+    }
+}
+
 Collective.Global.Get = function (module, data, callback) {
 
     Collective.Global.Loader.Show();
@@ -53,6 +75,26 @@ Collective.Global.Get = function (module, data, callback) {
         });
     }
 };
+
+Collective.Global.Post = function (url, data, callback)
+{
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        dataType: "json",
+        success: function (response)
+        {
+            callback(response);
+        },
+        error: function ()
+        {
+            debugger;
+        }
+    });
+
+}
 
 Collective.Global.Load = function (url, data, viewModel) {
     

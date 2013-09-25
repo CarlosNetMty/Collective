@@ -243,6 +243,7 @@
     <Content Include="Scripts\Framework\jquery-ui-1.8.11.min.js" />
     <None Include="Scripts\Framework\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\Framework\jquery.linq.js" />
+    <Content Include="Scripts\Framework\jquery.md5.js" />
     <Content Include="Scripts\Framework\jquery.noty.js" />
     <Content Include="Scripts\Framework\jquery.slabtext.js" />
     <Content Include="Scripts\Framework\jquery.unobtrusive-ajax.js" />

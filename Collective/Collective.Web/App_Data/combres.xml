@@ -48,6 +48,7 @@
       <resource path="~/scripts/framework/plugins.js" />
       <resource path="~/scripts/framework/jquery.fancybox.pack.js" />
       <resource path="~/scripts/framework/jquery.isotope.min.js" />
+      <resource path="~/scripts/framework/jquery.md5.js" />
       <resource path="~/scripts/namespace.js" />
     </resourceSet>
 

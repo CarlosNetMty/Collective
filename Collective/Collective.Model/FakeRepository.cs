@@ -9,11 +9,6 @@ namespace Collective.Model
     {
 
         #region Interface Implementation
-        public Artist Update(Artist dataObject)
-        {
-            throw new NotImplementedException();
-        }
-
         public void GetAll(Action<IQueryable<Artist>> contextCallback)
         {
             contextCallback.Invoke(GetDataFromArtists());
@@ -154,7 +149,17 @@ namespace Collective.Model
 
 
 
-        #region 
+        #endregion 
 
+    
+
+        public User Update(User dataObject)
+        {
+            throw new NotImplementedException();
+        }
+        public Artist Update(Artist dataObject)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

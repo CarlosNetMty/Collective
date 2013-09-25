@@ -35,7 +35,21 @@
                 self.ViewModel.Cancel = cancel;
 
                 //actions
-                self.ViewModel.RequestRegister = function () { };
+                self.ViewModel.RequestRegister = function ()
+                {
+                    var data = {
+                        name: this.Username(),
+                        email: this.Username(),
+                        password: $.md5(this.Password()),
+                    };
+
+                    Collective.Global.Post("/Home/Register/", data, function (response) {
+                        if (response && response.IsAuthenticated) {
+                            Collective.Global.CurrentUser(response.User);
+                            $(self.View).dialog("close");
+                        }
+                    });
+                };
 
                 ko.applyBindings(self.ViewModel, control.context);
             }

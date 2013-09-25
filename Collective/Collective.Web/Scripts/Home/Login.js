@@ -38,8 +38,36 @@
                 self.ViewModel.Register.Cancel = cancel;
 
                 //actions
-                self.ViewModel.RequestLogin = function () { };
-                self.ViewModel.Register.RequestRegister = function () { };
+                self.ViewModel.RequestLogin = function ()
+                {
+                    var data = {
+                        email: this.Username(),
+                        password: $.md5(this.Password())
+                    };
+
+                    Collective.Global.Post("/Home/LogIn/", data, function (response) {
+                        if (response && response.IsAuthenticated) {
+                            Collective.Global.CurrentUser(response.User);
+                            $(self.View).dialog("close");
+                        }
+                    });
+                };
+
+                self.ViewModel.Register.RequestRegister = function ()
+                {
+                    var data = {
+                        name: this.Register.Username(),
+                        email: this.Register.Username(),
+                        password: $.md5(this.Register.Password()),
+                    };
+
+                    Collective.Global.Post("/Home/Register/", data, function (response) {
+                        if (response && response.IsAuthenticated) {
+                            Collective.Global.CurrentUser(response.User);
+                            $(self.View).dialog("close");
+                        }
+                    });
+                };
 
                 ko.applyBindings(self.ViewModel, control.context);
             }

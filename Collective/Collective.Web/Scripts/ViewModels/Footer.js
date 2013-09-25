@@ -5,8 +5,9 @@ Collective.ViewModels.Footer = function (model) {
     var self = this;
 
     //Header Items
-    self.FirstName = ko.observable("Carlos");
-    self.LastName = ko.observable("Martinez");
+    self.FirstName = ko.observable();
+    self.LastName = ko.observable();
+    self.Email = ko.observable();
     self.IsLoggedIn = ko.observable(false);
     //Language Specific
     self.CurrentLanguage = ko.observable(Collective.Global.CurrentLanguage);
@@ -25,4 +26,6 @@ Collective.ViewModels.Footer = function (model) {
     });
 
     self.SearchText = ko.observable("");
+
+    
 }

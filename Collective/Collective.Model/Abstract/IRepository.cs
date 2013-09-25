@@ -18,6 +18,12 @@ namespace Collective.Model
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="dataObject"></param>
+        /// <returns></returns>
+        User Update(User dataObject);
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         void GetAll(Action<IQueryable<Artist>> contextCallback);
         /// <summary>

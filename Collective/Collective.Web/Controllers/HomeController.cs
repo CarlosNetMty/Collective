@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,6 +11,8 @@ namespace Collective.Web.Controllers
     public class HomeController : Controller
     {
         #region Constructors
+        public const string USER_SESSION_KEY = "appCurrentUser";
+
         public IRepository Repository { get; set; }
         public HomeController(IRepository repository) 
         {
@@ -33,15 +36,31 @@ namespace Collective.Web.Controllers
         #region Data
         public JsonResult CurrentUser()
         {
+            User currentUser = Session[USER_SESSION_KEY] as User;
+
+            if (currentUser != null) 
+            {
+                return new JsonResult()
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new
+                    {
+                        IsLoggedIn = true,
+                        Name = currentUser.Name,
+                        Email = currentUser.Email,
+                        IsAdministrator = currentUser.IsAdministrator,
+                        IsActive = currentUser.IsActive,
+                        UserID = currentUser.UserID
+                    }
+                };
+            }
+
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = new 
                 {
-                    IsLogged = true,
-                    FirstName = "Carlos",
-                    LastName = "Martinez",
-                    IsAdministrator = true
+                    IsLoggedIn = false,
                 }
             };
         }
@@ -168,8 +187,8 @@ namespace Collective.Web.Controllers
         }
         #endregion
 
-        #region LogIn
-
+        #region Request LogIn
+        [HttpPost]
         public JsonResult LogIn(string email, string password) 
         {
             User currentUser = default(User);
@@ -181,7 +200,7 @@ namespace Collective.Web.Controllers
                     .Where(item => email.Equals(item.Email, StringComparison.InvariantCultureIgnoreCase))
                     .SingleOrDefault();
 
-                if (user.UserID > 0) 
+                if (user != null && user.UserID > 0) 
                 {
                     if (!password.Equals(user.Password, StringComparison.CurrentCulture))
                         responseType = LogInResponseType.NoPasswordMatch;
@@ -191,6 +210,8 @@ namespace Collective.Web.Controllers
 
                     responseType = LogInResponseType.Authenticated;
                     currentUser = user;
+
+                    SetUserAsCurrent(currentUser);
                 }
             });
 
@@ -205,7 +226,6 @@ namespace Collective.Web.Controllers
                 }
             };
         }
-
         enum LogInResponseType 
         {
             UserDoesNotExist,
@@ -214,8 +234,41 @@ namespace Collective.Web.Controllers
             NoDataProvided,
             Authenticated
         }
-
         #endregion
 
+        #region Request Register
+        [HttpPost]
+        public JsonResult Register(string name, string password, string email) 
+        {
+
+            User newUser = new User 
+            { 
+                Name = name,
+                Password = password,
+                Email = email,
+                IsActive = true,
+                IsAdministrator = false
+            };
+
+            Repository.Update(newUser);
+            SetUserAsCurrent(newUser);
+
+            return LogIn(newUser.Email, newUser.Password);
+        }
+        #endregion
+
+        #region Utileries
+
+        void SetUserAsCurrent(User user) 
+        {
+            string userType = user.IsAdministrator ? "Administrator" : "User";
+            IIdentity identity = new GenericIdentity(user.Name, userType);
+            HttpContext.User = new GenericPrincipal(identity, new string[] { userType });
+
+            Session.RemoveAll();
+            Session.Add(USER_SESSION_KEY, user);
+        }
+
+        #endregion
     }
 }

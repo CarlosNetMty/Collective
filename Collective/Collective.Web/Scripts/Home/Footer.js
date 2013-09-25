@@ -56,6 +56,8 @@
                 
                 self.ViewModel.SearchText(args.search);
                 ko.applyBindings(self.ViewModel, control.context);
+
+                Collective.Global.CurrentUser();
             }
             //Get server data (if needed)
             Collective.Global.Get(self, {}, init);
