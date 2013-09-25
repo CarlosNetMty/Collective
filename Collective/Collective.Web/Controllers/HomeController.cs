@@ -168,25 +168,51 @@ namespace Collective.Web.Controllers
         }
         #endregion
 
-        #region Actions
+        #region LogIn
 
-        public JsonResult LogIn(string userName, string password) 
+        public JsonResult LogIn(string email, string password) 
         {
+            User currentUser = default(User);
+            bool hasParameters = !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password);
+            LogInResponseType responseType = hasParameters ? LogInResponseType.UserDoesNotExist : LogInResponseType.NoDataProvided;
+
+            Repository.GetAll((IQueryable<User> response) => {
+                var user = response
+                    .Where(item => email.Equals(item.Email, StringComparison.InvariantCultureIgnoreCase))
+                    .SingleOrDefault();
+
+                if (user.UserID > 0) 
+                {
+                    if (!password.Equals(user.Password, StringComparison.CurrentCulture))
+                        responseType = LogInResponseType.NoPasswordMatch;
+
+                    if (responseType == LogInResponseType.UserDoesNotExist && !user.IsActive)
+                        responseType = LogInResponseType.UserIsNotActive;
+
+                    responseType = LogInResponseType.Authenticated;
+                    currentUser = user;
+                }
+            });
+
             return new JsonResult
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = new
                 {
-                    IsAuthenticated = true,
-                    User = new 
-                    {
-                        IsLogged = true,
-                        FirstName = "Carlos",
-                        LastName = "Martinez",
-                        IsAdministrator = true
-                    }
+                    IsAuthenticated = responseType == LogInResponseType.Authenticated,
+                    ResponseCode = (int)responseType,
+                    User = currentUser
                 }
             };
+        }
+
+        enum LogInResponseType 
+        {
+            UserDoesNotExist,
+            NoPasswordMatch,
+            UserIsNotActive,
+            NoDataProvided,
+            Authenticated
         }
 
         #endregion

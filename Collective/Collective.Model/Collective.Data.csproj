@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FakeRepository.cs" />
     <Compile Include="Repository.User.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
