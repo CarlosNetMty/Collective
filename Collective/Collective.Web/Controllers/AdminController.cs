@@ -55,6 +55,19 @@ namespace Collective.Web.Controllers
         #endregion
 
         #region Data
+
+        public JsonResult StaticContent() 
+        {
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = new
+                { 
+                    About = Resources.AboutUS.Get(),
+                    Conditions = Resources.TermsAndConditions.Get()
+                }
+            };
+        }
         /// <summary>
         /// 
         /// </summary>

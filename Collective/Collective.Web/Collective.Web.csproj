@@ -196,6 +196,8 @@
     <Content Include="Content\Images\home\nydialilian02-home.jpg" />
     <Content Include="Content\Images\Loader.gif" />
     <Content Include="Content\Images\myColec7iva-logoweb.png" />
+    <Content Include="Content\jquery-te-1.4.0.css" />
+    <Content Include="Content\jquery-te.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="favicon.ico" />
@@ -230,6 +232,7 @@
     <Content Include="Photos\orderedList9.png" />
     <Content Include="Scripts\Admin\Artists.js" />
     <Content Include="Scripts\Admin\ArtistsDetail.js" />
+    <Content Include="Scripts\Admin\Content.js" />
     <Content Include="Scripts\Admin\UsersDetail.js" />
     <Content Include="Scripts\Admin\Header.js" />
     <Content Include="Scripts\Admin\Index.js" />
@@ -240,6 +243,7 @@
     <Content Include="Scripts\Framework\jquery-1.10.2.min.js" />
     <Content Include="Scripts\Framework\jquery-1.6.2.js" />
     <Content Include="Scripts\Framework\jquery-1.6.2.min.js" />
+    <Content Include="Scripts\Framework\jquery-te-1.4.0.min.js" />
     <Content Include="Scripts\Framework\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\Framework\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\Framework\jquery-ui-1.8.11.min.js" />
@@ -269,6 +273,7 @@
     <Content Include="Scripts\Framework\zepto.js" />
     <Content Include="Scripts\Home\About.js" />
     <Content Include="Scripts\Home\Contact.js" />
+    <Content Include="Scripts\Home\Conditions.js" />
     <Content Include="Scripts\Home\Login.js" />
     <Content Include="Scripts\Home\Detail.js" />
     <Content Include="Scripts\Home\Gallery.js" />
@@ -339,6 +344,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\Loader.cshtml" />
+    <Content Include="Views\Home\Conditions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

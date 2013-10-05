@@ -24,6 +24,7 @@
 
     <resourceSet name="adminStyles" type="css">
       <resource path="~/content/foundation.css" />
+      <resource path="~/content/jquery-te-1.4.0.css" />
     </resourceSet>
 
     <resourceSet name="scripts" type="js">
@@ -33,9 +34,7 @@
     </resourceSet>
 
     <resourceSet name="framework" type="js">
-      <!--<resource path="~/scripts/framework/jquery-ui-1.8.11.js" />-->
       <resource path="~/scripts/framework/jquery-ui-1.10.3.js" />
-      <!--<resource path="~/scripts/framework/jquery.unobtrusive-ajax.js" />-->
       <resource path="~/scripts/framework/jquery.validate.js" />
       <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
       <resource path="~/scripts/framework/knockout-2.3.0.js" />
@@ -49,12 +48,12 @@
       <resource path="~/scripts/framework/jquery.fancybox.pack.js" />
       <resource path="~/scripts/framework/jquery.isotope.min.js" />
       <resource path="~/scripts/framework/jquery.md5.js" />
+      <resource path="~/scripts/framework/jquery-te-1.4.0.min.js" />
       <resource path="~/scripts/namespace.js" />
     </resourceSet>
 
     <resourceSet name="adminFramework" type="js">
       <resource path="~/scripts/framework/jquery-ui-1.8.11.js" />
-      <!--<resource path="~/scripts/framework/jquery.unobtrusive-ajax.js" />-->
       <resource path="~/scripts/framework/jquery.validate.js" />
       <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
       <resource path="~/scripts/framework/knockout-2.3.0.js" />
@@ -67,7 +66,7 @@
       <resource path="~/scripts/framework/jquery.fancybox.pack.js" />
       <resource path="~/scripts/framework/jquery.isotope.min.js" />
       <resource path="~/scripts/framework/foundation.js" />
-      <!--<resource path="~/scripts/framework/zepto.js" />-->
+      <resource path="~/scripts/framework/jquery-te-1.4.0.min.js" />
       <resource path="~/scripts/namespace.js" />
     </resourceSet>    
     
@@ -77,7 +76,8 @@
       <resource path="~/scripts/Utils/Global.js" />
       <resource path="~/scripts/Utils/Translations.js" />
       <resource path="~/scripts/Utils/Utils.js" />
-      <!--Section-->
+      
+      <!--Home-->
       <resource path="~/scripts/Sales/Index.js" />
       <resource path="~/scripts/Home/Index.js" />
       <resource path="~/scripts/Home/Header.js" />
@@ -87,8 +87,10 @@
       <resource path="~/scripts/Home/Login.js" />
       <resource path="~/scripts/Home/About.js" />
       <resource path="~/scripts/Home/Contact.js" />
+      <resource path="~/scripts/Home/Conditions.js" />
 
       <!--Adminstration-->
+      <resource path="~/scripts/Admin/Content.js" />
       <resource path="~/scripts/Admin/Header.js" />
       <resource path="~/scripts/Admin/Sidebar.js" />
       <resource path="~/scripts/Admin/Index.js" />
@@ -97,6 +99,7 @@
       <resource path="~/scripts/Admin/Users.js" />
       <resource path="~/scripts/Admin/UsersDetail.js" />
       <resource path="~/scripts/Admin/Products.js" />
+      
       <!--ViewModels-->
       <resource path="~/scripts/ViewModels/Collection.js" />
       <resource path="~/scripts/ViewModels/Sale.js" />

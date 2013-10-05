@@ -47,7 +47,6 @@
                     if (event.key === "Enter")
                     {
                         var location = window.location;
-                        debugger;
                         window.location = "{0}//{1}/Home/Gallery/?search={2}".format(location.protocol, location.host, this.value);
                     }
                 })
@@ -60,6 +59,11 @@
                 {
                     var location = window.location;
                     window.location = "{0}//{1}{2}".format(location.protocol, location.host, "/Admin");
+                }
+
+                self.ViewModel.GoToConditions = function () {
+                    var location = window.location;
+                    window.location = "{0}//{1}{2}".format(location.protocol, location.host, "/Home/Conditions");
                 }
                 
                 self.ViewModel.SearchText(args.search);

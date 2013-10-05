@@ -37,7 +37,7 @@
     <img src="@Url.Content("~/Content/Images/c7-pinterest.png")" width="19" height="18" alt="COLEC7IVA - PINTEREST" />
 
   	<small>
-        <a><strong data-key="TermsOfService"></strong></a>
+        <a><strong data-key="TermsOfService" data-bind="click: GoToConditions"></strong></a>
         <a data-bind="if: IsAdministrator()">
             <strong data-key="AdminAccess" data-bind="click: GoToAdmin"></strong>
         </a>

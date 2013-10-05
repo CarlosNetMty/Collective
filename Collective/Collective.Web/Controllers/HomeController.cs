@@ -29,9 +29,8 @@ namespace Collective.Web.Controllers
         public PartialViewResult Login() { return PartialView(); }
         public PartialViewResult Register() { return PartialView(); }
 
-        public ActionResult About() {
-            return View((object)Resources.AboutUS.Get());
-        }
+        public ActionResult About() { return View((object)Resources.AboutUS.Get()); }
+        public ActionResult Conditions() { return View((object)Resources.TermsAndConditions.Get()); }
 
         public ActionResult Contact() { return View(); }
         #endregion
