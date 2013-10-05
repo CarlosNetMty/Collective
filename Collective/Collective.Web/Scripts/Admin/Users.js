@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Admin.Users = {
-        DataUrl: "/Admin/Credentials",
+        DataUrl: "Admin/Credentials",
         Server: true,
         ViewModel: {},
         View: {},

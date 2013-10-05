@@ -54,7 +54,8 @@ textarea {
 }
 a {
 	text-decoration: underline;
-	color:#fff
+	color:#fff;
+    cursor: pointer
 	}
 h2{
 	font-size:2em;
@@ -563,7 +564,6 @@ footer .login{
 }
 
 footer .login a:first-child{
-	border-right: solid 1px #f7323f;;
 	padding-right: 10px
 }
 footer .login a{
@@ -1292,4 +1292,40 @@ iframe{
 }
 
 
+#login{
+	width:500px;
+    height:540px;
+    border:1px solid #444;
+    padding:25px;
+    top:50%;
+    left:50%;
+    position:absolute;
+    margin-top:-300px;
+    margin-left:-270px;
+}		
+
+#login button{
+    background-color:red;
+    color:white;
+    padding:6px;
+    border:none;
+    float:right;
+    margin-bottom:25px;
+}
+
+#login label{
+    float:left;
+}
+
+#login input{
+    height: 24px;
+    width: 100%;
+}
+
+#login .login-intro{
+    font-size:13px;
+    font-weight:normal;
+    color:white;
+    width: 95%;
+}
 

@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Home.Gallery = {
-        DataUrl: "/Home/Products",
+        DataUrl: "Home/Products",
         Server: true,
         ViewModel: {},
         View: {},

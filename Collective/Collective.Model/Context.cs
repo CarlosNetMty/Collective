@@ -15,5 +15,6 @@ namespace Collective.Model
         public DbSet<Frame> Frames { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Resource> Resources { get; set; }
     }
 }

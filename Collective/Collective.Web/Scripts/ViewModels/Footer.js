@@ -9,6 +9,7 @@ Collective.ViewModels.Footer = function (model) {
     self.LastName = ko.observable();
     self.Email = ko.observable();
     self.IsLoggedIn = ko.observable(false);
+    self.IsAdministrator = ko.observable(false);
     //Language Specific
     self.CurrentLanguage = ko.observable(Collective.Global.CurrentLanguage);
     self.IsSpanish = ko.computed(function () { return self.CurrentLanguage() == "SPA"; });

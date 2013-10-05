@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Home.Detail = {
-        DataUrl: "/Home/Product",
+        DataUrl: "Home/Product",
         Server: true,
         ViewModel: {},
         View: {},

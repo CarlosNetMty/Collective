@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Admin.Index = {
-        DataUrl: "/Admin/Production",
+        DataUrl: "Admin/Production",
         Server: true,
         ViewModel: {},
         View: {},

@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Admin.UserDetail = {
-        DataUrl: "/Admin/ContributorDetail",
+        DataUrl: "Admin/ContributorDetail",
         Server: true,
         ViewModel: {},
         View: {},

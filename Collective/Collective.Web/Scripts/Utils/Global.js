@@ -32,7 +32,7 @@ Collective.Global.Loader =
 Collective.Global.CurrentUser = function (data)
 {
     if (!data) {
-        Collective.Global.Get({ Server: true, DataUrl: "/Home/CurrentUser/" }, {}, function (response) {
+        Collective.Global.Get({ Server: true, DataUrl: "Home/CurrentUser/" }, {}, function (response) {
             Collective.Global.CurrentUserFromJson(response);
         });
     }
@@ -61,7 +61,7 @@ Collective.Global.Get = function (module, data, callback) {
     }
     else {
         $.ajax({
-            url: module.DataUrl,
+            url: Collective.Utils.FormatDataURL(module.DataUrl),
             data: data,
             type: "get",
             contentType: "application/json",

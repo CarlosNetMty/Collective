@@ -47,12 +47,20 @@
                     if (event.key === "Enter")
                     {
                         var location = window.location;
+                        debugger;
                         window.location = "{0}//{1}/Home/Gallery/?search={2}".format(location.protocol, location.host, this.value);
                     }
                 })
 
                 self.View.find("[data-key='Login']").click(function () { Collective.Home.Login.Open(); });
                 self.View.find("[data-key='Register']").click(function () { Collective.Home.Register.Open(); });
+                self.View.find("[data-key='LoginAndRegister']").click(function () { Collective.Home.Login.Open(); });
+
+                self.ViewModel.GoToAdmin = function ()
+                {
+                    var location = window.location;
+                    window.location = "{0}//{1}{2}".format(location.protocol, location.host, "/Admin");
+                }
                 
                 self.ViewModel.SearchText(args.search);
                 ko.applyBindings(self.ViewModel, control.context);

@@ -2,11 +2,11 @@
 
 (function () {
     Collective.Home.Login = {
-        DataUrl: "/Home/Login",
+        DataUrl: "Home/Login",
         Server: false,
         ViewModel: {},
         View: {},
-        Open: function() { if(this.View) $(this.View).dialog(); },
+        Open: function() { if(this.View) $(this.View).toggle(); },
         Load: function (control) {
             //Initial set
             var self = this;
@@ -24,7 +24,7 @@
                 //cancel function
                 var cancel = function ()
                 {
-                    $(self.View).dialog("close");
+                    $(self.View).hide();
                     self.ViewModel.Username("");
                     self.ViewModel.Password("");
                     self.ViewModel.Register.Username("");
@@ -48,7 +48,7 @@
                     Collective.Global.Post("/Home/LogIn/", data, function (response) {
                         if (response && response.IsAuthenticated) {
                             Collective.Global.CurrentUser(response.User);
-                            $(self.View).dialog("close");
+                            $(self.View).hide();
                         }
                     });
                 };
@@ -64,7 +64,7 @@
                     Collective.Global.Post("/Home/Register/", data, function (response) {
                         if (response && response.IsAuthenticated) {
                             Collective.Global.CurrentUser(response.User);
-                            $(self.View).dialog("close");
+                            $(self.View).hide();
                         }
                     });
                 };

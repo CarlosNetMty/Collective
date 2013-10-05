@@ -151,7 +151,7 @@ namespace Collective.Model
 
         #endregion 
 
-    
+        #region Actions 
 
         public User Update(User dataObject)
         {
@@ -161,5 +161,7 @@ namespace Collective.Model
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

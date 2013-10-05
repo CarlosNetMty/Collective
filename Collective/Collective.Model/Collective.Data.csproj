@@ -47,8 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FakeRepository.cs" />
-    <Compile Include="Repository.User.cs">
+    <Compile Include="Repository\FakeRepository.cs" />
+    <Compile Include="Model\Resource.cs" />
+    <Compile Include="Repository\Repository.User.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
     <Compile Include="Context.cs" />
@@ -64,20 +65,20 @@
     <Compile Include="Abstract\IPersistibleObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Tag.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="Repository.Artist.cs">
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\Repository.Artist.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository.Frame.cs">
+    <Compile Include="Repository\Repository.Frame.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository.Item.cs">
+    <Compile Include="Repository\Repository.Item.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository.Size.cs">
+    <Compile Include="Repository\Repository.Size.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository.Tag.cs">
+    <Compile Include="Repository\Repository.Tag.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -12,8 +12,8 @@
   	</p>
 
     <p class="login" data-bind="if: !IsLoggedIn()">
-        <a data-key="Login" data-transform="AllCaps"></a>&nbsp;
-        <a data-key="Register" data-transform="AllCaps"></a>&nbsp;
+        <a data-key="LoginAndRegister" data-transform="AllCaps"></a>
+        @*<a data-key="Register" data-transform="AllCaps"></a>&nbsp;*@
     </p>
 
   	<p data-bind="if: !IsHomePage() && IsLoggedIn()">
@@ -37,7 +37,10 @@
     <img src="@Url.Content("~/Content/Images/c7-pinterest.png")" width="19" height="18" alt="COLEC7IVA - PINTEREST" />
 
   	<small>
-        <strong data-key="TermsOfService"></strong>
+        <a><strong data-key="TermsOfService"></strong></a>
+        <a data-bind="if: IsAdministrator()">
+            <strong data-key="AdminAccess" data-bind="click: GoToAdmin"></strong>
+        </a>
         ©2013 COLEC7IVA <span data-key="AllRightsReserved">All rights reserved</span>.
   	</small>
 
@@ -45,4 +48,3 @@
 
 
 @Html.Partial("Login")
-@Html.Partial("Register")

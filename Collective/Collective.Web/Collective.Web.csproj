@@ -194,12 +194,14 @@
     <Content Include="Content\Images\gallery\gall_09.jpg" />
     <Content Include="Content\Images\home\nydialilian01-home.jpg" />
     <Content Include="Content\Images\home\nydialilian02-home.jpg" />
+    <Content Include="Content\Images\Loader.gif" />
     <Content Include="Content\Images\myColec7iva-logoweb.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\Collective.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\Framework\jquery-1.6.2-vsdoc.js" />
     <Content Include="Images\Gallery\gall_01.jpg" />
     <Content Include="Images\Gallery\gall_02.jpg" />
@@ -242,6 +244,8 @@
     <Content Include="Scripts\Framework\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\Framework\jquery-ui-1.8.11.min.js" />
     <None Include="Scripts\Framework\jquery.linq-vsdoc.js" />
+    <Content Include="Scripts\Framework\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\Framework\jquery.isotope.min.js" />
     <Content Include="Scripts\Framework\jquery.linq.js" />
     <Content Include="Scripts\Framework\jquery.md5.js" />
     <Content Include="Scripts\Framework\jquery.noty.js" />
@@ -263,7 +267,7 @@
     <Content Include="Scripts\Framework\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\Framework\plugins.js" />
     <Content Include="Scripts\Framework\zepto.js" />
-    <Content Include="Scripts\Home\Register.js" />
+    <Content Include="Scripts\Home\About.js" />
     <Content Include="Scripts\Home\Login.js" />
     <Content Include="Scripts\Home\Detail.js" />
     <Content Include="Scripts\Home\Gallery.js" />
@@ -334,7 +338,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\Loader.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

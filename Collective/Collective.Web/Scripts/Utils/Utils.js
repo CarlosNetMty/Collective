@@ -12,6 +12,17 @@ String.prototype.format = String.prototype.format = function () {
 //Module LIKE
 jQuery.namespace("Collective.Utils");
 
+Collective.Utils.Settings =
+{
+    //DataServerFormat: "http://localhost/Collective/{0}/"
+    DataServerFormat: "http://localhost:54693/{0}"
+};
+
+Collective.Utils.FormatDataURL = function (dataUrl)
+{
+    return Collective.Utils.Settings.DataServerFormat.format(dataUrl);
+};
+
 Collective.Utils.NullOrEmpty = function (value, isCollection) {
     if (isCollection)
         return value != null && value != undefined && value.length > 0 ? value : [];

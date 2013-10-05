@@ -26,7 +26,9 @@ Collective.Translations = {
         Email: "Email",
         ConfirmPassword: "Confirmar contraseña",
         HeaderLogin: "Para continuar es necesario hacer login, si no cuentas con una cuenta registrate!",
-        HeaderRegister: "No tienes una cuenta? Registrate!"
+        HeaderRegister: "No tienes una cuenta? Registrate!",
+        LoginAndRegister: "Login & Registro",
+        AdminAccess: "Acceso a administración"
     },
     ENG: {
         Galleries: "Galleries",
@@ -53,7 +55,9 @@ Collective.Translations = {
         Email: "Email",
         ConfirmPassword: "Confirm password",
         HeaderLogin: "In order to proceed with your order. First you need to login or if you don´t have an account, register!",
-        HeaderRegister: "Don´t have an Account? Register!"
+        HeaderRegister: "Don´t have an Account? Register!",
+        LoginAndRegister: "Login & Register",
+        AdminAccess: "Admininistraton Access"
     },
     Get: function (key)
     {

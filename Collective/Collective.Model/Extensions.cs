@@ -38,5 +38,25 @@ namespace Collective.Model
 
             return contextResponse;
         }
+
+        public static string Get(this Resources resource)
+        {
+            using (Context db = new Context())
+            {
+                Resource element = db
+                .Resources
+                .FirstOrDefault(item => item.ResourceId == (int)resource);
+
+                if (element != null && element.ResourceId > 0)
+                    return element.Value;
+            }
+            return string.Empty;
+        }
+    }
+
+    public enum Resources
+    {
+        AboutUS = 1,
+        TermsAndConditions = 2
     }
 }

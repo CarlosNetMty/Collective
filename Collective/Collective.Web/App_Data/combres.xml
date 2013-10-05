@@ -85,7 +85,7 @@
       <resource path="~/scripts/Home/Gallery.js" />
       <resource path="~/scripts/Home/Detail.js" />
       <resource path="~/scripts/Home/Login.js" />
-      <resource path="~/scripts/Home/Register.js" />
+      <resource path="~/scripts/Home/About.js" />
 
       <!--Adminstration-->
       <resource path="~/scripts/Admin/Header.js" />

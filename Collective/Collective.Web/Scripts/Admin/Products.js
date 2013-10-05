@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Admin.Products = {
-        DataUrl: "/Admin/Stock",
+        DataUrl: "Admin/Stock",
         Server: true,
         ViewModel: {},
         View: {},

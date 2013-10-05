@@ -2,7 +2,7 @@
 
 (function () {
     Collective.Admin.Artists = {
-        DataUrl: "/Admin/Contributors",
+        DataUrl: "Admin/Contributors",
         Server: true,
         ViewModel: {},
         View: {},

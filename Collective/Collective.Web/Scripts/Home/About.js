@@ -1,9 +1,9 @@
-﻿jQuery.namespace("Collective.Admin");
+﻿jQuery.namespace("Collective.Home");
 
 (function () {
-    Collective.Admin.Header = {
-        DataUrl: "Home/CurrentUser",
-        Server: true,
+    Collective.Home.About = {
+        DataUrl: "Home/About",
+        Server: false,
         ViewModel: {},
         View: {},
         Load: function (control) {
@@ -12,11 +12,9 @@
             self.View = control;
 
             //initializarion callback
-            function init(data) {
-                self.ViewModel = new Collective.ViewModels.User(data);
-                
-                self.ViewModel.WelcomeMessage = "Welcome {0}".format(self.ViewModel.UserName());
-                ko.applyBindings(self.ViewModel, control.context);
+            function init() {
+                var content = self.View.find("[name='Content']").val();
+                self.View.find("div:first").html(content);
             }
 
             //Get server data (if needed)
@@ -26,3 +24,4 @@
         }
     };
 })(jQuery);
+
