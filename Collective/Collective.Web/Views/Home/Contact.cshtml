@@ -1,1 +1,45 @@
-﻿
+﻿<div data-type="module" data-module="Collective.Home.Contact">
+
+    <aside class="gallery">		        	
+		            
+        <h2 data-key="Contact"></h2>
+	    <p>
+            In the Contemporary Art category you can discover up-and-coming artist who have recently entered the Art Market and have impressed COLECTIVA with their innovative concepts. Their works are usually displayed in local galleries and museums.
+            Their works are usually displayed in local galleries and museums.
+        </p>
+        <a href="mailto:info@colectiva.com">info@colectiva.com</a>
+    </aside>
+
+    <section class="contact" >        	
+
+        <div class="col-left">
+            <label data-key="Name"></label>
+            <input type="text" data-bind="value: Name" />
+
+            <label data-key="Email"></label>
+            <input type="text" data-bind="value: Email" />
+                
+            <label data-key="Phone"></label>
+            <input type="text" data-bind="value: Phone" />
+
+            <label data-key="Message"></label>
+            <textarea data-bind="value: Message"></textarea>                        
+        
+            <ul class="controls">
+                <li>
+                    <a href="#" class="next" data-key="Send" data-bind="click: Send"></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-right">
+            <!-- Responsive iFrame -->
+            <div class="map">
+                <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ch/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=Bern&amp;aq=&amp;sll=46.813187,8.22421&amp;sspn=3.379772,8.453979&amp;ie=UTF8&amp;hq=&amp;hnear=Bern&amp;t=m&amp;z=12&amp;ll=46.947922,7.444608&amp;output=embed&amp;iwloc=near"></iframe>
+            </div>           
+            <a href="#" data-key="ViewLargerMap"></a>
+        </div>  
+
+    </section>
+
+</div>

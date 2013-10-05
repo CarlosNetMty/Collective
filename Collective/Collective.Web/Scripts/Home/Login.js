@@ -95,3 +95,13 @@ Collective.ViewModels.Login = function () {
 
     self.Register  = new Collective.ViewModels.Register();
 }
+
+Collective.ViewModels.Register = function () {
+    // ViewModel
+    var self = this;
+
+    self.Username = ko.observable();
+    self.Password = ko.observable();
+    self.ConfirmPassword = ko.observable();
+    self.Email = ko.observable();
+}

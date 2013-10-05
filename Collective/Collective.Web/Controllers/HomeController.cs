@@ -260,6 +260,20 @@ namespace Collective.Web.Controllers
         }
         #endregion
 
+        #region Contact
+
+        [HttpPost]
+        public JsonResult SendMessage(string name, string email, string phone, string message) 
+        {
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = true
+            };
+        }
+
+        #endregion
+
         #region Utileries
 
         void SetUserAsCurrent(User user) 

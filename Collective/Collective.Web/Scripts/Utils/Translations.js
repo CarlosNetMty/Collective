@@ -28,7 +28,12 @@ Collective.Translations = {
         HeaderLogin: "Para continuar es necesario hacer login, si no cuentas con una cuenta registrate!",
         HeaderRegister: "No tienes una cuenta? Registrate!",
         LoginAndRegister: "Login & Registro",
-        AdminAccess: "Acceso a administración"
+        AdminAccess: "Acceso a administración",
+        Name: "Nombre",
+        Phone: "Telefono",
+        Message: "Mensaje",
+        Send: "Enviar",
+        ViewLargerMap: "Ver en Grande"
     },
     ENG: {
         Galleries: "Galleries",
@@ -57,7 +62,12 @@ Collective.Translations = {
         HeaderLogin: "In order to proceed with your order. First you need to login or if you don´t have an account, register!",
         HeaderRegister: "Don´t have an Account? Register!",
         LoginAndRegister: "Login & Register",
-        AdminAccess: "Admininistraton Access"
+        AdminAccess: "Admininistraton Access",
+        Name: "Name",
+        Phone: "Phone",
+        Message: "Message",
+        Send: "Send",
+        ViewLargerMap: "View Larger Map"
     },
     Get: function (key)
     {

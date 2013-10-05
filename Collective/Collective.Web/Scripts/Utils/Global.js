@@ -86,7 +86,8 @@ Collective.Global.Post = function (url, data, callback)
         dataType: "json",
         success: function (response)
         {
-            callback(response);
+            if($.isFunction(callback))
+                callback(response);
         },
         error: function ()
         {
