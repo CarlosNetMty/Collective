@@ -14,3 +14,11 @@ C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\obj\Release\Collective.Data.csprojResolveAssemblyReference.cache
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\obj\Release\Collective.Model.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\obj\Release\Collective.Model.pdb
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\bin\Release\Collective.Model.dll.config
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\bin\Release\Collective.Model.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\bin\Release\Collective.Model.pdb
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\bin\Release\EntityFramework.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\bin\Release\EntityFramework.xml
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\obj\Release\Collective.Data.csprojResolveAssemblyReference.cache
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\obj\Release\Collective.Model.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\obj\Release\Collective.Model.pdb

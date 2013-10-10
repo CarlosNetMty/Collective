@@ -15,3 +15,9 @@ C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\bin\Debug\Collectiv
 C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\bin\Debug\Collective.Console.pdb
 C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\obj\Debug\Collective.Console.exe
 C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Console\obj\Debug\Collective.Console.pdb
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Console\bin\Debug\Collective.Console.exe.config
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Console\bin\Debug\Collective.Console.exe
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Console\bin\Debug\Collective.Console.pdb
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Console\obj\Debug\Collective.Console.csprojResolveAssemblyReference.cache
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Console\obj\Debug\Collective.Console.exe
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Console\obj\Debug\Collective.Console.pdb

@@ -39,17 +39,23 @@ namespace Collective.Model
             return contextResponse;
         }
 
-        public static string Get(this Resources resource)
+        public static string GetResource(this Resources resource)
+        {
+            return GetResource((int)resource);
+        }
+
+        public static string GetResource(int resource) 
         {
             using (Context db = new Context())
             {
                 Resource element = db
                 .Resources
-                .FirstOrDefault(item => item.ResourceId == (int)resource);
+                .FirstOrDefault(item => item.ResourceId == resource);
 
                 if (element != null && element.ResourceId > 0)
                     return element.Value;
             }
+
             return string.Empty;
         }
     }

@@ -63,8 +63,8 @@ namespace Collective.Web.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = new
                 { 
-                    About = Resources.AboutUS.Get(),
-                    Conditions = Resources.TermsAndConditions.Get()
+                    About = Model.Resources.AboutUS.GetResource(),
+                    Conditions = Model.Resources.TermsAndConditions.GetResource()
                 }
             };
         }

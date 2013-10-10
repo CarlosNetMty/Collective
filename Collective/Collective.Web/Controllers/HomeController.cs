@@ -20,6 +20,11 @@ namespace Collective.Web.Controllers
         }
         #endregion
 
+        #region Constants
+        public const int RESOURCE_ABOUT_US_ID = 1;
+        public const int RESOURCE_TERMS_ID = 2;
+        #endregion
+
         #region Views & Partials
         public ActionResult Index() { return View(); }
         public ActionResult Gallery() { return View(); }
@@ -29,8 +34,8 @@ namespace Collective.Web.Controllers
         public PartialViewResult Login() { return PartialView(); }
         public PartialViewResult Register() { return PartialView(); }
 
-        public ActionResult About() { return View((object)Resources.AboutUS.Get()); }
-        public ActionResult Conditions() { return View((object)Resources.TermsAndConditions.Get()); }
+        public ActionResult About() { return View((object)Model.Extensions.GetResource(RESOURCE_ABOUT_US_ID)); }
+        public ActionResult Conditions() { return View((object)Model.Extensions.GetResource(RESOURCE_TERMS_ID)); }
 
         public ActionResult Contact() { return View(); }
         #endregion
