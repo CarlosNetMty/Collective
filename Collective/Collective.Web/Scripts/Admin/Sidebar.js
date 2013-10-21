@@ -15,12 +15,12 @@
             function init(data) {
 
                 var elements = [
-                    { title: "Production Report", url: "/Admin" }, 
                     { title: "Users", url: "/Admin/Users" },
                     { title: "Products", url: "/Admin/Products" },
                     { title: "Artists", url: "/Admin/Artists" },
                     { title: "Cover Images", url: "/Admin/Cover" },
-                    { title: "Static Content", url: "/Admin/Content" }
+                    { title: "Static Content", url: "/Admin/Content" },
+                    { title: "Production Report", url: "/Admin" }
                 ];
 
                 self.ViewModel = new Collective.ViewModels.AdminSidebar(elements);

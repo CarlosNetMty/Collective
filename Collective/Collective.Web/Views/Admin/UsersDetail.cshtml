@@ -2,8 +2,49 @@
 
 @{
     ViewBag.Title = "User Detail";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Administration.cshtml";
 }
 
-<h2>UsersDetail</h2>
-<h3>Current Index: @Model</h3>
+@*data-type="module"*@
+<div data-module="Collective.Admin.UserDetail">
+
+    <div class="row">
+        
+        <div class="large-7 columns">
+
+            @* *** Purchase History *** *@
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: History">
+                    <tr>
+                        <td data-bind="text: Date"></td>
+                        <td data-bind="text: Status"></td>
+                        <td data-bind="text: Amount"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="large-5 columns detalle-compra">
+
+            <small>User ID</small>
+            <span data-bind="text: UserID"></span>
+            <small>Name</small>
+            <span data-bind="text: Name"></span>
+            <small>Email</small>
+            <span data-bind="text: Email"></span>
+
+            <ul class="button-group">
+                <li><a href="#" class="small button cancel">Deactivate</a></li>
+                <li><a href="#" class="small button">Reset Password</a></li>
+            </ul>      
+        </div>
+
+    </div>
+</div>

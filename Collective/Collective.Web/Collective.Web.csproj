@@ -325,7 +325,7 @@
     <Content Include="Views\Home\Header.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_Administration.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Sidebar.cshtml" />
     <Content Include="Views\Admin\Footer.cshtml" />

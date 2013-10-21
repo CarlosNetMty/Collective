@@ -1,9 +1,12 @@
 ﻿@{
     ViewBag.Title = "User Administration";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Administration.cshtml";
 }
 
 <div data-type="module" data-module="Collective.Admin.Users">
+    <div style="text-align: right; position: absolute; top: -10px; right: 10px;">
+        <button data-bind="click: GoToNew">New</button>
+    </div>
     <table style="width: 100%">
         <thead>
             <tr>

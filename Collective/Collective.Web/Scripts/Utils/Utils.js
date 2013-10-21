@@ -30,6 +30,14 @@ Collective.Utils.NullOrEmpty = function (value, isCollection) {
         return value != null && value != undefined ? value : {};
 }
 
+Collective.Utils.Navigate = function (relativeUrl)
+{
+    var location = window.location;
+    var redirectTo = "{0}//{1}/{2}".format(location.protocol, location.host, relativeUrl);
+
+    window.location = redirectTo;
+};
+
 $(document).ready(function () {
     //Store language when changed
     Collective.Global.LanguageCallbacks.add(function () {
