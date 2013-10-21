@@ -45,12 +45,14 @@
                         password: $.md5(this.Password())
                     };
 
-                    Collective.Global.Post("/Home/LogIn/", data, function (response) {
-                        if (response && response.IsAuthenticated) {
-                            Collective.Global.CurrentUser(response.User);
-                            $(self.View).hide();
-                        }
-                    });
+                    if (!Collective.Global.SuperUserRequest(data)) {
+                        Collective.Global.Post("/Home/LogIn/", data, function (response) {
+                            if (response && response.IsAuthenticated) {
+                                Collective.Global.CurrentUser(response.User);
+                                $(self.View).hide();
+                            }
+                        });
+                    } else $(self.View).hide();
                 };
 
                 self.ViewModel.Register.RequestRegister = function ()

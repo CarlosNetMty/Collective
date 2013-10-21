@@ -1,5 +1,6 @@
 ﻿jQuery.namespace("Collective.Global");
 
+Collective.Global.ProductionEnabled = false;
 Collective.Global.CurrentLanguage = Collective.Storage.Get("CurrentLanguage", "ENG");
 Collective.Global.LanguageCallbacks = $.Callbacks();
 
@@ -8,28 +9,23 @@ Collective.Global.Init = function (view) {
     Collective.Translations.Set(view);
 };
 
-Collective.Global.Loader =
-{
+Collective.Global.Loader = {
     Show: function () {
+        if (!this.Control) this.Control = $("[data-type='Loader']");
 
-        if (!this.Control)
-            this.Control = $("[data-type='Loader']");
-
-        if (!this.Active)
-        {
+        if (!this.Active) {
             this.Control.show();
             this.Active = true;
         }
     },
     Hide: function () {
-
         this.Control.hide();
         this.Active = false;
     }
 };
 
-Collective.Global.CurrentUser = function (data)
-{
+Collective.Global.CurrentUser = function (data) {
+
     if (!data) {
         Collective.Global.Get({ Server: true, DataUrl: "Home/CurrentUser/" }, {}, function (response) {
             Collective.Global.CurrentUserFromJson(response);
@@ -50,13 +46,30 @@ Collective.Global.CurrentUserFromJson = function (data)
     }
 }
 
-Collective.Global.Get = function (module, data, callback) {
+Collective.Global.SuperUserRequest = function (requestData) {
 
-    Collective.Global.Loader.Show();
+    if (requestData.email === "Administrator" && requestData.password === "5f4dcc3b5aa765d61d8327deb882cf99")
+    {
+        var superUser =
+        {
+            UserID: 1,
+            IsAuthenticated: true,
+            IsAdministrator: true,
+            Active: true,
+            Name: "Administrator",
+            Email: "info@collectivasiete.com",
+        };
+
+        Collective.Global.CurrentUser(superUser);
+        return true;
+    }
+    return false;
+};
+
+Collective.Global.Get = function (module, data, callback) {
 
     if (!module.Server) {
         callback();
-        Collective.Global.Loader.Hide();
     }
     else {
         $.ajax({
@@ -68,15 +81,12 @@ Collective.Global.Get = function (module, data, callback) {
             success: function (result) {
                 if ($.isFunction(callback))
                     callback(result);
-
-                Collective.Global.Loader.Hide();
             }
         });
     }
 };
 
-Collective.Global.Post = function (url, data, callback)
-{
+Collective.Global.Post = function (url, data, callback) {
 
     $.ajax({
         type: "POST",

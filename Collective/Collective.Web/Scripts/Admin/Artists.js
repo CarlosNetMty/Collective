@@ -15,11 +15,13 @@
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Collection(data);
                 self.ViewModel.GoToDetail = function (item) {
-                    var location = window.location;
-                    var redirectTo = "{0}//{1}/{2}/{3}".format(location.protocol, location.host, "Admin/Artists", item.Id);
 
-                    window.location = redirectTo;
+                    Collective.Utils.Navigate("{0}/{1}".format("Admin/Artists", item.Id));
                 }
+                self.ViewModel.GoToNew = function () {
+
+                    Collective.Utils.Navigate("Admin/Artists/0");
+                };
                 ko.applyBindings(self.ViewModel, control.context);
             }
 

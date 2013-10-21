@@ -9,6 +9,13 @@ String.prototype.format = String.prototype.format = function () {
     return s;
 };
 
+Number.prototype.padLeft = function (n, str) {
+    return (this < 0 ? '-' : '') +
+            Array(n - String(Math.abs(this)).length + 1)
+             .join(str || '0') +
+           (Math.abs(this));
+};
+
 //Module LIKE
 jQuery.namespace("Collective.Utils");
 
@@ -30,12 +37,21 @@ Collective.Utils.NullOrEmpty = function (value, isCollection) {
         return value != null && value != undefined ? value : {};
 }
 
-Collective.Utils.Navigate = function (relativeUrl)
-{
+Collective.Utils.Navigate = function (relativeUrl) {
+
     var location = window.location;
     var redirectTo = "{0}//{1}/{2}".format(location.protocol, location.host, relativeUrl);
 
     window.location = redirectTo;
+};
+
+Collective.Utils.CurrentObject = function () {
+
+    var path = window.location.pathname.split('/');
+    if (path.length > 3)
+        return path[3];
+
+    return -1;
 };
 
 $(document).ready(function () {

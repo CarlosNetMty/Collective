@@ -15,16 +15,12 @@
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Artist(data);
                 self.ViewModel.GoToDetail = function (item) {
-                    var location = window.location;
-                    var redirectTo = "{0}//{1}/{2}/{3}".format(location.protocol, location.host, "Admin/Products", item.Id);
 
-                    window.location = redirectTo;
+                    Collective.Utils.Navigate("{0}/{1}".format("Admin/Products", item.Id));
                 }
                 self.ViewModel.Cancel = function () {
-                    var location = window.location;
-                    var redirectTo = "{0}//{1}/{2}".format(location.protocol, location.host, "Admin/Artists");
 
-                    window.location = redirectTo;
+                    Collective.Utils.Navigate("Admin/Artists");
                 }
                 self.ViewModel.Save = function () {
                     debugger;
@@ -33,7 +29,7 @@
             }
 
             //Get server data (if needed)
-            Collective.Global.Get(this, { id: 1 }, init);
+            Collective.Global.Get(this, { id: Collective.Utils.CurrentObject() }, init);
             //Custom Controls (include translations)
             Collective.Global.Init(this.View);
         }

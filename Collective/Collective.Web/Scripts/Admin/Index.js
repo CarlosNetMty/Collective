@@ -8,6 +8,10 @@
         View: {},
         Load: function (control) {
 
+            if (!Collective.Global.ProductionEnabled)
+                Collective.Utils.Navigate("Admin/Products");
+
+
             //Initial set
             var self = this;
             self.View = control;
