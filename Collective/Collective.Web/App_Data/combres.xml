@@ -17,43 +17,23 @@
                 remoteChangeMonitorInterval="60"
                 >
     <resourceSet name="styles" type="css">
-      <!--<resource path="~/content/c7css.css" />-->
       <resource path="~/content/normalize.css" />      
       <resource path="~/content/main.css" />
+      <resource path="~/content/jnotify.css" />
     </resourceSet>
 
     <resourceSet name="adminStyles" type="css">
       <resource path="~/content/foundation.css" />
-      <resource path="~/content/jquery-te-1.4.0.css" />
+      <resource path="~/content/jquery-te.css" />
     </resourceSet>
 
     <resourceSet name="scripts" type="js">
-      <!--<resource path="~/scripts/framework/modernizr-2.0.6-development-only.js" />-->
       <resource path="~/scripts/framework/modernizr-2.6.2.min.js" />
       <resource path="~/scripts/framework/jquery-1.10.2.min.js" />
     </resourceSet>
 
     <resourceSet name="framework" type="js">
-      <resource path="~/scripts/framework/jquery-ui-1.10.3.js" />
-      <resource path="~/scripts/framework/jquery.validate.js" />
-      <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
-      <resource path="~/scripts/framework/knockout-2.3.0.js" />
-      <resource path="~/scripts/framework/jquery.linq.js" />
-      <resource path="~/scripts/framework/jquery.slabtext.js" />
-      <resource path="~/scripts/framework/jquery.noty.js" />
-      <resource path="~/scripts/framework/json2.js" />
-      <resource path="~/scripts/framework/jstorage.js" />
-      <resource path="~/scripts/framework/jquery.timers.js" />
-      <resource path="~/scripts/framework/plugins.js" />
-      <resource path="~/scripts/framework/jquery.fancybox.pack.js" />
-      <resource path="~/scripts/framework/jquery.isotope.min.js" />
-      <resource path="~/scripts/framework/jquery.md5.js" />
-      <resource path="~/scripts/framework/jquery-te-1.4.0.min.js" />
-      <resource path="~/scripts/namespace.js" />
-    </resourceSet>
-
-    <resourceSet name="adminFramework" type="js">
-      <resource path="~/scripts/framework/jquery-ui-1.8.11.js" />
+      <!--<resource path="~/scripts/framework/jquery-ui-1.10.3.js" />-->
       <resource path="~/scripts/framework/jquery.validate.js" />
       <resource path="~/scripts/framework/jquery.validate.unobtrusive.js" />
       <resource path="~/scripts/framework/knockout-2.3.0.js" />
@@ -67,6 +47,9 @@
       <resource path="~/scripts/framework/jquery.isotope.min.js" />
       <resource path="~/scripts/framework/foundation.js" />
       <resource path="~/scripts/framework/jquery-te-1.4.0.min.js" />
+      <resource path="~/scripts/framework/jNotify.jquery.js" />
+      <resource path="~/scripts/framework/jquery.noty.js" />
+      <resource path="~/scripts/framework/jquery.md5.js" />
       <resource path="~/scripts/namespace.js" />
     </resourceSet>    
     
