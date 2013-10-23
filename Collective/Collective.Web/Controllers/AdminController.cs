@@ -245,15 +245,17 @@ namespace Collective.Web.Controllers
 
                 var data = new
                 {
-                    AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository),
-                    AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository),
+                    AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
+                    AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
                     Tags = instance.Tags.Select(item => item.TagId).ToList(),
-                    AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository),
+                    AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository, false),
                     Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
-                    AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository),
+                    AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository, false),
                     Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
                     ArtistId = instance.Artist.ArtistId,
                     Price = instance.Price,
+                    PhotoURL = instance.PhotoUrl,
+                    UseAsCover = instance.UseAsBackground,
                     Spanish = new
                     {
                         Name = "Panorama",
@@ -356,6 +358,28 @@ namespace Collective.Web.Controllers
                 { 
                     Result = 1
                 }
+            };
+        }
+
+        [HttpPost]
+        public JsonResult RemoveBackground(int id) 
+        {
+
+            Item element = default(Item);
+            Repository.GetAll((IQueryable<Item> response) =>
+            {
+                element = (from item in response
+                            where item.ItemId == id
+                            select item).FirstOrDefault();
+            });
+
+            element.UseAsBackground = false;
+            Repository.Update(element);
+
+            return new JsonResult
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = new { Success = true }
             };
         }
 

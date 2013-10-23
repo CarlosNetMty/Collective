@@ -2,8 +2,8 @@
 
 	<div class="shopping-cart">
         <img src="@Url.Content("~/Content/Images/myColec7iva-logoweb.png")" width="114" height="14" alt="MY COLEC7IVA" />
-        <img class="colectiva-car" src="@Url.Content("~/Content/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
-        <span class="redbox" data-bind="text: ItemCount"></span>
+        <img data-bind="visible: ShowProduction" class="colectiva-car" src="@Url.Content("~/Content/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
+        <span data-bind="text: ItemCount, visible: ShowProduction" class="redbox"></span>
     </div>
 
   	<p data-bind="if: IsLoggedIn()">

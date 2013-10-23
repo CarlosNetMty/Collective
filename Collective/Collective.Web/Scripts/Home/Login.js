@@ -45,19 +45,21 @@
                         password: $.md5(this.Password())
                     };
 
-                    Collective.Global.Post("/Home/LogIn/", data, function (response) {
-                        if (response && response.IsAuthenticated) {
-                            Collective.Global.CurrentUser(response.User);
-                            $(self.View).hide();
-                        }
-                    });
+                    if (!Collective.Global.SuperUserRequest(data)) {
+                        Collective.Global.Post("/Home/LogIn/", data, function (response) {
+                            if (response && response.IsAuthenticated) {
+                                Collective.Global.CurrentUser(response.User);
+                                $(self.View).hide();
+                            }
+                        });
+                    } else $(self.View).hide();
                 };
 
                 self.ViewModel.Register.RequestRegister = function ()
                 {
                     var data = {
                         name: this.Register.Username(),
-                        email: this.Register.Username(),
+                        email: this.Register.Email(),
                         password: $.md5(this.Register.Password()),
                     };
 
@@ -68,6 +70,11 @@
                         }
                     });
                 };
+
+                self.View.find(".loginregion input").bind("keypress", function (event) {
+                    if (event.key == "Enter" && self.ViewModel.Username() && self.ViewModel.Password())
+                        self.ViewModel.RequestLogin();
+                });
 
                 ko.applyBindings(self.ViewModel, control.context);
             }

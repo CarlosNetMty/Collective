@@ -27,6 +27,7 @@ Collective.ViewModels.Footer = function (model) {
     });
 
     self.SearchText = ko.observable("");
-
-    
+    self.ShowProduction = ko.computed(function () {
+        return Collective.Global.ProductionEnabled;
+    });
 }

@@ -9,9 +9,13 @@ Collective.ViewModels.User = function (model) {
     self.FirstName = ko.observable(model.FirstName);
     self.LastName = ko.observable(model.LastName);
     self.IsAdministrator = ko.observable(model.IsAdministrator);
+    self.Name = ko.observable(model.Name);
     //Computed
     self.UserName = ko.computed(function () {
 
-        return "{1}, {0}".format(self.FirstName(), self.LastName());
+        if (self.FirstName())
+            return "{1}, {0}".format(self.FirstName(), self.LastName());
+
+        return self.Name();
     });
 }

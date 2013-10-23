@@ -561,6 +561,8 @@ footer .login{
 	display: block;
 	color:#f7323f;
 	clear: both;
+    margin-top: -20px;
+    margin-bottom: -20px;
 }
 
 footer .login a:first-child{

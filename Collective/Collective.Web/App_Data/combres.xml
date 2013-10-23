@@ -25,6 +25,7 @@
     <resourceSet name="adminStyles" type="css">
       <resource path="~/content/foundation.css" />
       <resource path="~/content/jquery-te.css" />
+      <resource path="~/content/jnotify.css" />
     </resourceSet>
 
     <resourceSet name="scripts" type="js">
@@ -58,7 +59,7 @@
       <resource path="~/scripts/Utils/Storage.js" />      
       <resource path="~/scripts/Utils/Global.js" />
       <resource path="~/scripts/Utils/Translations.js" />
-      <resource path="~/scripts/Utils/Utils.js" />
+      <resource path="~/scripts/Utils/Utileries.js" />
       
       <!--Home-->
       <resource path="~/scripts/Sales/Index.js" />
@@ -82,6 +83,8 @@
       <resource path="~/scripts/Admin/Users.js" />
       <resource path="~/scripts/Admin/UsersDetail.js" />
       <resource path="~/scripts/Admin/Products.js" />
+      <resource path="~/scripts/Admin/ProductsDetail.js" />
+      <resource path="~/scripts/Admin/Cover.js" />
       
       <!--ViewModels-->
       <resource path="~/scripts/ViewModels/Collection.js" />

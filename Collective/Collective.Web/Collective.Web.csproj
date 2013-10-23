@@ -198,7 +198,7 @@
     <Content Include="Content\Images\myColec7iva-logoweb.png" />
     <Content Include="Content\jNotify.css" />
     <Content Include="Content\jquery-te.css" />
-    <Content Include="Content\jquery-te.png" />
+    <Content Include="Images\jquery-te.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="favicon.ico" />
@@ -237,6 +237,8 @@
     <Content Include="Scripts\Admin\Artists.js" />
     <Content Include="Scripts\Admin\ArtistsDetail.js" />
     <Content Include="Scripts\Admin\Content.js" />
+    <Content Include="Scripts\Admin\ProductsDetail.js" />
+    <Content Include="Scripts\Admin\Cover.js" />
     <Content Include="Scripts\Admin\UsersDetail.js" />
     <Content Include="Scripts\Admin\Header.js" />
     <Content Include="Scripts\Admin\Index.js" />
@@ -305,8 +307,7 @@
     <Content Include="Scripts\Utils\Global.js" />
     <Content Include="Scripts\Utils\Storage.js" />
     <Content Include="Scripts\Utils\Translations.js" />
-    <Content Include="Scripts\Utils\Utils.Functions.ToMoney.js" />
-    <Content Include="Scripts\Utils\Utils.js" />
+    <Content Include="Scripts\Utils\Utileries.js" />
     <Content Include="Scripts\ViewModels\Collection.js" />
     <Content Include="Scripts\ViewModels\Artist.js" />
     <Content Include="Scripts\ViewModels\Footer.js" />

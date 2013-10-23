@@ -28,6 +28,10 @@ namespace Collective.Model
         {
             return from data in db.Users select data;
         }
+        User IRepository<User>.Get(Context db, int id)
+        {
+            return (from data in db.Users where data.UserID == id select data).FirstOrDefault();
+        }
         User IRepository<User>.Update(Context db, User dataObject)
         {
             return db.Users.Add(dataObject);

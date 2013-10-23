@@ -19,9 +19,11 @@
                     { title: "Products", url: "/Admin/Products" },
                     { title: "Artists", url: "/Admin/Artists" },
                     { title: "Cover Images", url: "/Admin/Cover" },
-                    { title: "Static Content", url: "/Admin/Content" },
-                    { title: "Production Report", url: "/Admin" }
+                    { title: "Static Content", url: "/Admin/Content" }
                 ];
+
+                if (Collective.Global.ProductionEnabled)
+                    elements.push({ title: "Production Report", url: "/Admin" });
 
                 self.ViewModel = new Collective.ViewModels.AdminSidebar(elements);
                 ko.applyBindings(self.ViewModel, control.context);

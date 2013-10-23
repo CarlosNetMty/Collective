@@ -28,6 +28,10 @@ namespace Collective.Model
         {
             return from data in db.Artists select data;
         }
+        Artist IRepository<Artist>.Get(Context db, int id)
+        {
+            return (from data in db.Artists where data.ArtistId == id select data).FirstOrDefault();
+        }
         Artist IRepository<Artist>.Update(Context db, Artist dataObject)
         {
             return db.Artists.Add(dataObject);

@@ -28,6 +28,10 @@ namespace Collective.Model
         {
             return from data in db.Frames select data;
         }
+        Frame IRepository<Frame>.Get(Context db, int id)
+        {
+            return (from data in db.Frames where data.FrameId == id select data).FirstOrDefault();
+        }
         Frame IRepository<Frame>.Update(Context db, Frame dataObject)
         {
             return db.Frames.Add(dataObject);

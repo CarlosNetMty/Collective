@@ -1,16 +1,12 @@
 ﻿jQuery.namespace("Collective.Admin");
 
 (function () {
-    Collective.Admin.Index = {
-        DataUrl: "Admin/Production",
+    Collective.Admin.Cover = {
+        DataUrl: "Home/Cover",
         Server: true,
         ViewModel: {},
         View: {},
         Load: function (control) {
-
-            if (!Collective.Global.ProductionEnabled)
-                Collective.Utils.Navigate("Admin/Products");
-
 
             //Initial set
             var self = this;
@@ -19,12 +15,13 @@
             //menu initializarion
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Collection(data);
-                self.ViewModel.GoToDetail = function (item) {
-                    var location = window.location;
-                    var redirectTo = "{0}//{1}/{2}/{3}".format(location.protocol, location.host, "Admin/Index", item.Id);
+                self.ViewModel.Remove = function (item) {
 
-                    window.location = redirectTo;
-                }
+                    Collective.Global.Post("/Admin/RemoveBackground/", { id: item.Id }, function () {
+                        Collective.Utils.Notify("Item updated!");
+                    });
+                    self.ViewModel.Items.remove(item);
+                };
                 ko.applyBindings(self.ViewModel, control.context);
             }
 

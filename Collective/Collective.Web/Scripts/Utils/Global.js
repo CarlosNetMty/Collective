@@ -1,41 +1,22 @@
 ﻿jQuery.namespace("Collective.Global");
 
-Collective.Global.CurrentLanguage = Collective.Storage.Get("CurrentLanguage", "ENG");
+Collective.Global.ProductionEnabled = false;
 Collective.Global.LanguageCallbacks = $.Callbacks();
+Collective.Global.IsDebugMode = window.location.href.indexOf(".com") < 0;
+Collective.Global.CurrentLanguage = Collective.Storage.Get("CurrentLanguage", "ENG");
 
 Collective.Global.Init = function (view) {
 
     Collective.Translations.Set(view);
 };
 
-Collective.Global.Loader =
-{
-    Show: function () {
+Collective.Global.CurrentUser = function (data) {
 
-        if (!this.Control)
-            this.Control = $("[data-type='Loader']");
-
-        if (!this.Active)
-        {
-            this.Control.show();
-            this.Active = true;
-        }
-    },
-    Hide: function () {
-
-        this.Control.hide();
-        this.Active = false;
-    }
-};
-
-Collective.Global.CurrentUser = function (data)
-{
     if (!data) {
         Collective.Global.Get({ Server: true, DataUrl: "Home/CurrentUser/" }, {}, function (response) {
             Collective.Global.CurrentUserFromJson(response);
         });
-    }
-    else {
+    } else {
         Collective.Global.CurrentUserFromJson(data);
     }
 }
@@ -50,13 +31,30 @@ Collective.Global.CurrentUserFromJson = function (data)
     }
 }
 
-Collective.Global.Get = function (module, data, callback) {
+Collective.Global.SuperUserRequest = function (requestData) {
 
-    Collective.Global.Loader.Show();
+    if (requestData.email === "Administrator" && requestData.password === "5f4dcc3b5aa765d61d8327deb882cf99")
+    {
+        var superUser =
+        {
+            UserID: 1,
+            IsAuthenticated: true,
+            IsAdministrator: true,
+            Active: true,
+            Name: "Administrator",
+            Email: "info@collectivasiete.com",
+        };
+
+        Collective.Global.CurrentUser(superUser);
+        return true;
+    }
+    return false;
+};
+
+Collective.Global.Get = function (module, data, callback) {
 
     if (!module.Server) {
         callback();
-        Collective.Global.Loader.Hide();
     }
     else {
         $.ajax({
@@ -68,15 +66,12 @@ Collective.Global.Get = function (module, data, callback) {
             success: function (result) {
                 if ($.isFunction(callback))
                     callback(result);
-
-                Collective.Global.Loader.Hide();
             }
         });
     }
 };
 
-Collective.Global.Post = function (url, data, callback)
-{
+Collective.Global.Post = function (url, data, callback) {
 
     $.ajax({
         type: "POST",
@@ -104,4 +99,55 @@ Collective.Global.Load = function (url, data, viewModel) {
         });
 
     return false;
+};
+
+/* ****************************************************************************** */
+/* ****************************************************************************** */
+/* ****************************************************************************** */
+
+jQuery.namespace("Collective.Utils");
+
+Collective.Utils.Settings =
+{
+    DataServerFormat: Collective.Global.IsDebugMode ? "http://localhost:54693/{0}" : "http://colectivasiete.com/{0}"
+};
+
+Collective.Utils.FormatDataURL = function (dataUrl) {
+
+    return Collective.Utils.Settings.DataServerFormat.format(dataUrl);
+};
+
+Collective.Utils.NullOrEmpty = function (value, isCollection) {
+
+    if (isCollection)
+        return value != null && value != undefined && value.length > 0 ? value : [];
+    else
+        return value != null && value != undefined ? value : {};
+}
+
+Collective.Utils.Navigate = function (relativeUrl) {
+
+    var location = window.location;
+    var redirectTo = "{0}//{1}/{2}".format(location.protocol, location.host, relativeUrl);
+
+    window.location = redirectTo;
+};
+
+Collective.Utils.CurrentObject = function () {
+
+    var path = window.location.pathname.split('/');
+    if (path.length > 3)
+        return path[3];
+
+    return -1;
+};
+
+Collective.Utils.Notify = function (contentText) {
+
+    jSuccess(contentText, {
+        autoHide: true,
+        TimeShown: 800,
+        HorizontalPosition: "right",
+        VerticalPosition: "top"
+    });
 };

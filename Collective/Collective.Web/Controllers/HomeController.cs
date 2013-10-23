@@ -79,8 +79,10 @@ namespace Collective.Web.Controllers
                 var data = (from item in response
                             where item.UseAsBackground
                             select new { 
+                                Id = item.ItemId,
                                 Name = item.Description,
-                                PhotoUrl = item.PhotoUrl
+                                PhotoUrl = item.PhotoUrl,
+                                Artist = item.Artist.Name
                             }).ToList();
 
                 result = data.OfType<object>();

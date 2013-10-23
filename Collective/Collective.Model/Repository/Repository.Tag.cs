@@ -28,6 +28,10 @@ namespace Collective.Model
         {
             return from data in db.Tags select data;
         }
+        Tag IRepository<Tag>.Get(Context db, int id)
+        {
+            return (from data in db.Tags where data.TagId == id select data).FirstOrDefault();
+        }
         Tag IRepository<Tag>.Update(Context db, Tag dataObject)
         {
             return db.Tags.Add(dataObject);

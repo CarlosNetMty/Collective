@@ -22,10 +22,14 @@ namespace Collective.Model
         }
         #endregion
 
-        #region IRepository<Artist> Implementation
+        #region IRepository<Item> Implementation
         IQueryable<Item> IRepository<Item>.GetAll(Context db)
         {
             return from data in db.Items select data;
+        }
+        Item IRepository<Item>.Get(Context db, int id) 
+        { 
+            return (from data in db.Items where data.ItemId == id select data).FirstOrDefault();
         }
         Item IRepository<Item>.Update(Context db, Item dataObject)
         {

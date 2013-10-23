@@ -5,5 +5,69 @@
     Layout = "~/Views/Shared/_Administration.cshtml";
 }
 
-<h2>ProductsDetail</h2>
-<h3>Current Index: @Model</h3>
+
+<div data-type="module" data-module="Collective.Admin.ProductsDetail">
+
+    <div class="custom">
+
+        <div class="row">
+
+            <div class="large-6 columns">
+                <label>Artist</label>
+                <select data-bind="options: AvailableArtists, value: ArtistId, optionsText: 'Name', optionsValue: 'Id'"></select>
+            </div>
+
+            <div class="large-6 columns">
+                <label>Unit price</label>
+                <input type="text" data-bind="text: Price" placeholder="US Dollars"> 
+            </div>
+        </div>
+                
+	    <div class="row">
+
+            <div class="large-6 columns" data-bind="with: English">
+                <label>Product Name - (English)</label>
+                <input type="text" data-bind="value: Name" placeholder="">
+            </div>
+
+            <div class="large-6 columns" data-bind="with: Spanish">
+                <label>Product Name - (Spanish)</label>
+                <input type="text" data-bind="value: Name" placeholder="">                 
+            </div>
+        </div>
+                
+	    <div class="row">
+
+            <div class="large-6 columns" data-bind="with: English">
+                <label>Product Description - (English)</label>
+                <textarea data-bind="value: Description"></textarea>
+            </div>
+
+            <div class="large-6 columns" data-bind="with: Spanish">
+                <label>Product Description - (Spanish)</label>
+                <textarea data-bind="value: Description"></textarea>
+            </div>
+        </div>    
+
+        <div class="small-9 columns no-padd" style="width: 100%;">
+            <label>Meta Title</label><input type="text" placeholder="" data-bind="value: MTitle"> 
+            <label>Meta Description</label><input type="text" placeholder="" data-bind="value: MDescription"> 
+            <label>Meta Tags</label><input type="text" placeholder="" data-bind="value: MTags"> 
+        </div>  
+
+        <div class="small-9 columns no-padd" style="width: 100%;">
+            <label>Image URL</label><input type="text" placeholder="" data-bind="value: PhotoURL"> 
+        </div>  
+
+        <div class="small-12 columns">
+            <label>
+                <input type="checkbox" data-bind="checked: UseAsCover">
+                <span class="custom radio"></span> Asign to cover images list
+            </label>     
+        </div>
+
+        <button class="button" data-bind="click: Save">Guardar Producto</button>
+        <button class="button disabled" data-bind="click: Cancel">Cancelar</button>
+             
+    </div>
+</div>

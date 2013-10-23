@@ -14,8 +14,11 @@
             //initializarion callback
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.User(data);
-                
-                self.ViewModel.WelcomeMessage = "Welcome {0}".format(self.ViewModel.UserName());
+                self.ViewModel.WelcomeMessage = "Welcome {0}".format(data.IsLoggedIn ? self.ViewModel.UserName() : "back!");
+
+                //if (!self.ViewModel.IsLoggedIn)
+                //    Collective.Utils.Navigate("/");
+
                 ko.applyBindings(self.ViewModel, control.context);
             }
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Collective.Model
 {
-    public class FakeRepository : IRepository
+    public class FakeRepository
     {
 
         #region Interface Implementation
@@ -158,6 +158,10 @@ namespace Collective.Model
             throw new NotImplementedException();
         }
         public Artist Update(Artist dataObject)
+        {
+            throw new NotImplementedException();
+        }
+        public Item Update(Item dataObject)
         {
             throw new NotImplementedException();
         }

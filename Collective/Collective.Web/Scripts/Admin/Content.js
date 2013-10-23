@@ -15,9 +15,9 @@
             //menu initializarion
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Content(data);
-                self.View.find("textarea").jqte();
-
                 ko.applyBindings(self.ViewModel, control.context);
+
+                self.View.find("textarea").jqte();
             }
 
             //Get server data (if needed)

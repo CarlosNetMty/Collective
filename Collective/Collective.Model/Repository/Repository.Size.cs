@@ -28,6 +28,10 @@ namespace Collective.Model
         {
             return from data in db.Sizes select data;
         }
+        Size IRepository<Size>.Get(Context db, int id)
+        {
+            return (from data in db.Sizes where data.SizeId == id select data).FirstOrDefault();
+        }
         Size IRepository<Size>.Update(Context db, Size dataObject)
         {
             return db.Sizes.Add(dataObject);
