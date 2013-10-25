@@ -14,6 +14,10 @@
             //menu initializarion
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Collection(data);
+                self.ViewModel.GoToNew = function () {
+
+                    Collective.Utils.Navigate("Admin/Products/0");
+                };
                 self.ViewModel.GoToDetail = function (item) {
                     var location = window.location;
                     var redirectTo = "{0}//{1}/{2}/{3}".format(location.protocol, location.host, "Admin/Products", item.Id);

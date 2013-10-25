@@ -108,6 +108,8 @@ namespace Collective.Web.Controllers
 
                 var data = new
                 {
+                    ItemId = instance.ItemId,
+                    Meta = instance.Meta,
                     AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
                     AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
                     Tags = instance.Tags.Select(item => item.TagId).ToList(),
@@ -122,13 +124,13 @@ namespace Collective.Web.Controllers
                     PhotoUrl = instance.PhotoUrl,
                     Spanish = new
                     {
-                        Name = "Panorama",
-                        Description = "Esta es una prueba de un paisaje"
+                        Name = "N/A",
+                        Description = "Feature not available yet!"
                     },
                     English = new
                     {
-                        Name = "Landscape",
-                        Description = "This is a landscape test"
+                        Name = "N/A",
+                        Description = "Feature not available yet!"
                     },
                     Related = new List<string>()
                 };

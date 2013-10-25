@@ -108,8 +108,10 @@ Collective.ViewModels.Gallery = function (model) {
     {
         $.each(collection, function ()
         {
-            arguments[1].Text = arguments[1].Name == "*" ? "All" : arguments[1].Name;
-            arguments[1].Name = arguments[1].Name == "*" ? "*" : ".{0}".format(arguments[1].Name.replace(" ", ""));
+            if (arguments[1].Text) {
+                arguments[1].Text = arguments[1].Name == "*" ? "All" : arguments[1].Name;
+                arguments[1].Name = arguments[1].Name == "*" ? "*" : ".{0}".format(arguments[1].Name.replace(" ", ""));
+            }
         });
     }
 

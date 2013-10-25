@@ -116,6 +116,7 @@ namespace Collective.Web.Controllers
                         new { Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large" },
                         new { Amount = 9999.99, Quantity = 1, Frame = "Classic", Size = "Large" },
                     },
+                    ItemId = 10001,
                     UserId = 10001,
                     UserName = "John Doe",
                     Date = DateTime.Now.AddDays(-20),
@@ -245,6 +246,8 @@ namespace Collective.Web.Controllers
 
                 var data = new
                 {
+                    ItemId = instance.ItemId,
+                    Meta = instance.Meta,
                     AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
                     AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
                     Tags = instance.Tags.Select(item => item.TagId).ToList(),
@@ -258,13 +261,13 @@ namespace Collective.Web.Controllers
                     UseAsCover = instance.UseAsBackground,
                     Spanish = new
                     {
-                        Name = "Panorama",
-                        Description = "Esta es una prueba de un paisaje"
+                        Name = "N/A",
+                        Description = "Feature not available yet!"
                     },
                     English = new
                     {
-                        Name = "Landscape",
-                        Description = "This is a landscape test"
+                        Name = "N/A",
+                        Description = "Feature not available yet!"
                     }
                 };
 
@@ -318,22 +321,26 @@ namespace Collective.Web.Controllers
                             select item)
                             .FirstOrDefault();
 
-                var data = new
-                {
-                    Name = instance.Name,
-                    SpanishBio = instance.SpanishBio,
-                    EnglishBio = instance.EnglishBio,
-                    Stock = instance.Items.Select((Item item) => {
-                        return new { 
-                            Id = item.ItemId,
-                            ArtistName = instance.Name,
-                            Description = item.Description,
-                            Price = item.Price
-                        };
-                    }).ToList()
-                };
+                if (instance != null) {
+                    var data = new {
+                        ArtistId = instance.ArtistId,
+                        Name = instance.Name,
+                        SpanishBio = instance.SpanishBio,
+                        EnglishBio = instance.EnglishBio,
+                        Stock = instance.Items.Select((Item item) =>
+                        {
+                            return new
+                            {
+                                Id = item.ItemId,
+                                ArtistName = instance.Name,
+                                Description = item.Description,
+                                Price = item.Price
+                            };
+                        }).ToList()
+                    };
 
-                result = (object)data;
+                    result = (object)data;
+                }
             });
 
             return new JsonResult()
@@ -347,18 +354,38 @@ namespace Collective.Web.Controllers
         #region Save & Update
 
         [HttpPost]
-        public JsonResult SaveContact(Artist artist) 
+        public JsonResult SaveContact(Artist dataObject) 
         {
-            Repository.Update(artist);
-            
-            return new JsonResult
+            try
             {
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new 
-                { 
-                    Result = 1
-                }
-            };
+                Repository.Update(dataObject);
+                return Models.ActionResponse.Succeed.ToJSON();
+            }
+            catch (Exception ex) 
+            {
+                return Models.ActionResponse.Failed.ToJSON();
+                throw ex;
+            };          
+        }
+
+        [HttpPost]
+        public JsonResult SaveProduct(Item dataObject) 
+        {
+            try
+            {
+                dataObject.Meta.Title = HttpContext.Request.Form["Meta[Title]"];
+                dataObject.Meta.Description = HttpContext.Request.Form["Meta[Description]"];
+                dataObject.Meta.Tags = HttpContext.Request.Form["Meta[Tags]"];
+                //TODO: Add ModelBinder
+
+                Repository.Update(dataObject);
+                return Models.ActionResponse.Succeed.ToJSON();
+            }
+            catch (Exception ex)
+            {
+                return Models.ActionResponse.Failed.ToJSON();
+                throw ex;
+            };          
         }
 
         [HttpPost]

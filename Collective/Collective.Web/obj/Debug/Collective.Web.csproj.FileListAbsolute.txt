@@ -161,3 +161,5 @@ C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\b
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\obj\Debug\Collective.Web.csprojResolveAssemblyReference.cache
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\obj\Debug\Collective.Web.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\obj\Debug\Collective.Web.pdb
+C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.dll
+C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.Mvc.dll

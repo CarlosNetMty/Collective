@@ -11,6 +11,20 @@
             var self = this;
             self.View = control;
 
+            function save() {
+
+                var model = ko.toJS(self.ViewModel);
+                var onSave = function () {
+                    Collective.Utils.OnSave("Admin/Artists");
+                };
+
+                delete model.Save;
+                delete model.Cancel;
+                delete model.GoToDetail;
+
+                Collective.Global.Post("/Admin/SaveContact", model, onSave);
+            };
+
             //menu initializarion
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Artist(data);
@@ -22,9 +36,7 @@
 
                     Collective.Utils.Navigate("Admin/Artists");
                 }
-                self.ViewModel.Save = function () {
-                    debugger;
-                }
+                self.ViewModel.Save = save;
                 ko.applyBindings(self.ViewModel, control.context);
             }
 

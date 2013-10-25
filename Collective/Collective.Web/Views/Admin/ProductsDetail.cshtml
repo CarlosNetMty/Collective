@@ -19,7 +19,7 @@
 
             <div class="large-6 columns">
                 <label>Unit price</label>
-                <input type="text" data-bind="text: Price" placeholder="US Dollars"> 
+                <input type="text" data-bind="value: Price" placeholder="US Dollars"> 
             </div>
         </div>
                 
@@ -49,10 +49,10 @@
             </div>
         </div>    
 
-        <div class="small-9 columns no-padd" style="width: 100%;">
-            <label>Meta Title</label><input type="text" placeholder="" data-bind="value: MTitle"> 
-            <label>Meta Description</label><input type="text" placeholder="" data-bind="value: MDescription"> 
-            <label>Meta Tags</label><input type="text" placeholder="" data-bind="value: MTags"> 
+        <div class="small-9 columns no-padd" style="width: 100%;" data-bind="with: Meta">
+            <label>Meta Title</label><input type="text" placeholder="" data-bind="value: Title"> 
+            <label>Meta Description</label><input type="text" placeholder="" data-bind="value: Description"> 
+            <label>Meta Tags</label><input type="text" placeholder="" data-bind="value: Tags"> 
         </div>  
 
         <div class="small-9 columns no-padd" style="width: 100%;">

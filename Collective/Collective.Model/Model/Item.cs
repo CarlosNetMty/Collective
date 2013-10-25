@@ -16,6 +16,7 @@ namespace Collective.Model
         public bool UseAsBackground { get; set; }
         public decimal? Price { get; set; }
         public string Code { get; set; }
+        public MetaInfo Meta { get; set; }
         #endregion
 
         #region Navigation Properties
@@ -24,5 +25,12 @@ namespace Collective.Model
         public virtual List<Size> AvailableSizes { get; set; }
         public virtual List<Frame> AvailableFrames { get; set; }
         #endregion
+    }
+
+    public class MetaInfo 
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Tags { get; set; }
     }
 }

@@ -151,3 +151,13 @@ Collective.Utils.Notify = function (contentText) {
         VerticalPosition: "top"
     });
 };
+
+Collective.Utils.OnSave = function (redirectUrl) {
+
+    Collective.Utils.Notify("Information saved!");
+
+    if (redirectUrl)
+        setTimeout(function () {
+            Collective.Utils.Navigate(redirectUrl);
+        }, 2000);
+}

@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/03/2013 13:45:12</publishTime>
     </File>
     <File Include="App_Data/combres.xml">
-      <publishTime>10/21/2013 23:54:11</publishTime>
+      <publishTime>10/23/2013 14:15:26</publishTime>
     </File>
     <File Include="bin/AjaxMin.dll">
       <publishTime>07/20/2013 13:54:03</publishTime>
@@ -24,13 +24,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 13:49:38</publishTime>
     </File>
     <File Include="bin/Collective.Model.dll">
-      <publishTime>10/23/2013 13:10:41</publishTime>
+      <publishTime>10/24/2013 21:56:51</publishTime>
     </File>
     <File Include="bin/Collective.Model.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Collective.Web.dll">
-      <publishTime>10/23/2013 13:10:42</publishTime>
+      <publishTime>10/25/2013 11:21:50</publishTime>
     </File>
     <File Include="bin/Collective.Web.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
@@ -46,6 +46,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/EcmaScript.NET.modified.dll">
       <publishTime>07/20/2013 13:54:02</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>10/24/2013 19:09:45</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>10/24/2013 19:09:45</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/09/2013 21:43:34</publishTime>
@@ -246,7 +252,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2013 19:47:12</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>08/24/2013 14:01:34</publishTime>
+      <publishTime>10/24/2013 19:09:48</publishTime>
     </File>
     <File Include="Photos/accent.png">
       <publishTime>07/20/2013 13:49:14</publishTime>
@@ -297,7 +303,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2013 19:56:04</publishTime>
     </File>
     <File Include="Scripts/Admin/ArtistsDetail.js">
-      <publishTime>10/21/2013 19:56:04</publishTime>
+      <publishTime>10/24/2013 21:17:33</publishTime>
     </File>
     <File Include="Scripts/Admin/Content.js">
       <publishTime>10/21/2013 23:52:59</publishTime>
@@ -306,13 +312,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2013 21:17:33</publishTime>
     </File>
     <File Include="Scripts/Admin/Header.js">
-      <publishTime>10/21/2013 23:57:12</publishTime>
+      <publishTime>10/23/2013 14:23:10</publishTime>
     </File>
     <File Include="Scripts/Admin/Index.js">
-      <publishTime>10/21/2013 19:56:04</publishTime>
+      <publishTime>10/23/2013 14:22:45</publishTime>
     </File>
     <File Include="Scripts/Admin/Products.js">
-      <publishTime>09/28/2013 15:05:11</publishTime>
+      <publishTime>10/23/2013 17:59:01</publishTime>
+    </File>
+    <File Include="Scripts/Admin/ProductsDetail.js">
+      <publishTime>10/24/2013 21:45:49</publishTime>
     </File>
     <File Include="Scripts/Admin/Sidebar.js">
       <publishTime>10/21/2013 19:56:04</publishTime>
@@ -426,13 +435,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2013 15:14:44</publishTime>
     </File>
     <File Include="Scripts/Home/Detail.js">
-      <publishTime>09/28/2013 15:08:34</publishTime>
+      <publishTime>10/25/2013 11:19:49</publishTime>
     </File>
     <File Include="Scripts/Home/Footer.js">
       <publishTime>10/05/2013 15:22:07</publishTime>
     </File>
     <File Include="Scripts/Home/Gallery.js">
-      <publishTime>09/28/2013 15:08:47</publishTime>
+      <publishTime>10/25/2013 11:16:04</publishTime>
     </File>
     <File Include="Scripts/Home/Header.js">
       <publishTime>08/31/2013 11:41:27</publishTime>
@@ -489,7 +498,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 15:44:30</publishTime>
     </File>
     <File Include="Scripts/Utils/Global.js">
-      <publishTime>10/21/2013 20:25:06</publishTime>
+      <publishTime>10/24/2013 21:48:46</publishTime>
     </File>
     <File Include="Scripts/Utils/Storage.js">
       <publishTime>07/27/2013 15:30:27</publishTime>
@@ -507,7 +516,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/30/2013 15:47:00</publishTime>
     </File>
     <File Include="Scripts/ViewModels/Artist.js">
-      <publishTime>08/24/2013 15:24:47</publishTime>
+      <publishTime>10/24/2013 21:20:33</publishTime>
     </File>
     <File Include="Scripts/ViewModels/Collection.js">
       <publishTime>08/03/2013 20:09:07</publishTime>
@@ -519,7 +528,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/27/2013 14:07:28</publishTime>
     </File>
     <File Include="Scripts/ViewModels/User.js">
-      <publishTime>08/03/2013 12:51:01</publishTime>
+      <publishTime>10/23/2013 14:44:25</publishTime>
     </File>
     <File Include="Scripts/_references.js">
       <publishTime>07/20/2013 13:49:28</publishTime>
@@ -549,10 +558,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2013 18:51:52</publishTime>
     </File>
     <File Include="Views/Admin/Products.cshtml">
-      <publishTime>10/19/2013 18:51:52</publishTime>
+      <publishTime>10/23/2013 17:58:27</publishTime>
     </File>
     <File Include="Views/Admin/ProductsDetail.cshtml">
-      <publishTime>10/19/2013 18:51:52</publishTime>
+      <publishTime>10/24/2013 21:42:13</publishTime>
     </File>
     <File Include="Views/Admin/Sidebar.cshtml">
       <publishTime>08/03/2013 13:08:11</publishTime>
@@ -573,7 +582,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2013 15:13:58</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
-      <publishTime>09/16/2013 19:30:36</publishTime>
+      <publishTime>10/25/2013 11:21:03</publishTime>
     </File>
     <File Include="Views/Home/Footer.cshtml">
       <publishTime>10/21/2013 20:28:03</publishTime>
@@ -612,7 +621,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 13:49:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/23/2013 13:10:54</publishTime>
+      <publishTime>10/24/2013 19:31:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

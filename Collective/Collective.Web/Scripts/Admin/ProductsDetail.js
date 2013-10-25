@@ -11,16 +11,30 @@
             var self = this;
             self.View = control;
 
+            function save() {
+
+                var model = ko.toJS(self.ViewModel);
+                var onSave = function () {
+                    Collective.Utils.OnSave("Admin/Products");
+                };
+
+                delete model.Save;
+                delete model.Cancel;
+                delete model.AvailableFrames;
+                delete model.AvailableArtists;
+
+                Collective.Global.Post("/Admin/SaveProduct", model, onSave);
+            };
+
+
             //menu initializarion
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.ProductDetail(data);
                 self.ViewModel.Cancel = function () {
+
                     Collective.Utils.Navigate("Admin/Products");
                 };
-                self.ViewModel.Save = function () {
-                    debugger;
-                };
-
+                self.ViewModel.Save = save;
                 ko.applyBindings(self.ViewModel, control.context);
             }
 
@@ -43,6 +57,7 @@ Collective.ViewModels.ProductDetail = function (model) {
     // ViewModel
     var self = this;
 
+    self.ItemId = ko.observable(model.ItemId);
     self.ArtistId = ko.observable(model.ArtistId);
     self.AvailableArtists = ko.observableArray(model.AvailableArtists || []);
 
@@ -50,11 +65,12 @@ Collective.ViewModels.ProductDetail = function (model) {
     self.Spanish = ko.observable(model.Spanish);
     self.English = ko.observable(model.English);
 
-    self.Meta = ko.observable(model.Meta || {});
-    self.MTitle = ko.computed(function () { return self.Meta().Title || ""; });
-    self.MDescription = ko.computed(function () { return self.Meta().Description || ""; });
-    self.MTags = ko.computed(function () { return self.Meta().Tags || ""; });
-
+    self.Meta = {};
+    self.Meta.Title = ko.observable(model.Meta.Title || "");
+    self.Meta.Description = ko.observable(model.Meta.Description || "");
+    self.Meta.Tags = ko.observable(model.Meta.Tags || "");
+    
+    self.ItemId = ko.observable(model.ItemId);
     self.PhotoURL = ko.observable(model.PhotoURL);
     self.UseAsCover = ko.observable(model.UseAsCover);
 }
