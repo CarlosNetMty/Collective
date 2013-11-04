@@ -36,3 +36,4 @@ C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\obj\Debug\Collective.Model.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\obj\Debug\Collective.Model.pdb
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\obj\Debug\Collective.Data.csprojResolveAssemblyReference.cache
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Model\obj\Debug\Collective.Data.csprojResolveAssemblyReference.cache

@@ -1,5 +1,4 @@
-﻿@using Combres.Mvc
-
+﻿
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class="js no-flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
     <head>
@@ -8,8 +7,9 @@
         <title>C O L E C 7 I V A  -  Contemporary. Art. Style  -  Welcome</title>
 
         @* Styles *@
-        @Html.CombresLink("styles")
-        @Html.CombresLink("scripts")
+        @Styles.Render("~/bundles/styles")
+        @* Modernizr *@
+        @Scripts.Render("~/bundles/scripts")
     </head>
     <body>
 
@@ -19,7 +19,7 @@
         @Html.Partial("Footer")
 
         @*Scripts Rendering*@
-        @Html.CombresLink("framework")
-        @Html.CombresLink("application")
+        @Scripts.Render("~/bundles/framework")
+        @Scripts.Render("~/bundles/application")
     </body>
 </html>

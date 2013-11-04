@@ -1,5 +1,4 @@
-﻿@using Combres.Mvc
-
+﻿
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class="js no-touch svg inlinesvg svgclippaths no-ie8compat">
     <head>
@@ -8,8 +7,9 @@
         <title>C O L E C 7 I V A  -  Contemporary. Art. Style  -  Administration</title>
 
         @* Styles *@
-        @Html.CombresLink("adminStyles")
-        @Html.CombresLink("scripts")
+        @Styles.Render("~/bundles/css")
+        @* Modernizr *@
+        @Scripts.Render("~/bundles/scripts")
     </head>
     <body>
 
@@ -27,7 +27,7 @@
         @Html.Partial("Footer")
 
         @*Scripts Rendering*@
-        @Html.CombresLink("framework")
-        @Html.CombresLink("application")
+        @Scripts.Render("~/bundles/framework")
+        @Scripts.Render("~/bundles/application")
     </body>
 </html>

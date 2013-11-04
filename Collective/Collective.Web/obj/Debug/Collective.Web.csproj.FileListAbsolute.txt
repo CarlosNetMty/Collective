@@ -106,15 +106,9 @@ C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bi
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Collective.Web.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Collective.Web.pdb
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\AjaxMin.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Antlr3.Runtime.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Collective.Model.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Combres.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Combres.Mvc.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\dotless.Core.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\EcmaScript.NET.modified.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\EntityFramework.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Fasterflect.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.ServiceLocation.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.Unity.Configuration.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.Unity.dll
@@ -134,13 +128,8 @@ C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\b
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\System.Web.WebPages.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Unity.Mvc3.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\WebActivator.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\WebGrease.dll
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Yahoo.Yui.Compressor.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Collective.Model.pdb
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Combres.xml
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Combres.Mvc.xml
-C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Fasterflect.xml
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.ServiceLocation.xml
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Microsoft.Practices.Unity.xml
@@ -163,3 +152,5 @@ C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\o
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\obj\Debug\Collective.Web.pdb
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.Mvc.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.Mvc.dll

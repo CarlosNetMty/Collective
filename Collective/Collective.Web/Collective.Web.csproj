@@ -40,29 +40,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin">
-      <HintPath>..\packages\AjaxMin.4.84.4790.14417\lib\net40\AjaxMin.dll</HintPath>
-    </Reference>
-    <Reference Include="Combres">
-      <HintPath>..\packages\combres.2.2.2.17\lib\net35\Combres.dll</HintPath>
-    </Reference>
-    <Reference Include="Combres.Mvc">
-      <HintPath>..\packages\combres.mvc.2.2.2.17\lib\net35\Combres.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="dotless.Core">
-      <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EcmaScript.NET.modified">
-      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\EcmaScript.NET.modified.dll</HintPath>
-    </Reference>
     <Reference Include="Elmah">
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
     <Reference Include="Elmah.Mvc">
       <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Fasterflect">
-      <HintPath>..\packages\fasterflect.2.1.0\lib\net40\Fasterflect.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -92,9 +74,6 @@
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -149,9 +128,6 @@
     <Reference Include="Unity.Mvc3">
       <HintPath>..\packages\Unity.Mvc3.1.2\lib\net40\Unity.Mvc3.dll</HintPath>
     </Reference>
-    <Reference Include="WebActivator">
-      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
@@ -160,13 +136,9 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Yahoo.Yui.Compressor">
-      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\Yahoo.Yui.Compressor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\Combres.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -254,7 +226,7 @@
     <Content Include="Scripts\Admin\Users.js" />
     <Content Include="Scripts\Framework\foundation.js" />
     <Content Include="Scripts\Framework\jNotify.jquery.js" />
-    <Content Include="Scripts\Framework\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Framework\jquery-1.10.2.js" />
     <Content Include="Scripts\Framework\jquery-1.6.2.js" />
     <Content Include="Scripts\Framework\jquery-1.6.2.min.js" />
     <Content Include="Scripts\Framework\jquery-te-1.4.0.min.js" />
@@ -282,7 +254,7 @@
     <Content Include="Scripts\Framework\knockout-2.0.0.js" />
     <Content Include="Scripts\Framework\knockout-2.3.0.js" />
     <Content Include="Scripts\Framework\modernizr-2.0.6-development-only.js" />
-    <Content Include="Scripts\Framework\modernizr-2.6.2.min.js" />
+    <Content Include="Scripts\Framework\modernizr-2.6.2.js" />
     <Content Include="Scripts\Framework\plugins.js" />
     <Content Include="Scripts\Framework\zepto.js" />
     <Content Include="Scripts\Home\About.js" />
