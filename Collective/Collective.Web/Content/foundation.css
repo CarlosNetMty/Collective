@@ -81,7 +81,16 @@ textarea {
   min-height: 50px; }
 
 select {
-  width: 100%; }
+width:100%;
+margin: 0 0 1em 0;
+box-shadow: none;
+font-size: 13px;
+height: 30px;
+margin-bottom: 1.25em;
+margin-top: 0;
+padding: 0;
+position: relative;
+border: solid 1px #aaa; }
 
 /* Grid HTML Classes */
 .row {
