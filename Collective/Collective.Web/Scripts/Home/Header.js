@@ -32,6 +32,14 @@
                     window.location = "{0}//{1}{2}".format(location.protocol, location.host, menuItem.url);
                 }
 
+                self.ViewModel.GoToAdmin = function () {
+                    Collective.Utils.Navigate("Admin");
+                }
+
+                self.ViewModel.GoToHome = function () {
+                    Collective.Utils.Navigate("");
+                }
+
                 ko.applyBindings(self.ViewModel, control.context);
                 loadMenuItems(self.ViewModel);
             }
@@ -53,5 +61,6 @@ Collective.ViewModels.Header = function (model) {
     // ViewModel
     var self = this;
     //Header Items
+    self.IsAdministrator = ko.observable(true);
     self.Items = ko.observableArray(Collective.Utils.NullOrEmpty(model.Items, true));
 }

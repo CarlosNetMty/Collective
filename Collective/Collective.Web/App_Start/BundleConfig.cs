@@ -35,7 +35,7 @@ namespace Collective.Web
                         "~/scripts/framework/jquery.timers.js",
                         "~/scripts/framework/plugins.js",
                         "~/scripts/framework/jquery.fancybox.pack.js",
-                        "~/scripts/framework/jquery.isotope.min.js",
+                        "~/scripts/framework/jquery.isotope.js",
                         "~/scripts/framework/foundation.js",
                         "~/scripts/framework/jquery-te-1.4.0.min.js",
                         "~/scripts/framework/jNotify.jquery.js",

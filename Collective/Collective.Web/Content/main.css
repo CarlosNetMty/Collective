@@ -79,6 +79,15 @@ legend{
 	text-transform:uppercase;
 	font-size:.8em  
 	}	
+
+body [data-type="Loader"] {
+    position: absolute;
+}	
+.admin {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */

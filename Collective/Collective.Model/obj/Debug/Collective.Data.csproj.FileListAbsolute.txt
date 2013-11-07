@@ -24,7 +24,6 @@ C:\Users\Bluememon\Dropbox\Collective (1)\Collective.Model\obj\Debug\Collective.
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\bin\Debug\Collective.Model.dll.config
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\bin\Debug\Collective.Model.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\bin\Debug\Collective.Model.pdb
-C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\bin\Debug\EntityFramework.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\bin\Debug\EntityFramework.xml
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\obj\Debug\Collective.Model.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Model\obj\Debug\Collective.Model.pdb

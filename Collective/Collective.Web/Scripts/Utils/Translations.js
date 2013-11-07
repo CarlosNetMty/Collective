@@ -62,7 +62,7 @@ Collective.Translations = {
         HeaderLogin: "In order to proceed with your order. First you need to login or if you don´t have an account, register!",
         HeaderRegister: "Don´t have an Account? Register!",
         LoginAndRegister: "Login & Register",
-        AdminAccess: "Admininistraton Access",
+        AdminAccess: "Admininistration Access",
         Name: "Name",
         Phone: "Phone",
         Message: "Message",

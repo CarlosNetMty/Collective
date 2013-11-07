@@ -1,6 +1,10 @@
 ﻿<header data-type="module" data-module="Collective.Home.Header">
 
-    <img src="@Url.Content("~/Content/Images/colec7iva-logoweb.png")" width="234" height="24" alt="COLEC7IVA" /><br/>
+    <a data-bind="if: IsAdministrator()" class="admin">
+        <strong data-key="AdminAccess" data-bind="click: GoToAdmin"></strong>
+    </a>
+
+    <img data-bind="click: GoToHome" src="@Url.Content("~/Content/Images/colec7iva-logoweb.png")" width="234" height="24" alt="COLEC7IVA" /><br/>
 
     <h1>
 	    <span>Contemporary</span>. 

@@ -215,7 +215,7 @@ namespace Collective.Web.Controllers
                             {
                                 Id = item.ItemId,
                                 ArtistName = item.Artist.Name,
-                                Description = item.Description,
+                                Description = item.English.Name,
                                 Price = item.Price
                             }).ToList();
 
@@ -244,34 +244,29 @@ namespace Collective.Web.Controllers
                             select item)
                             .FirstOrDefault();
 
-                var data = new
+                if (instance != null)
                 {
-                    ItemId = instance.ItemId,
-                    Meta = instance.Meta,
-                    AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
-                    AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
-                    Tags = instance.Tags.Select(item => item.TagId).ToList(),
-                    AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository, false),
-                    Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
-                    AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository, false),
-                    Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
-                    ArtistId = instance.Artist.ArtistId,
-                    Price = instance.Price,
-                    PhotoURL = instance.PhotoUrl,
-                    UseAsCover = instance.UseAsBackground,
-                    Spanish = new
+                    var data = new
                     {
-                        Name = "N/A",
-                        Description = "Feature not available yet!"
-                    },
-                    English = new
-                    {
-                        Name = "N/A",
-                        Description = "Feature not available yet!"
-                    }
-                };
+                        ItemId = instance.ItemId,
+                        Meta = instance.Meta,
+                        AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
+                        AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
+                        Tags = instance.Tags.Select(item => item.TagId).ToList(),
+                        AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository, false),
+                        Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
+                        AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository, false),
+                        Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
+                        ArtistId = instance.Artist.ArtistId,
+                        Price = instance.Price,
+                        PhotoURL = instance.PhotoUrl,
+                        UseAsCover = instance.UseAsBackground,
+                        Spanish = instance.Spanish,
+                        English = instance.English
+                    };
 
-                result = (object)data;
+                    result = (object)data;
+                }
             });
 
             return new JsonResult()
@@ -333,7 +328,7 @@ namespace Collective.Web.Controllers
                             {
                                 Id = item.ItemId,
                                 ArtistName = instance.Name,
-                                Description = item.Description,
+                                Description = item.English.Name,
                                 Price = item.Price
                             };
                         }).ToList()

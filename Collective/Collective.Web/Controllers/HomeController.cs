@@ -80,7 +80,7 @@ namespace Collective.Web.Controllers
                             where item.UseAsBackground
                             select new { 
                                 Id = item.ItemId,
-                                Name = item.Description,
+                                Name = item.English.Name,
                                 PhotoUrl = item.PhotoUrl,
                                 Artist = item.Artist.Name
                             }).ToList();
@@ -156,12 +156,14 @@ namespace Collective.Web.Controllers
             Repository.GetAll((IQueryable<Item> response) =>
             {
                 var data = (from item in response
-                            where (item.Artist.Name == search || search == "") || (item.Description == search || search == "")
+                            where (item.Artist.Name == search || search == "") || 
+                                (item.English.Name == search || search == "") || 
+                                (item.Spanish.Name == search || search == "")
                             select new
                             {
                                 Id = item.ItemId,
                                 Artist = item.Artist.Name,
-                                Name = item.Description,
+                                Name = item.English.Name,
                                 Photo = item.PhotoUrl,
                                 Tags = item.Tags.Select(tag => tag.Name),
                                 Sizes = item.AvailableSizes.Select(size => size.Description)

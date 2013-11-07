@@ -108,12 +108,17 @@ Collective.ViewModels.Gallery = function (model) {
     {
         $.each(collection, function ()
         {
-            if (arguments[1].Text) {
+            if (!arguments[1].Text) {
                 arguments[1].Text = arguments[1].Name == "*" ? "All" : arguments[1].Name;
                 arguments[1].Name = arguments[1].Name == "*" ? "*" : ".{0}".format(arguments[1].Name.replace(" ", ""));
             }
         });
     }
+
+    var filteredArtists = $.Enumerable.From(self.Artist())
+        .Where(function (item) { return item.Name; })
+        .ToArray();
+    self.Artist(filteredArtists);
 
     setTextToFilterCollection(self.Artist());
     setTextToFilterCollection(self.Theme());
