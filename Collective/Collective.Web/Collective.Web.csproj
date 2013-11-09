@@ -156,25 +156,16 @@
     <Content Include="App_Data\combres.xml" />
     <Content Include="Content\c7css.css" />
     <Content Include="Content\foundation.css" />
-    <Content Include="Content\Images\C7-cart-icn.png" />
-    <Content Include="Content\Images\c7-facebook.png" />
-    <Content Include="Content\Images\c7-pinterest.png" />
-    <Content Include="Content\Images\c7-twitter.png" />
-    <Content Include="Content\Images\COLEC7IVA-Admin-Logo.png" />
-    <Content Include="Content\Images\colec7iva-logoweb.png" />
-    <Content Include="Content\Images\gallery\gall_01.jpg" />
-    <Content Include="Content\Images\gallery\gall_02.jpg" />
-    <Content Include="Content\Images\gallery\gall_03.jpg" />
-    <Content Include="Content\Images\gallery\gall_04.jpg" />
-    <Content Include="Content\Images\gallery\gall_05.jpg" />
-    <Content Include="Content\Images\gallery\gall_06.jpg" />
-    <Content Include="Content\Images\gallery\gall_07.jpg" />
-    <Content Include="Content\Images\gallery\gall_08.jpg" />
-    <Content Include="Content\Images\gallery\gall_09.jpg" />
-    <Content Include="Content\Images\home\nydialilian01-home.jpg" />
-    <Content Include="Content\Images\home\nydialilian02-home.jpg" />
-    <Content Include="Content\Images\Loader.gif" />
-    <Content Include="Content\Images\myColec7iva-logoweb.png" />
+    <Content Include="Images\C7-cart-icn.png" />
+    <Content Include="Images\c7-facebook.png" />
+    <Content Include="Images\c7-pinterest.png" />
+    <Content Include="Images\c7-twitter.png" />
+    <Content Include="Images\COLEC7IVA-Admin-Logo.png" />
+    <Content Include="Images\colec7iva-logoweb.png" />
+    <Content Include="Images\colec7iva_adminBtn.png" />
+    <Content Include="Images\home\nydialilian01-home.jpg" />
+    <Content Include="Images\home\nydialilian02-home.jpg" />
+    <Content Include="Images\myColec7iva-logoweb.png" />
     <Content Include="Content\jNotify.css" />
     <Content Include="Content\jquery-te.css" />
     <Content Include="Images\jquery-te.png" />
@@ -335,6 +326,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

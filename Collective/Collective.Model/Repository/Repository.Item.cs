@@ -33,7 +33,8 @@ namespace Collective.Model
         }
         Item IRepository<Item>.Update(Context db, Item dataObject)
         {
-            return db.Items.Add(dataObject);
+            return Update<Item>(db, dataObject.ItemId, db.Items, dataObject);
+            //return db.Items.Add(dataObject);
         }
         #endregion
     }

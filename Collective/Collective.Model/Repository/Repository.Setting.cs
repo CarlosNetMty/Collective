@@ -32,7 +32,8 @@ namespace Collective.Model
         }
         Setting IRepository<Setting>.Update(Context db, Setting dataObject)
         {
-            return db.Settings.Add(dataObject);
+            return Update<Setting>(db, dataObject.SettingId, db.Settings, dataObject);
+            //return db.Users.Add(dataObject);
         }
         #endregion
     }

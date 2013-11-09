@@ -8,6 +8,6 @@ namespace Collective.Model
 {
     public interface IPersistibleObject
     {
-        //int UniqueIdentifier { get; }
+        void Clone(IPersistibleObject obj);
     }
 }

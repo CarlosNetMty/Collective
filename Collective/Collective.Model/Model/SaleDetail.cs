@@ -20,5 +20,13 @@ namespace Collective.Model
         public virtual Size Size { get; set; }
         public virtual Frame Frame { get; set; }
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj)
+        {
+            SaleDetail instance = obj as SaleDetail;
+            instance.Quantity = Quantity;
+        }
+        #endregion
     }
 }

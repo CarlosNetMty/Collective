@@ -19,5 +19,18 @@ namespace Collective.Model
         #region Navigation Properties
         
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj)
+        {
+            User instance = obj as User;
+            instance.Name = Name;
+            instance.Password = Password;
+            instance.Email = Email;
+            instance.IsActive = IsActive;
+            instance.IsAdministrator = IsAdministrator;
+        }
+        #endregion    
+    
     }
 }

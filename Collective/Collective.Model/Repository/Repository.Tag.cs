@@ -34,7 +34,8 @@ namespace Collective.Model
         }
         Tag IRepository<Tag>.Update(Context db, Tag dataObject)
         {
-            return db.Tags.Add(dataObject);
+            return Update<Tag>(db, dataObject.TagId, db.Tags, dataObject);
+            //return db.Tags.Add(dataObject);
         }
         #endregion
     }

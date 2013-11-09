@@ -19,5 +19,15 @@ namespace Collective.Model
         #region Navigation Properties
         public virtual List<Item> Items { get; set; }
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj) 
+        {
+            Artist instance = obj as Artist;
+            instance.Name = Name;
+            instance.SpanishBio = SpanishBio;
+            instance.EnglishBio = EnglishBio;
+        }
+        #endregion
     }
 }

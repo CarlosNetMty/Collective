@@ -34,7 +34,8 @@ namespace Collective.Model
         }
         User IRepository<User>.Update(Context db, User dataObject)
         {
-            return db.Users.Add(dataObject);
+            return Update<User>(db, dataObject.UserID, db.Users, dataObject);
+            //return db.Users.Add(dataObject);
         }
         #endregion
     }

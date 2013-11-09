@@ -18,5 +18,13 @@ namespace Collective.Model
         public virtual User Client { get; set; }
         public virtual List<SaleDetail> Details { get; set; }
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj)
+        {
+            Sale instance = obj as Sale;
+            instance.Date = Date;
+        }
+        #endregion
     }
 }

@@ -26,6 +26,24 @@ namespace Collective.Model
         public virtual List<Size> AvailableSizes { get; set; }
         public virtual List<Frame> AvailableFrames { get; set; }
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj)
+        {
+            Item instance = obj as Item;
+            instance.PhotoUrl = PhotoUrl;
+            instance.UseAsBackground= UseAsBackground;
+            instance.Price = Price;
+            instance.Code = Code;
+            instance.Meta.Description = Meta.Description;
+            instance.Meta.Tags = Meta.Tags;
+            instance.Meta.Title = Meta.Title;
+            instance.Spanish.Description = Spanish.Description;
+            instance.Spanish.Name = Spanish.Name;
+            instance.English.Description = English.Description;
+            instance.English.Name = English.Name;
+        }
+        #endregion
     }
 
     public class ItemDescription 

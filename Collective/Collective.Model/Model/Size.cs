@@ -16,5 +16,13 @@ namespace Collective.Model
         #region Navigation Properties
         public virtual List<Item> Items { get; set; }
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj)
+        {
+            Size instance = obj as Size;
+            instance.Description = Description;
+        }
+        #endregion
     }
 }

@@ -11,5 +11,13 @@ namespace Collective.Model
         public int ResourceId { get; set; }
         public string Value { get; set; }
         #endregion
+
+        #region Methods
+        public void Clone(IPersistibleObject obj)
+        {
+            Resource instance = obj as Resource;
+            instance.Value = Value;
+        }
+        #endregion
     }
 }

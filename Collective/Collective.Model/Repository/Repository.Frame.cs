@@ -34,7 +34,8 @@ namespace Collective.Model
         }
         Frame IRepository<Frame>.Update(Context db, Frame dataObject)
         {
-            return db.Frames.Add(dataObject);
+            return Update<Frame>(db, dataObject.FrameId, db.Frames, dataObject);
+            //return db.Frames.Add(dataObject);
         }
         #endregion
     }

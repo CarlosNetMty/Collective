@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
@@ -43,6 +44,26 @@ namespace Collective.Model
         T RunOrExecute<T>(Func<Context, T, T> contextCallback, T dataObject) where T : IPersistibleObject
         {
             return Extensions.Store<T>(contextCallback, dataObject);
+        }
+        T Update<T>(Context db, int objectId, DbSet<T> collection, T dataObject) where T : class, IPersistibleObject
+        {
+            if (objectId > 0)
+            {   
+                T instance = dataObject;
+                T current = ((IRepository<T>)this).Get(db, objectId);
+
+                if (current != null) 
+                {
+                    dataObject.Clone(current);
+                    instance = current;
+                }
+
+                return instance;
+            }
+            else 
+            {
+                return collection.Add(dataObject);
+            }
         }
         #endregion
     }
