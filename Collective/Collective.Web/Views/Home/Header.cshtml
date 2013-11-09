@@ -1,7 +1,7 @@
 ﻿<header data-type="module" data-module="Collective.Home.Header">
 
-    <a data-bind="if: IsAdministrator()" class="admin">
-        <strong data-key="AdminAccess" data-bind="click: GoToAdmin"></strong>
+    <a data-bind="if: IsAdministrator(), click: GoToAdmin" class="admin">
+        <strong data-key="AdminAccess"></strong>
     </a>
 
     <img data-bind="click: GoToHome" src="@Url.Content("~/Images/colec7iva-logoweb.png")" alt="COLEC7IVA" /><br/>
