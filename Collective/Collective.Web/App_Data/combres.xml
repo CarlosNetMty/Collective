@@ -85,6 +85,7 @@
       <resource path="~/scripts/Admin/Products.js" />
       <resource path="~/scripts/Admin/ProductsDetail.js" />
       <resource path="~/scripts/Admin/Cover.js" />
+      <resource path="~/scripts/Admin/Setting.js" />
       
       <!--ViewModels-->
       <resource path="~/scripts/ViewModels/Collection.js" />

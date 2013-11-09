@@ -60,8 +60,7 @@
 
                 self.ViewModel.GoToDetail = function (item)
                 {
-                    var location = window.location;
-                    window.location = "{0}//{1}/Home/Detail/?id={2}".format(location.protocol, location.host, item.Id);
+                    Collective.Utils.Navigate("Home/Detail/{0}".format(item.Id));
                 }
 
                 ko.applyBindings(self.ViewModel, control.context);

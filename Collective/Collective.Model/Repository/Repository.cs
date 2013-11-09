@@ -16,6 +16,7 @@ namespace Collective.Model
         public const string CACHE_KEY_GETALL_SIZES = "appGetAllSize";
         public const string CACHE_KEY_GETALL_TAGS = "appGetAllTag";
         public const string CACHE_KEY_GETALL_USERS = "appGetAllUser";
+        public const string CACHE_KEY_GETALL_SETTINGS = "appGetAllSettings";
         #endregion
 
         #region Fields

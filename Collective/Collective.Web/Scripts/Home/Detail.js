@@ -39,16 +39,16 @@
 
                 self.ViewModel.ShowOptions = function (item, event) { $(event.currentTarget).siblings(".selectOptions").toggle(); }
 
-                var headTag = $("head");
-                headTag.append($("<meta name='{0}' content='{1}'>".format("name", self.ViewModel.Meta.Title())));
-                headTag.append($("<meta name='{0}' content='{1}'>".format("description", self.ViewModel.Meta.Description())));
-                headTag.append($("<meta name='{0}' content='{1}'>".format("tags", self.ViewModel.Meta.Tags())));
+                //var headTag = $("head");
+                //headTag.append($("<meta name='{0}' content='{1}'>".format("name", self.ViewModel.Meta.Title())));
+                //headTag.append($("<meta name='{0}' content='{1}'>".format("description", self.ViewModel.Meta.Description())));
+                //headTag.append($("<meta name='{0}' content='{1}'>".format("tags", self.ViewModel.Meta.Tags())));
 
                 ko.applyBindings(self.ViewModel, control.context);
             }
 
             //Get server data (if needed)
-            Collective.Global.Get(this, { id: args.id }, init);
+            Collective.Global.Get(this, { id: Collective.Utils.CurrentObject() }, init);
             //Custom Controls (include translations)
             Collective.Global.Init(this.View);
         }

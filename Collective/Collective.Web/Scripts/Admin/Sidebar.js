@@ -18,6 +18,7 @@
                     { title: "Users", url: "/Admin/Users" },
                     { title: "Products", url: "/Admin/Products" },
                     { title: "Artists", url: "/Admin/Artists" },
+                    { title: "Settings", url: "/Admin/Setting" },
                     { title: "Cover Images", url: "/Admin/Cover" },
                     { title: "Static Content", url: "/Admin/Content" }
                 ];

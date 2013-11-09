@@ -1,4 +1,13 @@
-﻿<div data-type="module" data-module="Collective.Home.Detail">
+﻿@model Collective.Model.IMetaDefinable
+
+@section Meta
+{
+    <meta name="name" content="@Model.Meta.Title" />
+    <meta name="description" content="@Model.Meta.Description">
+    <meta name="keywords" content="@Model.Meta.Tags">
+}
+
+<div data-type="module" data-module="Collective.Home.Detail">
 
     <aside class="gallery">		        				
         <h2 data-bind="text: ArtistName"></h2>
@@ -25,13 +34,20 @@
             <h4 data-bind="text: Code"></h4>
                 
             <span class="label" data-key="Size"></span>
-            <div class='selectBox'>                
+            @*<div class='selectBox'>                
                 <a class='selected' data-bind="click: ShowOptions, text: SelectedSizeName"></a>
                 <span class='selectArrow' data-bind="click: ShowOptions"> &#9660 </span>
                 <div class="selectOptions" data-bind="foreach: AvailableSizes">	 
                     <a class="selectOption" href="#" data-bind="click: $parent.SetSize, text: Name"></a>		  	                                                                             
                 </div>
-            </div>    
+            </div>    *@
+            <div data-bind="foreach: AvailableSizes">
+                <div>
+                    <span data-bind="text: Name"></span>
+                    @*<span data-bind="text: Price"></span>*@
+                    <input type="checkbox" />
+                </div>
+            </div>
                 
             <div class="clearfix"></div>
                 
@@ -46,11 +62,11 @@
                 
             <div class="clearfix"></div>
      			
-            <div class="buy">           
+            <div class="buy" data-bind="if: Collective.Global.ProductionEnabled">           
 	            <span class="label" data-bind="text: TotalText">
                     <strong data-key="ExcludingPrice"></strong>
 	            </span>  
-    	        <span class="shopp" data-bind="if: Collective.Global.ProductionEnabled">
+    	        <span class="shopp">
                     <a href="#" data-key="AddToCart"></a>
     	        </span>     
 		    </div>

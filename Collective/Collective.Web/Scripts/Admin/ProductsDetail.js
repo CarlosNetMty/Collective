@@ -73,4 +73,8 @@ Collective.ViewModels.ProductDetail = function (model) {
     self.ItemId = ko.observable(model.ItemId);
     self.PhotoURL = ko.observable(model.PhotoURL);
     self.UseAsCover = ko.observable(model.UseAsCover);
+
+    self.AvailableTags = ko.observableArray(model.AvailableTags || []);
+    self.AvailableFrames = ko.observableArray(model.AvailableFrames || []);
+    self.AvailableSizes = ko.observableArray(model.AvailableSizes || []);
 }

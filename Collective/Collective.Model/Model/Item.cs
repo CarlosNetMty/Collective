@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Collective.Model
 {
-    public class Item : IPersistibleObject
+    public class Item : IPersistibleObject, IMetaDefinable
     {
         #region Properties
         public int ItemId { get; set; }
@@ -26,13 +26,6 @@ namespace Collective.Model
         public virtual List<Size> AvailableSizes { get; set; }
         public virtual List<Frame> AvailableFrames { get; set; }
         #endregion
-    }
-
-    public class MetaInfo 
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Tags { get; set; }
     }
 
     public class ItemDescription 

@@ -47,8 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IMetaDefinable.cs" />
+    <Compile Include="Model\MetaInfo.cs" />
+    <Compile Include="Model\Setting.cs" />
     <Compile Include="Repository\FakeRepository.cs" />
     <Compile Include="Model\Resource.cs" />
+    <Compile Include="Repository\Repository.Setting.cs">
+      <DependentUpon>Repository.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Repository.User.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>

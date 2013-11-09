@@ -17,7 +17,7 @@ Collective.Translations = {
         ExcludingPrice: "(excluyendo impuestos y envio)",
         AddToCart: "Agregar a carrito de compra",
         Framing: "Enmarcado",
-        Size: "Tamaño",
+        Size: "Formato",
         Photography: "Fotografia",
         ViewArtistGallery: "Ver Galeria del Artista",
         Related: "Relacionados",
@@ -33,7 +33,11 @@ Collective.Translations = {
         Phone: "Telefono",
         Message: "Mensaje",
         Send: "Enviar",
-        ViewLargerMap: "Ver en Grande"
+        ViewLargerMap: "Ver en Grande",
+        Presenting: "Presentando",
+        IndexTitle: "Parte de la serie COLEC7IVA Master Photography por",
+        StartingAt: "A partir de",
+        OrderNow: "Ordena en linea"
     },
     ENG: {
         Galleries: "Galleries",
@@ -51,7 +55,7 @@ Collective.Translations = {
         ExcludingPrice: "(excluding TAX & Shipping)",
         AddToCart: "Add to Shopping Cart",
         Framing: "Framing",
-        Size: "Size",
+        Size: "Format",
         Photography: "Photography",
         ViewArtistGallery: "View Artist´s Gallery",
         Related: "Related",
@@ -67,7 +71,11 @@ Collective.Translations = {
         Phone: "Phone",
         Message: "Message",
         Send: "Send",
-        ViewLargerMap: "View Larger Map"
+        ViewLargerMap: "View Larger Map",
+        Presenting: "Presenting",
+        IndexTitle: "Part of the COLEC7IVA Master Photography Series by",
+        StartingAt: "Starting at",
+        OrderNow: "Order now online"
     },
     Get: function (key)
     {

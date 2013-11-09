@@ -15,6 +15,12 @@ namespace Collective.Model
         /// </summary>
         /// <param name="dataObject"></param>
         /// <returns></returns>
+        Setting Update(Setting dataObject);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataObject"></param>
+        /// <returns></returns>
         Item Update(Item dataObject);
         /// <summary>
         /// 
@@ -78,6 +84,11 @@ namespace Collective.Model
         /// </summary>
         /// <returns></returns>
         void GetAll(Action<IQueryable<User>> contextCallback);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        void GetAll(Action<IQueryable<Setting>> contextCallback);
         #endregion
     }
 

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Administration.cshtml";
+}
+
+<div data-type="module" data-module="Collective.Admin.Setting">
+    <div class="small-9 columns no-padd" style="width: 100%;" data-bind="with: Meta">
+        <label>Meta Title</label>
+        <input type="text" data-bind="value: Title"> 
+        <label>Meta Description</label>
+        <input type="text" data-bind="value: Description"> 
+        <label>Meta Tags</label>
+        <input type="text" data-bind="value: Tags"> 
+    </div> 
+
+    <div style="clear: both"></div>
+
+    <button class="button" data-bind="click: Save">Save</button>
+</div>

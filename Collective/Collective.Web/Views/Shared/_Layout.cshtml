@@ -5,10 +5,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>C O L E C 7 I V A  -  Contemporary. Art. Style  -  Welcome</title>
-
-        @* Styles *@
+        
+        @RenderSection("Meta", required: false)  
         @Styles.Render("~/bundles/styles")
-        @* Modernizr *@
         @Scripts.Render("~/bundles/scripts")
     </head>
     <body>

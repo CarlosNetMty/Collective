@@ -41,8 +41,8 @@ namespace Collective.Web.Controllers
         }
         public ActionResult Cover() { return View(); }
         public ActionResult Content() { return View(); }
-
-        
+        public ActionResult Setting() { return View(); }
+                
         public ActionResult Logout() 
         {
             //Session.Abandon();
@@ -55,7 +55,44 @@ namespace Collective.Web.Controllers
         #endregion
 
         #region Data
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult Configuration() 
+        {
+            Setting instance = default(Setting);
+            object result = new object();
 
+            Repository.GetAll((IQueryable<Setting> response) =>
+            {
+                instance = (from item in response
+                            select item)
+                            .ToArray()
+                            .LastOrDefault();
+
+                if (instance != null)
+                {
+                    var data = new
+                    {
+                        SettingId = instance.SettingId,
+                        Meta = instance.Meta
+                    };
+
+                    result = (object)data;
+                }
+            });
+
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = result
+            };
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult StaticContent() 
         {
             return new JsonResult()
@@ -381,6 +418,26 @@ namespace Collective.Web.Controllers
                 return Models.ActionResponse.Failed.ToJSON();
                 throw ex;
             };          
+        }
+
+        [HttpPost]
+        public JsonResult SaveSetting(Setting dataObject) 
+        {
+            try
+            {
+                dataObject.Meta.Title = HttpContext.Request.Form["Meta[Title]"];
+                dataObject.Meta.Description = HttpContext.Request.Form["Meta[Description]"];
+                dataObject.Meta.Tags = HttpContext.Request.Form["Meta[Tags]"];
+                //TODO: Add ModelBinder
+
+                Repository.Update(dataObject);
+                return Models.ActionResponse.Succeed.ToJSON();
+            }
+            catch (Exception ex)
+            {
+                return Models.ActionResponse.Failed.ToJSON();
+                throw ex;
+            };   
         }
 
         [HttpPost]

@@ -218,6 +218,7 @@
     <Content Include="Scripts\Admin\Content.js" />
     <Content Include="Scripts\Admin\ProductsDetail.js" />
     <Content Include="Scripts\Admin\Cover.js" />
+    <Content Include="Scripts\Admin\Setting.js" />
     <Content Include="Scripts\Admin\UsersDetail.js" />
     <Content Include="Scripts\Admin\Header.js" />
     <Content Include="Scripts\Admin\Index.js" />
@@ -330,6 +331,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\Loader.cshtml" />
     <Content Include="Views\Home\Conditions.cshtml" />
+    <Content Include="Views\Admin\Setting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

@@ -8,7 +8,8 @@
         View: {},
         Load: function (control) {
             //Initial set
-            var self = this;
+            var self = this
+                body = $(document).children();
             self.View = control;
 
             //Language change
@@ -19,12 +20,15 @@
             var nextIndex = 0;
             function setNewDataAsCurrent() {
                 var element = self.ViewModel.Items()[nextIndex];
+                //New Contol Set
                 self.ViewModel.CurrentName(element.Name);
                 self.ViewModel.CurrentImageURL(element.PhotoUrl);
-
-                var elementTag = $(document).children();
-                elementTag.css("background-image", 'url("..{0}")'.format(self.ViewModel.CurrentImageURL()));
-
+                self.ViewModel.Artist(element.Artist);
+                self.ViewModel.Id(element.Id);
+                self.ViewModel.Price(element.Price || 0);
+                //Set background
+                body.css("background-image", 'url("..{0}")'.format(self.ViewModel.CurrentImageURL()));
+                //Set new index
                 nextIndex++;
                 if (nextIndex >= self.ViewModel.Items().length)
                     nextIndex = 0;
@@ -33,9 +37,13 @@
             //initializarion callback
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Index(data);
+
+                self.ViewModel.GoToDetail = function () {
+                    Collective.Utils.Navigate("/Home/Detail/?id={0}".format(self.ViewModel.Id()));
+                };
+
                 setNewDataAsCurrent();
                 $(document).everyTime(15000, setNewDataAsCurrent);
-
                 ko.applyBindings(self.ViewModel, control.context);
             }
 
@@ -62,4 +70,7 @@ Collective.ViewModels.Index = function (model) {
     //Current Element
     self.CurrentName = ko.observable();
     self.CurrentImageURL = ko.observable();
+    self.Artist = ko.observable();
+    self.Price = ko.observable();
+    self.Id = ko.observable();
 }

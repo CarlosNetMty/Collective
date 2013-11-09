@@ -26,9 +26,17 @@ namespace Collective.Web.Controllers
         #endregion
 
         #region Views & Partials
-        public ActionResult Index() { return View(); }
+        public ActionResult Index() 
+        {
+            IMetaDefinable instance = Configuration();
+            return View(instance); 
+        }
+        public ActionResult Detail(int? id) 
+        {
+            IMetaDefinable instance = Item(id.GetValueOrDefault(1));
+            return View(instance); 
+        }
         public ActionResult Gallery() { return View(); }
-        public ActionResult Detail() { return View(); }
         public PartialViewResult Header() { return PartialView(); }
         public PartialViewResult Footer() { return PartialView(); }
         public PartialViewResult Login() { return PartialView(); }
@@ -41,6 +49,49 @@ namespace Collective.Web.Controllers
         #endregion
 
         #region Data
+        #region Meta Information
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IMetaDefinable Item(int id)
+        {
+            Item instance = default(Item);
+
+            Repository.GetAll((IQueryable<Item> response) =>
+            {
+                instance = (from item in response
+                            where item.ItemId == id
+                            select item)
+                            .ToArray()
+                            .LastOrDefault();
+            });
+
+            return instance;
+        } 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IMetaDefinable Configuration()
+        {
+            Setting instance = default(Setting);
+
+            Repository.GetAll((IQueryable<Setting> response) =>
+            {
+                instance = (from item in response
+                            select item)
+                            .ToArray()
+                            .LastOrDefault();
+            });
+
+            return instance;
+        }
+        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult CurrentUser()
         {
             User currentUser = Session[USER_SESSION_KEY] as User;
@@ -71,6 +122,10 @@ namespace Collective.Web.Controllers
                 }
             };
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult Cover() 
         {
             IEnumerable<object> result = Enumerable.Empty<object>();
@@ -82,7 +137,8 @@ namespace Collective.Web.Controllers
                                 Id = item.ItemId,
                                 Name = item.English.Name,
                                 PhotoUrl = item.PhotoUrl,
-                                Artist = item.Artist.Name
+                                Artist = item.Artist.Name,
+                                Price = item.Price
                             }).ToList();
 
                 result = data.OfType<object>();
@@ -94,6 +150,11 @@ namespace Collective.Web.Controllers
                 Data = result
             };
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public JsonResult Product(int id) 
         {
             Item instance = default(Item);
@@ -149,6 +210,11 @@ namespace Collective.Web.Controllers
                 Data = result
             };
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
         public JsonResult Products(string search)
         {
             IEnumerable<object> result = Enumerable.Empty<object>();
