@@ -87,7 +87,10 @@ body [data-type="Loader"] {
     position: fixed;
     right: 20px;
     top: 20px;
-    background: url('../Images/colec7iva_adminBtn.png');
+    background: url('../Images/colec7iva_adminBtn.png') no-repeat center center;
+    text-indent: -99999px;
+    width: 40px;
+    height: 40px;
 }
 
 /* ==========================================================================
@@ -129,7 +132,10 @@ header, article, footer, aside{
 	}	
 header{
 	padding-top:47px
-	}		
+	}
+header img{
+	cursor: pointer;
+}			
 header h1{ 
 	font-weight:100; 
 	letter-spacing:.1em;
@@ -1334,6 +1340,8 @@ iframe{
     position:absolute;
     margin-top:-300px;
     margin-left:-270px;
+    background-color: #000;
+    z-index: 9999;
 }		
 
 #login button{
@@ -1361,3 +1369,17 @@ iframe{
     width: 95%;
 }
 
+
+div#overlay {
+    background: none repeat scroll 0 0 #000000;
+    border: 1px solid #FF0000;
+    bottom: 0;
+    height: 100px;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    z-index: 999;
+}

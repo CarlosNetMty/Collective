@@ -1,0 +1,24 @@
+<footer data-type="module" data-module="Collective.Home.Footer">
+    <div>
+        <input data-bind="value: SearchText" type="search" placeholder="Search" style="width: 200px">
+        <a><span data-bind="css: { red: IsEnglish() }, click: ChangeLanguage">ENG</span></a> 
+        <a><span data-bind="css: { red: IsSpanish() }, click: ChangeLanguage">SPA</span></a>
+    </div>
+  	<small>
+        <a>
+            <strong data-key="TermsOfService" data-bind="click: GoToConditions"></strong>
+        </a>
+        <img src="@Url.Content("~/Content/Images/c7-facebook.png")" width="19" height="18" alt="COLEC7IVA - FACEBOOK" />
+        <img src="@Url.Content("~/Content/Images/c7-twitter.png")" width="19" height="18" alt="COLEC7IVA - TWITTER" />
+        <img src="@Url.Content("~/Content/Images/c7-pinterest.png")" width="19" height="18" alt="COLEC7IVA - PINTEREST" />
+        @*       
+            <a data-bind="if: IsAdministrator()">
+                <strong data-key="AdminAccess" data-bind="click: GoToAdmin"></strong>
+            </a>
+        *@
+        ©2013 COLEC7IVA <span data-key="AllRightsReserved">All rights reserved</span>.
+  	</small>
+</footer>
+
+
+@Html.Partial("Login")
