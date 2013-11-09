@@ -1,0 +1,20 @@
+<div id="RegisterLogin">   
+    <div class="shopping-cart">
+        <img src="@Url.Content("~/Content/Images/myColec7iva-logoweb.png")" width="114" height="14" alt="MY COLEC7IVA" />
+        <img data-bind="visible: ShowProduction" class="colectiva-car" src="@Url.Content("~/Content/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
+        <span data-bind="text: ItemCount, visible: ShowProduction" class="redbox"></span>
+    </div>
+    <p data-bind="if: IsLoggedIn()">
+        <span data-key="Welcome">Welcome back</span>&nbsp;
+        <span data-bind="text: FirstName"></span>!
+    </p>
+    <p class="login" data-bind="if: !IsLoggedIn()">
+        <a data-key="LoginAndRegister" data-transform="AllCaps"></a>
+        @*<a data-key="Register" data-transform="AllCaps"></a>&nbsp;*@
+    </p>
+    <p data-bind="if: !IsHomePage() && IsLoggedIn()">
+        <span class="total-cont"data-bind="text: SubTotal"></span>
+        <span class="secure-payment" data-key="SecurePayment">Secure Payment</span>
+        <span class="order-history"  data-key="OrderHistory">Order History</span>
+    </p>
+</div>
