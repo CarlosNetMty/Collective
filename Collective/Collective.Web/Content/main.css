@@ -1334,6 +1334,7 @@ iframe{
     position:absolute;
     margin-top:-300px;
     margin-left:-270px;
+    background-color: #000;
 }		
 
 #login button{
