@@ -143,3 +143,6 @@ C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bi
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.Mvc.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.dll
 C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\Elmah.Mvc.dll
+C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.dll
+C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.Net4.dll
+C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.xml

@@ -11,46 +11,49 @@ namespace Collective.Model
 {
     public partial class Repository : IRepository
     {
-        #region Constants
-        public const string CACHE_KEY_GETALL_ARTISTS = "appGetAllArtist";
-        public const string CACHE_KEY_GETALL_FRAMES = "appGetAllFrame";
-        public const string CACHE_KEY_GETALL_SIZES = "appGetAllSize";
-        public const string CACHE_KEY_GETALL_TAGS = "appGetAllTag";
-        public const string CACHE_KEY_GETALL_USERS = "appGetAllUser";
-        public const string CACHE_KEY_GETALL_SETTINGS = "appGetAllSettings";
-        #endregion
-
-        #region Fields
-        ObjectCache CurrentCache;
-        #endregion
-
-        #region Constructors
-        public Repository(ObjectCache currentCache) 
+        #region public
+        public T Get<T>(int id) where T : IPersistibleObject 
         {
-            //Context = new Model.Context();
-            CurrentCache = currentCache; 
+            T contextResponse = default(T);
+
+            RunOrExecute((Context db) => 
+            {
+                contextResponse = ((IRepository<T>)this).Get(db, id);
+            });
+
+            return contextResponse;
         }
-        public Repository() : this(MemoryCache.Default) { }
         #endregion
-
-        #region Methods
-        void RunOrExecute<T>(string cacheKey, Func<Context, IQueryable<T>> contextCallback, Action<IQueryable<T>> callback) where T : IPersistibleObject 
+        #region internal
+        void RunOrExecute(Action<Context> callback) 
         {
-            //if (CurrentCache.Contains(cacheKey))
-            //    callback.Invoke(CurrentCache.Get(cacheKey) as IQueryable<T>);
-            //else
-                CurrentCache.Store<T>(cacheKey, contextCallback, callback);
+            using (Context db = new Context()) { callback.Invoke(db); }
+        }
+        void RunOrExecute<T>(Func<Context, IQueryable<T>> contextCallback, Action<IQueryable<T>> callback) where T : IPersistibleObject 
+        {
+            IQueryable<T> contextResponse = Enumerable.Empty<T>().AsQueryable();
+            RunOrExecute((Context db) => 
+            {
+                contextResponse = contextCallback.Invoke(db);
+                callback.Invoke(contextResponse);
+            });
         }
         T RunOrExecute<T>(Func<Context, T, T> contextCallback, T dataObject) where T : IPersistibleObject
         {
-            return Extensions.Store<T>(contextCallback, dataObject);
+            T contextResponse = default(T);
+            RunOrExecute((Context db) =>
+            {
+                contextResponse = contextCallback.Invoke(db, dataObject);
+                db.SaveChanges();                
+            });
+            return contextResponse;
         }
-        T Update<T>(Context db, int objectId, DbSet<T> collection, T dataObject) where T : class, IPersistibleObject
+        T Update<T>(Context db, int id, DbSet<T> collection, T dataObject) where T : class, IPersistibleObject
         {
-            if (objectId > 0)
+            if (id.HasValue())
             {   
                 T instance = dataObject;
-                T current = ((IRepository<T>)this).Get(db, objectId);
+                T current = ((IRepository<T>)this).Get(db, id);
 
                 if (current != null) 
                 {
@@ -66,5 +69,6 @@ namespace Collective.Model
             }
         }
         #endregion
+
     }
 }

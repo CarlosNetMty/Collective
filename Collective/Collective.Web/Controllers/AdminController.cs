@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Collective.Web;
 using Collective.Model;
+using Collective.Web.Models;
+using AutoMapper;
 
 namespace Collective.Web.Controllers
 {
@@ -21,23 +23,19 @@ namespace Collective.Web.Controllers
         #region Views & Partials
         public ActionResult Index(string id) 
         {
-            string viewName = string.IsNullOrEmpty(id) ? "Index" : "IndexDetail";
-            return View(viewName, (object)id); 
+            return View("Index".ViewName(id), (object)id); 
         }
         public ActionResult Users(int? id) 
         {
-            string viewName = !id.HasValue ? "Users" : "UsersDetail";
-            return View(viewName, id); 
+            return View("Users".ViewName(id), id); 
         }
         public ActionResult Products(int? id) 
         {
-            string viewName = !id.HasValue ? "Products" : "ProductsDetail";
-            return View(viewName, id); 
+            return View("Products".ViewName(id), id); 
         }
         public ActionResult Artists(int? id) 
         {
-            string viewName = !id.HasValue ? "Artists" : "ArtistsDetail";
-            return View(viewName, id); 
+            return View("Artists".ViewName(id), id); 
         }
         public ActionResult Cover() { return View(); }
         public ActionResult Content() { return View(); }
@@ -61,27 +59,19 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Configuration() 
         {
-            Setting instance = default(Setting);
+            Setting instance = Repository.Get<Setting>(1);
             object result = new object();
 
-            Repository.GetAll((IQueryable<Setting> response) =>
+            if (instance != null)
             {
-                instance = (from item in response
-                            select item)
-                            .ToArray()
-                            .LastOrDefault();
-
-                if (instance != null)
+                var data = new SettingResponse
                 {
-                    var data = new
-                    {
-                        SettingId = instance.SettingId,
-                        Meta = instance.Meta
-                    };
+                    SettingId = instance.SettingId,
+                    Meta = instance.Meta
+                };
 
-                    result = (object)data;
-                }
-            });
+                result = (object)data;
+            }
 
             return new JsonResult()
             {
@@ -98,7 +88,7 @@ namespace Collective.Web.Controllers
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new
+                Data = new StaticContentResponse
                 { 
                     About = Model.Resources.AboutUS.GetResource(),
                     Conditions = Model.Resources.TermsAndConditions.GetResource()
@@ -174,20 +164,14 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Credentials() 
         {
-            IEnumerable<object> result = Enumerable.Empty<object>();
+            IEnumerable<CredentialResponse> result = Enumerable.Empty<CredentialResponse>();
 
             Repository.GetAll((IQueryable<User> response) =>
             {
                 var data = (from item in response
-                            select new
-                            {
-                                Id = item.UserID,
-                                UserName = item.Name,
-                                Email = item.Email,
-                                Status = item.IsActive ? "Active" : "Inactive" 
-                            }).ToList();
+                            select item).ToList();
 
-                result = data.OfType<object>();
+                result = data.Select(item => Mapper.Map<User, CredentialResponse>(item));
             });
 
             return new JsonResult()
@@ -201,16 +185,11 @@ namespace Collective.Web.Controllers
         /// </summary>
         public JsonResult CredentialDetail(int id)
         {
-            User instance = default(User);
+            User instance = Repository.Get<User>(id);
             object result = new object();
 
-            Repository.GetAll((IQueryable<User> response) =>
+            if (instance != null)
             {
-                instance = (from item in response
-                            where item.UserID == id
-                            select item)
-                            .FirstOrDefault();
-
                 var data = new
                 {
                     UserID = instance.UserID,
@@ -229,7 +208,7 @@ namespace Collective.Web.Controllers
                 };
 
                 result = (object)data;
-            });
+            }
 
             return new JsonResult()
             {
@@ -271,40 +250,33 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult StockDetail(int id)
         {
-            Item instance = default(Item);
+            Item instance = Repository.Get<Item>(id);
             object result = new object();
 
-            Repository.GetAll((IQueryable<Item> response) =>
+            if (instance != null)
             {
-                instance = (from item in response
-                            where item.ItemId == id
-                            select item)
-                            .FirstOrDefault();
-
-                if (instance != null)
+                var data = new
                 {
-                    var data = new
-                    {
-                        ItemId = instance.ItemId,
-                        Meta = instance.Meta,
-                        AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
-                        AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
-                        Tags = instance.Tags.Select(item => item.TagId).ToList(),
-                        AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository, false),
-                        Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
-                        AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository, false),
-                        Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
-                        ArtistId = instance.Artist.ArtistId,
-                        Price = instance.Price,
-                        PhotoURL = instance.PhotoUrl,
-                        UseAsCover = instance.UseAsBackground,
-                        Spanish = instance.Spanish,
-                        English = instance.English
-                    };
+                    ItemId = instance.ItemId,
+                    Meta = instance.Meta,
+                    AvailableArtists = new List<Option>().LoadFrom<Artist>(Repository, false),
+                    AvailableTags = new List<Option>().LoadFrom<Tag>(Repository, false),
+                    Tags = instance.Tags.Select(item => item.TagId).ToList(),
+                    AvailableFrames = new List<Option>().LoadFrom<Frame>(Repository, false),
+                    Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
+                    AvailableSizes = new List<Option>().LoadFrom<Size>(Repository, false),
+                    Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
+                    ArtistId = instance.Artist.ArtistId,
+                    Code = instance.Code,
+                    Price = instance.Price,
+                    PhotoURL = instance.PhotoUrl,
+                    UseAsCover = instance.UseAsBackground,
+                    Spanish = instance.Spanish,
+                    English = instance.English
+                };
 
-                    result = (object)data;
-                }
-            });
+                result = (object)data;
+            }
 
             return new JsonResult()
             {
@@ -343,37 +315,31 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult ContributorDetail(int id) 
         {
-            Artist instance = default(Artist);
+            Artist instance = Repository.Get<Artist>(id);
             object result = new object();
 
-            Repository.GetAll((IQueryable<Artist> response) =>
+            if (instance != null)
             {
-                instance = (from item in response
-                            where item.ArtistId == id
-                            select item)
-                            .FirstOrDefault();
-
-                if (instance != null) {
-                    var data = new {
-                        ArtistId = instance.ArtistId,
-                        Name = instance.Name,
-                        SpanishBio = instance.SpanishBio,
-                        EnglishBio = instance.EnglishBio,
-                        Stock = instance.Items.Select((Item item) =>
+                var data = new
+                {
+                    ArtistId = instance.ArtistId,
+                    Name = instance.Name,
+                    SpanishBio = instance.SpanishBio,
+                    EnglishBio = instance.EnglishBio,
+                    Stock = instance.Items.Select((Item item) =>
+                    {
+                        return new
                         {
-                            return new
-                            {
-                                Id = item.ItemId,
-                                ArtistName = instance.Name,
-                                Description = item.English.Name,
-                                Price = item.Price
-                            };
-                        }).ToList()
-                    };
+                            Id = item.ItemId,
+                            ArtistName = instance.Name,
+                            Description = item.English.Name,
+                            Price = item.Price
+                        };
+                    }).ToList()
+                };
 
-                    result = (object)data;
-                }
-            });
+                result = (object)data;
+            }
 
             return new JsonResult()
             {
@@ -388,42 +354,35 @@ namespace Collective.Web.Controllers
         [HttpPost]
         public JsonResult SaveContact(Artist dataObject) 
         {
-            try
-            {
-                Repository.Update(dataObject);
-                return Models.ActionResponse.Succeed.ToJSON();
-            }
-            catch (Exception ex) 
-            {
-                return Models.ActionResponse.Failed.ToJSON();
-                throw ex;
-            };          
+            return Extensions.Execute(() => 
+            { 
+                Repository.Update(dataObject); 
+            });
         }
 
         [HttpPost]
         public JsonResult SaveProduct(Item dataObject) 
         {
-            try
+            return Extensions.Execute(() =>
             {
                 dataObject.Meta.Title = HttpContext.Request.Form["Meta[Title]"];
                 dataObject.Meta.Description = HttpContext.Request.Form["Meta[Description]"];
                 dataObject.Meta.Tags = HttpContext.Request.Form["Meta[Tags]"];
                 //TODO: Add ModelBinder
+                dataObject.Spanish.Name = HttpContext.Request.Form["Spanish[Name]"];
+                dataObject.Spanish.Description = HttpContext.Request.Form["Spanish[Description]"];
+
+                dataObject.English.Name = HttpContext.Request.Form["English[Name]"];
+                dataObject.English.Description = HttpContext.Request.Form["English[Description]"];
 
                 Repository.Update(dataObject);
-                return Models.ActionResponse.Succeed.ToJSON();
-            }
-            catch (Exception ex)
-            {
-                return Models.ActionResponse.Failed.ToJSON();
-                throw ex;
-            };          
+            });         
         }
 
         [HttpPost]
         public JsonResult SaveSetting(Setting dataObject) 
         {
-            try
+            return Extensions.Execute(() =>
             {
                 dataObject.Meta.Title = HttpContext.Request.Form["Meta[Title]"];
                 dataObject.Meta.Description = HttpContext.Request.Form["Meta[Description]"];
@@ -431,97 +390,21 @@ namespace Collective.Web.Controllers
                 //TODO: Add ModelBinder
 
                 Repository.Update(dataObject);
-                return Models.ActionResponse.Succeed.ToJSON();
-            }
-            catch (Exception ex)
-            {
-                return Models.ActionResponse.Failed.ToJSON();
-                throw ex;
-            };   
+            });
         }
 
         [HttpPost]
         public JsonResult RemoveBackground(int id) 
         {
-
-            Item element = default(Item);
-            Repository.GetAll((IQueryable<Item> response) =>
+            return Extensions.Execute(() => 
             {
-                element = (from item in response
-                            where item.ItemId == id
-                            select item).FirstOrDefault();
+                Item element = Repository.Get<Item>(id);
+                element.UseAsBackground = false;
+
+                Repository.Update(element); 
             });
-
-            element.UseAsBackground = false;
-            Repository.Update(element);
-
-            return new JsonResult
-            {
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new { Success = true }
-            };
         }
 
         #endregion
-    }
-
-    public static class Extensions
-    {
-        public static List<object> LoadFrom(this List<object> collection, IRepository<Artist> repository, bool appendDefault = true)
-        {
-            if(appendDefault) collection.Add(new { Id = -1, Name = "*" });
-            Action<IQueryable<Artist>> callback = (IQueryable<Artist> data) =>
-            {
-                foreach (var item in data)
-                    collection.Add(new { Id = item.ArtistId, Name = item.Name });
-            };
-
-            ((IRepository)repository).GetAll(callback);
-            return collection;
-        }
-
-        public static List<object> LoadFrom(this List<object> collection, IRepository<Frame> repository, bool appendDefault = true)
-        {
-            if (appendDefault) collection.Add(new { Id = -1, Name = "*" });
-            Action<IQueryable<Frame>> callback = (IQueryable<Frame> data) =>
-            {
-                foreach (var item in data)
-                    collection.Add(new { Id = item.FrameId, Name = item.Description });
-            };
-
-            ((IRepository)repository).GetAll(callback);
-            return collection;
-        }
-
-        public static List<object> LoadFrom(this List<object> collection, IRepository<Tag> repository, bool appendDefault = true)
-        {
-            if (appendDefault) collection.Add(new { Id = -1, Name = "*" });
-            Action<IQueryable<Tag>> callback = (IQueryable<Tag> data) =>
-            {
-                foreach (var item in data)
-                    collection.Add(new { Id = item.TagId, Name = item.Name });
-            };
-
-            ((IRepository)repository).GetAll(callback);
-            return collection;
-        }
-
-        public static List<object> LoadFrom(this List<object> collection, IRepository<Size> repository, bool appendDefault = true)
-        {
-            if (appendDefault) collection.Add(new { Id = -1, Name = "*" });
-            Action<IQueryable<Size>> callback = (IQueryable<Size> data) =>
-            {
-                foreach (var item in data)
-                    collection.Add(new { Id = item.SizeId, Name = item.Description });
-            };
-
-            ((IRepository)repository).GetAll(callback);
-            return collection;
-        }
-
-        public static string AsString(this DateTime value)
-        {
-            return value.ToString("MMMM dd, yyyy");
-        }
     }
 }

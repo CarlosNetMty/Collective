@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Collective.Model
 {
-    public class Frame : IPersistibleObject
+    public class Frame : IPersistibleObject, ICatalogObject
     {
         #region Properties
         public int FrameId { get; set; }
@@ -23,6 +23,8 @@ namespace Collective.Model
             Frame instance = obj as Frame;
             instance.Description = Description;
         }
+        public int GetUniqueIdentifier() { return FrameId; }
+        public string GetDescription() { return Description; }
         #endregion
     }
 }

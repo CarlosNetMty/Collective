@@ -21,7 +21,7 @@ namespace Collective.Web
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers
-            container.RegisterInstance<IRepository>(new Repository(MemoryCache.Default));
+            container.RegisterInstance<IRepository>(new Repository());
             //container.RegisterInstance<IRepository>(new FakeRepository());
             // e.g. container.RegisterType<ITestService, TestService>();            
 

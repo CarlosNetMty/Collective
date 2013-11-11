@@ -16,6 +16,14 @@
                 <label>Artist</label>
                 <select data-bind="options: AvailableArtists, value: ArtistId, optionsText: 'Name', optionsValue: 'Id'"></select>
             </div>
+        </div>
+
+        <div class="row">
+
+            <div class="large-6 columns">
+                <label>Code</label>
+                <input type="text" data-bind="value: Code" placeholder=""> 
+            </div>
 
             <div class="large-6 columns">
                 <label>Unit price</label>
@@ -61,7 +69,7 @@
 
         <div class="small-12 columns">
             <label>
-                <input type="checkbox" data-bind="checked: UseAsCover">
+                <input type="checkbox" data-bind="checked: UseAsBackground">
                 <span class="custom radio"></span> Asign to cover images list
             </label>     
         </div>
@@ -70,34 +78,34 @@
 
         <div class="custom tags">    
 
-            <div class="large-4 columns">  
+            <div class="large-4 columns" data-key="Tags">  
 
                 <h3>Tags</h3>
                 <div data-bind="foreach: AvailableTags">
                     <label data-bind="attr: { for: Name }">
-                        <input type="radio" data-bind="attr: { name: Name, id: Id }">
+                        <input type="checkbox" data-bind="attr: { name: Name, id: Id }">
                         <span class="custom radio" data-bind="text: Name"></span>
                     </label>  
                 </div>
             </div>
 
-            <div class="large-4 columns">  
+            <div class="large-4 columns" data-key="Sizes">  
 
                 <h3>Formats</h3>
                 <div data-bind="foreach: AvailableSizes">
                     <label data-bind="attr: { for: Name }">
-                        <input type="radio" data-bind="attr: { name: Name, id: Id }">
+                        <input type="checkbox" data-bind="attr: { name: Name, id: Id }">
                         <span class="custom radio" data-bind="text: Name"></span>
                     </label>  
                 </div>
             </div>
 
-            <div class="large-4 columns">  
+            <div class="large-4 columns" data-key="Frames">  
 
                 <h3>Frames</h3>
                 <div data-bind="foreach: AvailableFrames">
                     <label data-bind="attr: { for: Name }">
-                        <input type="radio" data-bind="attr: { name: Name, id: Id }">
+                        <input type="checkbox" data-bind="attr: { name: Name, id: Id }">
                         <span class="custom radio" data-bind="text: Name"></span>
                     </label>  
                 </div>

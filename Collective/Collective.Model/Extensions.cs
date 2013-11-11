@@ -10,47 +10,19 @@ namespace Collective.Model
 {
     public static class Extensions
     {
-        public static void Store<T>(this ObjectCache objectCache, string key, Func<Context, IQueryable<T>> contextCallback, Action<IQueryable<T>> callback) 
-        {
-            IQueryable<T> contextResponse = Enumerable.Empty<T>().AsQueryable();
-            using (Context db = new Context())
-            {
-                contextResponse = contextCallback.Invoke(db);
-
-                objectCache.Add(new CacheItem(key, contextResponse.ToList().AsQueryable()),
-                    new CacheItemPolicy()
-                    {
-                        AbsoluteExpiration = DateTime.Now.AddHours(2)
-                    });
-
-                callback.Invoke(contextResponse);
-            }
-        }
-
-        public static T Store<T>(Func<Context, T, T> contextCallback, T dataObject)
-        {
-            T contextResponse = default(T);
-            using (Context db = new Context())
-            {
-                contextResponse = contextCallback.Invoke(db, dataObject);
-                db.SaveChanges();
-            }
-
-            return contextResponse;
-        }
-
+        #region Resources
         public static string GetResource(this Resources resource)
         {
             return GetResource((int)resource);
         }
-
         public static string GetResource(int resource) 
         {
             using (Context db = new Context())
             {
                 Resource element = db
-                .Resources
-                .FirstOrDefault(item => item.ResourceId == resource);
+                    .Resources
+                    .Where(item => item.ResourceId == resource)
+                    .FirstOrDefault();
 
                 if (element != null && element.ResourceId > 0)
                     return element.Value;
@@ -58,6 +30,13 @@ namespace Collective.Model
 
             return string.Empty;
         }
+        #endregion
+        #region General
+        public static bool HasValue(this int currentValue) 
+        {
+            return currentValue > 0;
+        }
+        #endregion
     }
 
     public enum Resources

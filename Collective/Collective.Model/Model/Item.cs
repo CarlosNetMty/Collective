@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -27,6 +28,16 @@ namespace Collective.Model
         public virtual List<Frame> AvailableFrames { get; set; }
         #endregion
 
+        #region Not Mapped
+        [NotMapped]
+        public virtual string SelectedTags { get; set; }
+        [NotMapped]
+        public virtual string SelectedSizes { get; set; }
+        [NotMapped]
+        public virtual string SelectedFrames { get; set; }
+        #endregion
+
+
         #region Methods
         public void Clone(IPersistibleObject obj)
         {
@@ -42,8 +53,25 @@ namespace Collective.Model
             instance.Spanish.Name = Spanish.Name;
             instance.English.Description = English.Description;
             instance.English.Name = English.Name;
+
+            instance.Tags.Clear();
+            instance.AvailableFrames.Clear();
+            instance.AvailableSizes.Clear();
+
+            if(string.IsNullOrEmpty(SelectedTags)) SelectedTags = string.Empty;
+            foreach(var item in SelectedTags.Split(','))
+                instance.Tags.Add(new Tag { TagId = int.Parse(item) });
+
+            if(string.IsNullOrEmpty(SelectedFrames)) SelectedFrames = string.Empty;
+            foreach (var item in SelectedFrames.Split(','))
+                instance.AvailableFrames.Add(new Frame { FrameId = int.Parse(item) });
+
+            if(string.IsNullOrEmpty(SelectedSizes)) SelectedSizes = string.Empty;
+            foreach (var item in SelectedSizes.Split(','))
+                instance.AvailableSizes.Add(new Size { SizeId = int.Parse(item) });
+                
         }
-        #endregion
+        #endregion 
     }
 
     public class ItemDescription 

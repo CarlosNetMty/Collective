@@ -19,7 +19,7 @@ namespace Collective.Model
         public void GetAll(Action<IQueryable<Tag>> callback)
         {
             Func<Context, IQueryable<Tag>> contextCallback = ((IRepository<Tag>)this).GetAll;
-            RunOrExecute<Tag>(CACHE_KEY_GETALL_TAGS, contextCallback, callback);
+            RunOrExecute<Tag>(contextCallback, callback);
         }
         #endregion
 

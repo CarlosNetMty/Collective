@@ -19,7 +19,7 @@ namespace Collective.Model
         public void GetAll(Action<IQueryable<Size>> callback)
         {
             Func<Context, IQueryable<Size>> contextCallback = ((IRepository<Size>)this).GetAll;
-            RunOrExecute<Size>(CACHE_KEY_GETALL_SIZES, contextCallback, callback);
+            RunOrExecute<Size>(contextCallback, callback);
         }
         #endregion
 
@@ -35,7 +35,6 @@ namespace Collective.Model
         Size IRepository<Size>.Update(Context db, Size dataObject)
         {
             return Update<Size>(db, dataObject.SizeId, db.Sizes, dataObject);
-            //return db.Sizes.Add(dataObject);
         }
         #endregion
     }

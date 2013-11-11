@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Collective.Model
 {
-    public class Artist : IPersistibleObject
+    public class Artist : IPersistibleObject, ICatalogObject
     {
         #region Properties
         public int ArtistId { get; set; }
@@ -28,6 +28,8 @@ namespace Collective.Model
             instance.SpanishBio = SpanishBio;
             instance.EnglishBio = EnglishBio;
         }
+        public int GetUniqueIdentifier() { return ArtistId; }
+        public string GetDescription() { return Name; }
         #endregion
     }
 }

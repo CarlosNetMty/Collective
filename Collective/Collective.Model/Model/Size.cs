@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Collective.Model
 {
-    public class Size : IPersistibleObject
+    public class Size : IPersistibleObject, ICatalogObject
     {
         #region Properties
         public int SizeId { get; set; }
@@ -23,6 +23,8 @@ namespace Collective.Model
             Size instance = obj as Size;
             instance.Description = Description;
         }
+        public int GetUniqueIdentifier() { return SizeId; }
+        public string GetDescription() { return Description; }
         #endregion
     }
 }

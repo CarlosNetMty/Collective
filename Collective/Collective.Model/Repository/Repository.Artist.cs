@@ -15,12 +15,11 @@ namespace Collective.Model
         {
             Func<Context, Artist, Artist> contextCallback = ((IRepository<Artist>)this).Update;
             return RunOrExecute<Artist>(contextCallback, dataObject);
-            //return RunOrExecute<Artist>(((Context db, Artist dataObject) => { return db.Artists.Add(dataObject); }));
         }
         public void GetAll(Action<IQueryable<Artist>> callback)
         {
             Func<Context, IQueryable<Artist>> contextCallback = ((IRepository<Artist>)this).GetAll;
-            RunOrExecute<Artist>(CACHE_KEY_GETALL_ARTISTS, contextCallback, callback);
+            RunOrExecute<Artist>(contextCallback, callback);
         }
         #endregion
 
@@ -45,7 +44,6 @@ namespace Collective.Model
             }
 
             return Update<Artist>(db, dataObject.ArtistId, db.Artists, instance);
-            //return db.Artists.Add(dataObject);
         }
         #endregion
     }

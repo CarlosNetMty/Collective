@@ -9,6 +9,15 @@ namespace Collective.Model
 {
     public interface IRepository
     {
+        #region Get
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        T Get<T>(int id) where T : IPersistibleObject;
+        #endregion
         #region Update
         /// <summary>
         /// 

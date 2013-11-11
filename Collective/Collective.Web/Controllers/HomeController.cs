@@ -1,4 +1,6 @@
-﻿using Collective.Model;
+﻿using AutoMapper;
+using Collective.Model;
+using Collective.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +33,9 @@ namespace Collective.Web.Controllers
             IMetaDefinable instance = Configuration();
             return View(instance); 
         }
-        public ActionResult Detail(int? id) 
+        public ActionResult Detail(int id) 
         {
-            IMetaDefinable instance = Item(id.GetValueOrDefault(1));
+            IMetaDefinable instance = Item(id);
             return View(instance); 
         }
         public ActionResult Gallery() { return View(); }
@@ -56,18 +58,7 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public IMetaDefinable Item(int id)
         {
-            Item instance = default(Item);
-
-            Repository.GetAll((IQueryable<Item> response) =>
-            {
-                instance = (from item in response
-                            where item.ItemId == id
-                            select item)
-                            .ToArray()
-                            .LastOrDefault();
-            });
-
-            return instance;
+            return Repository.Get<Item>(id);
         } 
         /// <summary>
         /// 
@@ -75,17 +66,7 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public IMetaDefinable Configuration()
         {
-            Setting instance = default(Setting);
-
-            Repository.GetAll((IQueryable<Setting> response) =>
-            {
-                instance = (from item in response
-                            select item)
-                            .ToArray()
-                            .LastOrDefault();
-            });
-
-            return instance;
+            return Repository.Get<Setting>(1);
         }
         #endregion
         /// <summary>
@@ -101,25 +82,14 @@ namespace Collective.Web.Controllers
                 return new JsonResult()
                 {
                     JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                    Data = new
-                    {
-                        IsLoggedIn = true,
-                        Name = currentUser.Name,
-                        Email = currentUser.Email,
-                        IsAdministrator = currentUser.IsAdministrator,
-                        IsActive = currentUser.IsActive,
-                        UserID = currentUser.UserID
-                    }
+                    Data = Mapper.Map<User, UserResponse>(currentUser)
                 };
             }
 
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new 
-                {
-                    IsLoggedIn = false,
-                }
+                Data = UserResponse.Empty()
             };
         }
         /// <summary>
@@ -128,20 +98,14 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Cover() 
         {
-            IEnumerable<object> result = Enumerable.Empty<object>();
+            IEnumerable<CoverResponse> result = Enumerable.Empty<CoverResponse>();
 
             Repository.GetAll((IQueryable<Item> response) => {
                 var data = (from item in response
                             where item.UseAsBackground
-                            select new { 
-                                Id = item.ItemId,
-                                Name = item.English.Name,
-                                PhotoUrl = item.PhotoUrl,
-                                Artist = item.Artist.Name,
-                                Price = item.Price
-                            }).ToList();
+                            select item).ToList();
 
-                result = data.OfType<object>();
+                result = data.Select(item => Mapper.Map<Item, CoverResponse>(item));
             });
 
             return new JsonResult()
@@ -157,48 +121,41 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Product(int id) 
         {
-            Item instance = default(Item);
+            Item instance = Repository.Get<Item>(id);
             object result = new object();
-
-            Repository.GetAll((IQueryable<Item> response) =>
+            
+            if (instance != null)
             {
-                instance = (from item in response
-                            where item.ItemId == id
-                            select item)
-                            .FirstOrDefault();
-
-                var data = new
+                var data = new ProductResponse
                 {
                     ItemId = instance.ItemId,
                     Meta = instance.Meta,
-                    AvailableArtists = new List<object>().LoadFrom((IRepository<Artist>)Repository, false),
-                    AvailableTags = new List<object>().LoadFrom((IRepository<Tag>)Repository, false),
+                    
                     Tags = instance.Tags.Select(item => item.TagId).ToList(),
-                    AvailableFrames = new List<object>().LoadFrom((IRepository<Frame>)Repository, false),
                     Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
-                    AvailableSizes = new List<object>().LoadFrom((IRepository<Size>)Repository, false),
                     Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
+
+                    AvailableArtists = new List<Option>().LoadFrom<Artist>(Repository, false),
+                    AvailableTags = new List<Option>().LoadFrom<Tag>(Repository, false),
+                    AvailableFrames = new List<Option>().LoadFrom<Frame>(Repository, false),
+                    AvailableSizes = new List<Option>().LoadFrom<Size>(Repository, false),
+                    
                     ArtistId = instance.Artist.ArtistId,
                     ArtistName = instance.Artist.Name,
+
                     Price = instance.Price,
                     Code = instance.Code,
                     PhotoUrl = instance.PhotoUrl,
-                    Spanish = new
-                    {
-                        Name = "N/A",
-                        Description = "Feature not available yet!"
-                    },
-                    English = new
-                    {
-                        Name = "N/A",
-                        Description = "Feature not available yet!"
-                    },
+
+                    Spanish = instance.Spanish,
+                    English = instance.English,
                     Related = new List<string>()
                 };
 
                 result = (object)data;
-            });
+            }
 
+            //TODO: Code clean
             ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
             ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
             ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
@@ -217,45 +174,35 @@ namespace Collective.Web.Controllers
         /// <returns></returns>
         public JsonResult Products(string search)
         {
-            IEnumerable<object> result = Enumerable.Empty<object>();
-            if (string.IsNullOrEmpty(search)) search = string.Empty;
+            List<SearchResponse> result = Enumerable.Empty<SearchResponse>().ToList();
+            
+            if (string.IsNullOrEmpty(search)) 
+                search = string.Empty;
+
             Repository.GetAll((IQueryable<Item> response) =>
             {
                 var data = (from item in response
-                            where (item.Artist.Name == search || search == "") || 
-                                (item.English.Name == search || search == "") || 
+                            where (item.Artist.Name == search || search == "") ||
+                                (item.English.Name == search || search == "") ||
                                 (item.Spanish.Name == search || search == "")
-                            select new
-                            {
-                                Id = item.ItemId,
-                                Artist = item.Artist.Name,
-                                Name = item.English.Name,
-                                Photo = item.PhotoUrl,
-                                Tags = item.Tags.Select(tag => tag.Name),
-                                Sizes = item.AvailableSizes.Select(size => size.Description)
-                            }).ToList();
+                            select item).ToList();
 
-                result = data.OfType<object>();
+                result = data.Select(item => Mapper.Map<Item, SearchResponse>(item)).ToList();
+
+                foreach (var item in result)
+                    item.Filters = string.Format("{0} {1} {2}",
+                                item.Artist.Replace(" ", ""),
+                                string.Join(" ", (List<string>)item.Tags),
+                                string.Join(" ", (List<string>)item.Sizes)
+                            );
             });
 
-            var responseData = new
+            var responseData = new SearchContextResponse
             {
-                Artists = new List<object>().LoadFrom((IRepository<Artist>)Repository),
-                Themes = new List<object>().LoadFrom((IRepository<Tag>)Repository),
-                Formats = new List<object>().LoadFrom((IRepository<Size>)Repository),
-                Items = result.OfType<dynamic>().Select(item => {
-                    return new
-                    {
-                        Id = item.Id,
-                        Artist = item.Artist,
-                        Name = item.Name,
-                        Photo = item.Photo,
-                        Filters = string.Format("{0} {1} {2}", item.Artist.Replace(" ", ""),
-                            string.Join(" ", (List<string>)item.Tags),
-                            string.Join(" ", (List<string>)item.Sizes)
-                        )
-                    };
-                })
+                Artists = new List<Option>().LoadFrom<Artist>(Repository),
+                Themes = new List<Option>().LoadFrom<Tag>(Repository),
+                Formats = new List<Option>().LoadFrom<Size>(Repository),
+                Items = result
             };
 
             return new JsonResult()

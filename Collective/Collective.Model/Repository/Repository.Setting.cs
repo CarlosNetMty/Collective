@@ -17,7 +17,7 @@ namespace Collective.Model
         public void GetAll(Action<IQueryable<Setting>> callback)
         {
             Func<Context, IQueryable<Setting>> contextCallback = ((IRepository<Setting>)this).GetAll;
-            RunOrExecute<Setting>(CACHE_KEY_GETALL_SETTINGS, contextCallback, callback);
+            RunOrExecute<Setting>(contextCallback, callback);
         }
         #endregion
 

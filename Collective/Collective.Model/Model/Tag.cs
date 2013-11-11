@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Collective.Model
 { 
-    public class Tag : IPersistibleObject
+    public class Tag : IPersistibleObject, ICatalogObject
     {
         #region Properties
         public int TagId { get; set; }
@@ -23,6 +23,8 @@ namespace Collective.Model
             Tag instance = obj as Tag;
             instance.Name = Name;
         }
+        public int GetUniqueIdentifier() { return TagId; }
+        public string GetDescription() { return Name; }
         #endregion
     }
 }
