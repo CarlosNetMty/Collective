@@ -209,6 +209,8 @@
     <Content Include="Photos\accent.png" />
     <Content Include="Photos\bullet.png" />
     <Content Include="Photos\heroAccent.png" />
+    <Content Include="Photos\memotrevino01-home.jpg" />
+    <Content Include="Photos\memotrevino02-home.jpg" />
     <Content Include="Photos\nydialilian01-home.jpg" />
     <Content Include="Photos\nydialilian02-home.jpg" />
     <Content Include="Photos\orderedList0.png" />
