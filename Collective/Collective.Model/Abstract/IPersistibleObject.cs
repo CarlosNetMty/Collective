@@ -15,7 +15,7 @@ namespace Collective.Model
         /// 
         /// </summary>
         /// <param name="obj"></param>
-        void Clone(IPersistibleObject obj);
+        void Clone(IPersistibleObject entity, IRepository repository, Context context);
     }
     /// <summary>
     /// 

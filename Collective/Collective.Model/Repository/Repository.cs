@@ -25,9 +25,10 @@ namespace Collective.Model
         }
         #endregion
         #region internal
+        protected internal Context CurrentContext { get; private set; }
         void RunOrExecute(Action<Context> callback) 
         {
-            using (Context db = new Context()) { callback.Invoke(db); }
+            using (CurrentContext = new Context()) { callback.Invoke(CurrentContext); }
         }
         void RunOrExecute<T>(Func<Context, IQueryable<T>> contextCallback, Action<IQueryable<T>> callback) where T : IPersistibleObject 
         {
@@ -57,7 +58,7 @@ namespace Collective.Model
 
                 if (current != null) 
                 {
-                    dataObject.Clone(current);
+                    dataObject.Clone(current, this, db);
                     instance = current;
                 }
 

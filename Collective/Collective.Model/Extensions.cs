@@ -32,6 +32,41 @@ namespace Collective.Model
         }
         #endregion
         #region General
+        public static T Get<T>(this IRepository repository, Context context, int id) where T : IPersistibleObject 
+        {
+            return ((IRepository<T>)repository).Get(context, id);
+        }
+
+        public static void Load<T>(this List<T> destination, IRepository repository, Context context, List<T> source) where T : ICatalogObject
+        {
+            IList<int> sourceItems = source.Select(item => item.GetUniqueIdentifier()).ToList();
+            IList<int> destinationItems = destination.Select(item => item.GetUniqueIdentifier()).ToList();
+            
+            sourceItems
+                .Where(obj => !destinationItems.Contains(obj))
+                .ToList()
+                .ForEach((item) => 
+                {
+                    T newElement = repository.Get<T>(context, item);
+                    //repository.Attach((dynamic)newElement);
+
+                    destination.Add(newElement);
+                });
+
+            destinationItems
+                .Where(obj => !sourceItems.Contains(obj))
+                .ToList()
+                .ForEach((item) =>
+                {
+                    T removedElement = destination
+                        .Where(subItem => item == subItem.GetUniqueIdentifier())
+                        .SingleOrDefault();
+
+                    //repository.Attach((dynamic)removedElement);
+                    destination.Remove(removedElement);
+                });            
+            
+        }
         public static bool HasValue(this int currentValue) 
         {
             return currentValue > 0;

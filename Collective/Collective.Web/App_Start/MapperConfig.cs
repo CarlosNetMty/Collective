@@ -12,6 +12,8 @@ namespace Collective.Web
     {
         public static void RegisterMappings()
         {
+            #region Response
+
             Mapper.CreateMap<Frame, Option>()
                 .ForMember(dest => dest.Id, obj => obj.MapFrom(val => val.FrameId))
                 .ForMember(dest => dest.Name, obj => obj.MapFrom(val => val.Description));
@@ -44,7 +46,15 @@ namespace Collective.Web
                 .ForMember(dest => dest.Sizes, obj => obj.MapFrom(val => val.AvailableSizes.Select(size => size.Description)))
                 .ForMember(dest => dest.Artist, obj => obj.MapFrom(val => val.Artist.Name));
 
-            
+            #endregion
+
+            #region Request
+
+            Mapper.CreateMap<ProductRequest, Item>()
+                .ForMember(dest => dest.Artist, obj => obj.MapFrom(val => new Artist(val.ArtistId)));
+                
+            #endregion
+
         }
     }
 }

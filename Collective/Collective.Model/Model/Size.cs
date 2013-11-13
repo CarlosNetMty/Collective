@@ -18,13 +18,16 @@ namespace Collective.Model
         #endregion
 
         #region Methods
-        public void Clone(IPersistibleObject obj)
+
+        public void Clone(IPersistibleObject obj, IRepository repository, Context context)
         {
             Size instance = obj as Size;
             instance.Description = Description;
         }
+
         public int GetUniqueIdentifier() { return SizeId; }
         public string GetDescription() { return Description; }
+
         #endregion
     }
 }

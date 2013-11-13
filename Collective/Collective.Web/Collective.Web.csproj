@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Extensions.cs" />
+    <Compile Include="App_Code\Binders\ProductRequestBinder.cs" />
+    <Compile Include="App_Start\BindingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
@@ -157,16 +159,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ActionResponse.cs" />
-    <Compile Include="Models\CoverResponse.cs" />
-    <Compile Include="Models\CredentialResponse.cs" />
+    <Compile Include="Models\Request\ProductRequest.cs" />
+    <Compile Include="Models\Response\ActionResponse.cs" />
+    <Compile Include="Models\Response\CoverResponse.cs" />
+    <Compile Include="Models\Response\CredentialResponse.cs" />
     <Compile Include="Models\Option.cs" />
-    <Compile Include="Models\ProductResponse.cs" />
-    <Compile Include="Models\SearchContextResponse.cs" />
-    <Compile Include="Models\SearchResponse.cs" />
-    <Compile Include="Models\SettingResponse.cs" />
-    <Compile Include="Models\StaticContentResponse.cs" />
-    <Compile Include="Models\UserResponse.cs" />
+    <Compile Include="Models\Response\ProductResponse.cs" />
+    <Compile Include="Models\Response\SearchContextResponse.cs" />
+    <Compile Include="Models\Response\SearchResponse.cs" />
+    <Compile Include="Models\Response\SettingResponse.cs" />
+    <Compile Include="Models\Response\StaticContentResponse.cs" />
+    <Compile Include="Models\Response\UserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

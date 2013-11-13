@@ -15,7 +15,7 @@ namespace Collective.Model
         #endregion
 
         #region Methods
-        public void Clone(IPersistibleObject obj)
+        public void Clone(IPersistibleObject obj, IRepository repository, Context context)
         {
             Setting instance = obj as Setting;
             instance.Meta.Description = Meta.Description;

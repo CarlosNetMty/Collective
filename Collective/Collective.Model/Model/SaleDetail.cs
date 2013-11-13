@@ -22,7 +22,7 @@ namespace Collective.Model
         #endregion
 
         #region Methods
-        public void Clone(IPersistibleObject obj)
+        public void Clone(IPersistibleObject obj, IRepository repository, Context context)
         {
             SaleDetail instance = obj as SaleDetail;
             instance.Quantity = Quantity;

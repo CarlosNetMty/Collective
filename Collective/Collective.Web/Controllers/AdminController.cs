@@ -361,21 +361,14 @@ namespace Collective.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult SaveProduct(Item dataObject) 
+        public JsonResult SaveProduct(ProductRequest dataObject) 
         {
             return Extensions.Execute(() =>
             {
-                dataObject.Meta.Title = HttpContext.Request.Form["Meta[Title]"];
-                dataObject.Meta.Description = HttpContext.Request.Form["Meta[Description]"];
-                dataObject.Meta.Tags = HttpContext.Request.Form["Meta[Tags]"];
-                //TODO: Add ModelBinder
-                dataObject.Spanish.Name = HttpContext.Request.Form["Spanish[Name]"];
-                dataObject.Spanish.Description = HttpContext.Request.Form["Spanish[Description]"];
+                Item item = Mapper.Map<ProductRequest, Item>(dataObject);
+                item.LoadFrom(dataObject);
 
-                dataObject.English.Name = HttpContext.Request.Form["English[Name]"];
-                dataObject.English.Description = HttpContext.Request.Form["English[Description]"];
-
-                Repository.Update(dataObject);
+                Repository.Update(item);
             });         
         }
 

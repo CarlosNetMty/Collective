@@ -20,16 +20,24 @@ namespace Collective.Model
         public virtual List<Item> Items { get; set; }
         #endregion
 
+        #region Constructor
+        public Artist() { }
+        public Artist(int id) { ArtistId = id; }
+        #endregion
+
         #region Methods
-        public void Clone(IPersistibleObject obj) 
+
+        public void Clone(IPersistibleObject obj, IRepository repository, Context context) 
         {
             Artist instance = obj as Artist;
             instance.Name = Name;
             instance.SpanishBio = SpanishBio;
             instance.EnglishBio = EnglishBio;
         }
+
         public int GetUniqueIdentifier() { return ArtistId; }
         public string GetDescription() { return Name; }
+
         #endregion
     }
 }

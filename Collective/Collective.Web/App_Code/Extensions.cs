@@ -64,6 +64,29 @@ namespace Collective.Web
             return collection;
         }
 
+        public static void LoadFrom(this Item item, ProductRequest request) 
+        {
+            if (string.IsNullOrEmpty(request.SelectedFrames)) request.SelectedFrames = string.Empty;
+            if (string.IsNullOrEmpty(request.SelectedSizes)) request.SelectedSizes = string.Empty;
+            if (string.IsNullOrEmpty(request.SelectedTags)) request.SelectedTags = string.Empty;
+
+            item.AvailableFrames = request
+                .SelectedFrames.Split(',')
+                .Select(subItem => new Frame { FrameId = int.Parse(subItem) })
+                .ToList();
+
+            item.AvailableSizes = request
+                .SelectedSizes.Split(',')
+                .Select(subItem => new Size { SizeId = int.Parse(subItem) })
+                .ToList();
+
+            item.Tags = request
+                .SelectedTags.Split(',')
+                .Select(subItem => new Tag { TagId = int.Parse(subItem)})
+                .ToList();
+
+        }
+
         #endregion
     }
 }
