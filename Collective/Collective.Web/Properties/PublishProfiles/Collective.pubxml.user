@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASFkK6p8CBUi7Urj2rFy5zwAAAAACAAAAAAADZgAAwAAAABAAAAAgy1YTt7t9txbgT0uJD9R8AAAAAASAAACgAAAAEAAAADAuxcAXTiADSX6LW6HU290YAAAANAoraT3I0pRcw1CGd6FIOo5Gj6ojw2IZFAAAAAOkiewXl/0RoWA2fwOEmT25l0PO</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoPCbsO5KMkyFcIYWDbkCYAAAAAACAAAAAAAQZgAAAAEAACAAAAB4IOvXGcY414QBvP7oE52DULzH7PoIOnRc137rIypcuQAAAAAOgAAAAAIAACAAAABb3sf0UPLixPaNr1E+cxh7uxHiVVhizBS6j9ndCnEM9iAAAACRBMVYIlhDHSoIyjLcxuter9WpaZVP9RjTSwtwXFc8IUAAAADMOroIRvxVHXfcOPmpEwet1D9atgNzn4lEwb8w1eFW8XMfrGANAUUyoOsx0RUanmsR9IKg37BqoRqmdXrmBBhz</EncryptedPassword>
     <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
   </PropertyGroup>
@@ -30,21 +30,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2013 15:33:55</publishTime>
     </File>
     <File Include="bin/Collective.Model.dll">
-<<<<<<< HEAD
-      <publishTime>11/12/2013 22:56:33</publishTime>
-=======
-      <publishTime>11/11/2013 15:12:26</publishTime>
->>>>>>> origin/master
+      <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Collective.Model.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Collective.Web.dll">
-<<<<<<< HEAD
-      <publishTime>11/12/2013 22:56:34</publishTime>
-=======
-      <publishTime>11/11/2013 17:48:19</publishTime>
->>>>>>> origin/master
     </File>
     <File Include="bin/Collective.Web.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
