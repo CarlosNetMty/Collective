@@ -146,3 +146,6 @@ C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\b
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.Net4.dll
 C:\Users\CarlosEmmanuel\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.xml
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.Net4.dll
+C:\Users\carlos.martinez\Documents\GitHub\Collective\Collective\Collective.Web\bin\AutoMapper.xml

@@ -10,7 +10,7 @@ textarea {
     color: #222;
 }
 body {
-    font-size: .8em;
+    font-size: 1em;
     line-height: 1.4;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -60,12 +60,9 @@ a {
 h2{
 	font-size:2em;
 	font-weight: 400;
-	letter-spacing:1px
 	}
 h3{
-	/*color:#f7323f;*/
 	font-size:1.5em;
-	letter-spacing:1px
 	}		
 label{
 	margin-bottom:5px;
@@ -120,7 +117,6 @@ html{
 	}
 	
 p{
-	letter-spacing: 1px; 
 	color:#fff;
 	}
 header, article, footer, aside{
@@ -137,15 +133,13 @@ header img{
 	cursor: pointer;
 }			
 header h1{ 
-	font-weight:100; 
-	letter-spacing:.1em;
+	font-weight:100;
 	color:#fff;
 	margin: 3px 0px 0px;
 	font-size:.9em
 	}
 header nav{
 	margin-top:29px;
-	letter-spacing: 1px;
 	}		
 header nav  ul{
 	padding:0px;
@@ -171,7 +165,6 @@ nav.submenu li.active a{
 big {
 	color: #f7323f;
 	font-size: 100px;
-	letter-spacing: 1px;
 	font-weight: bold;
 	line-height: 104px;
 	padding: 0px;
@@ -439,7 +432,6 @@ section.artwork ul{
 .buy .shopp a{
 	color:#f7323f;
 	text-decoration:none;
-	letter-spacing:.09em;
 	font-size:1.2em
 	}	
 /* ==========================================================================
@@ -582,8 +574,7 @@ section.shopping-cart hgroup h2, hgroup h3, hgroup h4{
    ========================================================================== */		
 footer{
 	width:24%;
-	bottom:4%; 
-	letter-spacing:1px ;
+	bottom:4%;
 	font-weight: 100;
 	font-size:.8em
 	}
@@ -769,9 +760,9 @@ footer input[type=search], .social-media{
 	background-color:#fff;
 	width:100%
 	}
-.fancybox-skin h3, .fancybox-skin h2{
+.fancybox-skin h3, 
+.fancybox-skin h2{
 	font-weight:lighter;
-	letter-spacing:1px;
 	font-size:1em
 	}	
 .fancybox-skin h2{

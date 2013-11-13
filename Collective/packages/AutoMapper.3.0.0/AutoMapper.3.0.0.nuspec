@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>AutoMapper</id>
     <version>3.0.0</version>
@@ -15,12 +15,5 @@
     <releaseNotes />
     <copyright />
     <language />
-    <references>
-      <reference file="AutoMapper.dll" />
-      <reference file="AutoMapper.Net4.dll" />
-      <reference file="AutoMapper.SL4.dll" />
-      <reference file="AutoMapper.WinRT.dll" />
-      <reference file="AutoMapper.WP75.dll" />
-    </references>
   </metadata>
 </package>
