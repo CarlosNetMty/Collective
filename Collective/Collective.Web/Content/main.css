@@ -136,7 +136,6 @@ header h1{
 	font-weight:100;
 	color:#fff;
 	margin: 3px 0px 0px;
-	font-size:.9em
 	}
 header nav{
 	margin-top:29px;
@@ -174,7 +173,7 @@ big {
 aside {
 	top: 30%;
 	z-index: 999;
-	background-color: #000;
+	 background-color: rgba(0, 0, 0, 0.9);
 	margin-left: 1.5%;
 	padding-bottom: 19px;
 	width: 45%;
@@ -193,7 +192,6 @@ aside a {
 	display: block;
 	color: #fe0000;
 	text-decoration: none;
-	font-size: 1.3em;
 }	
 section{
 	position:absolute;
@@ -208,10 +206,11 @@ overflow: hidden;
 	}
 section hr{
 	border-color:#333
-	}		
+	}	
+/* SUBMENU */		
 nav.submenu{
 	position:fixed;
-	top:139px;
+	top:170px;
 	padding:0px 0 0 40px;
 	z-index:99999
 	}
@@ -1149,8 +1148,8 @@ iframe{
 		margin-top:6em
 		}		
 	nav.submenu{
-		padding-top: 0px;
-		top: 16px;
+		position: absolute;
+    	top: 170px;
 	}	
 	section.artwork aside{
 		margin-top:0px
