@@ -30,13 +30,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/10/2013 20:37:27</publishTime>
     </File>
     <File Include="bin/Collective.Model.dll">
-      <publishTime>11/10/2013 23:56:40</publishTime>
+      <publishTime>11/12/2013 22:56:33</publishTime>
     </File>
     <File Include="bin/Collective.Model.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Collective.Web.dll">
-      <publishTime>11/10/2013 23:56:41</publishTime>
+      <publishTime>11/12/2013 22:56:34</publishTime>
     </File>
     <File Include="bin/Collective.Web.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
