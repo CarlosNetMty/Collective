@@ -219,7 +219,7 @@ section hr{
 	}		
 nav.submenu{
 	position:fixed;
-	top:165px;
+	top:160px;
 	padding:0px 0 0 40px;
 	z-index:99999;
 	font-size: 0.8em;
@@ -240,6 +240,11 @@ nav.submenu ul li{
 .home-img{
 	display:none
 	}		
+.red{
+text-decoration: line-through;
+color: #f7323f;
+	}	
+
 /* ==========================================================================
    COLECTIVA - Gallery 
    ========================================================================== */
