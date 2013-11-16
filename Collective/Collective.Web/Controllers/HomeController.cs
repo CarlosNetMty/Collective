@@ -211,6 +211,24 @@ namespace Collective.Web.Controllers
                 Data = responseData
             };
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult Upload() 
+        {
+            HttpFileCollectionBase uploaded = HttpContext.Request.Files;
+            string product = HttpContext.Request.Form["id"];
+
+            if (uploaded.Count > 0) 
+            {
+                HttpPostedFileBase postedFile = uploaded.Get(0);               
+            }
+
+            return Models.ActionResponse.Succeed.ToJSON();
+        }
+        
         #endregion
 
         #region Request LogIn

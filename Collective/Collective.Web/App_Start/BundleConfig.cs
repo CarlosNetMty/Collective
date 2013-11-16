@@ -73,7 +73,9 @@ namespace Collective.Web
                         "~/scripts/admin/ProductsDetail.js",
                         "~/scripts/admin/Cover.js",
                         "~/scripts/admin/Setting.js",
-                        // ****************  Admin  ****************                        
+                        // ****************  Shared  ****************
+                        "~/scripts/shared/ImageUpload.js",
+                        // ****************  ViewModel  ****************                        
                         "~/scripts/viewmodels/Collection.js",
                         "~/scripts/viewmodels/Sale.js",
                         "~/scripts/viewmodels/Footer.js",

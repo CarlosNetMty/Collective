@@ -24,7 +24,7 @@ Collective.Global.CurrentUser = function (data) {
 Collective.Global.CurrentUserFromJson = function (data)
 {
     if (data && data.UserID) {
-        var viewModel = Collective.Home.Footer.ViewModel;
+        var viewModel = Collective.Home.Login.ViewModel;
         viewModel.FirstName(data.Name);
         viewModel.Email(data.Email);
         viewModel.IsLoggedIn(true);
@@ -133,6 +133,22 @@ Collective.Utils.Navigate = function (relativeUrl) {
     window.location = redirectTo;
 };
 
+Collective.Utils.IsHomePage = function () {
+
+    var pathData = window.location.pathname.split("/");
+    var pathSections = [];
+
+    $.each(pathData, function (index, item) {
+        if (item) pathSections.push(item);
+    });
+
+    if (!pathSections.length) return true;
+    if (pathSections.length == 1 && pathSections[0] == "Home") return true;
+    if (pathSections.length == 2 && pathSections[0] == "Home" && pathSections[1] == "Index") return true;
+
+    return false;
+}
+
 Collective.Utils.CurrentObject = function () {
 
     var path = window.location.pathname.split('/');
@@ -142,15 +158,23 @@ Collective.Utils.CurrentObject = function () {
     return -1;
 };
 
-Collective.Utils.Notify = function (contentText) {
+Collective.Utils.Notify = function (contentText, type) {
 
-    jSuccess(contentText, {
+    var notification = jSuccess;
+
+    if (type && type.indexOf("error") >= 0) notification = jError;
+    if (type && type.indexOf("info") >= 0) notification = jNotify;
+
+    notification(contentText,
+    {
         autoHide: true,
         TimeShown: 800,
         HorizontalPosition: "right",
         VerticalPosition: "top"
     });
 };
+
+
 
 Collective.Utils.OnSave = function (redirectUrl) {
 

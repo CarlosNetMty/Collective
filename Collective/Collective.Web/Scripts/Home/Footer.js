@@ -29,18 +29,7 @@
 
                 self.ViewModel.IsHomePage = function () {
 
-                    var pathData = window.location.pathname.split("/");
-                    var pathSections = [];
-
-                    $.each(pathData, function (index, item) {
-                        if (item) pathSections.push(item);
-                    });
-
-                    if (!pathSections.length) return true;
-                    if (pathSections.length == 1 && pathSections[0] == "Home") return true;
-                    if (pathSections.length == 2 && pathSections[0] == "Home" && pathSections[1] == "Index") return true;
-
-                    return false;
+                    return Collective.Utils.IsHomePage();
                 };
 
                 self.View.find("input").keypress(function (event) {
@@ -50,16 +39,6 @@
                         window.location = "{0}//{1}/Home/Gallery/?search={2}".format(location.protocol, location.host, this.value);
                     }
                 })
-
-                self.View.find("[data-key='Login']").click(function () { Collective.Home.Login.Open(); });
-                self.View.find("[data-key='Register']").click(function () { Collective.Home.Register.Open(); });
-                self.View.find("[data-key='LoginAndRegister']").click(function () { Collective.Home.Login.Open(); });
-
-                self.ViewModel.GoToAdmin = function ()
-                {
-                    var location = window.location;
-                    window.location = "{0}//{1}{2}".format(location.protocol, location.host, "/Admin");
-                }
 
                 self.ViewModel.GoToConditions = function () {
                     var location = window.location;
@@ -78,3 +57,24 @@
         }
     };
 })(jQuery);
+
+/*************************************/
+/************* ViewModel *************/
+/*************************************/
+
+jQuery.namespace("Collective.ViewModels");
+
+Collective.ViewModels.Footer = function (model) {
+    // ViewModel
+    var self = this;
+
+    //Language Specific
+    self.CurrentLanguage = ko.observable(Collective.Global.CurrentLanguage);
+    self.IsSpanish = ko.computed(function () { return self.CurrentLanguage() == "SPA"; });
+    self.IsEnglish = ko.computed(function () { return self.CurrentLanguage() == "ENG"; });
+
+    self.SearchText = ko.observable("");
+    self.ShowProduction = ko.computed(function () {
+        return Collective.Global.ProductionEnabled;
+    });
+}

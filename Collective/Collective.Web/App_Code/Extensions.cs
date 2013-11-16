@@ -33,12 +33,12 @@ namespace Collective.Web
 
         public static string ViewName(this string name, int? id) 
         {
-            return !id.HasValue ? name : string.Format("{0}Detail", name);
+            return !id.HasValue ? name : string.Format("Detail/{0}", name);
         }
 
         public static string ViewName(this string name, string id)
         {
-            return string.IsNullOrEmpty(id) ? name : string.Format("{0}Detail", name);
+            return string.IsNullOrEmpty(id) ? name : string.Format("Detail/{0}", name);
         }
 
         #endregion

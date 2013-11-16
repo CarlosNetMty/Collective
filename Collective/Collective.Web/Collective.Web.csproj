@@ -284,6 +284,7 @@
     <Content Include="Scripts\Legacy\modernizr-2.5.3.js" />
     <Content Include="Scripts\namespace.js" />
     <Content Include="Scripts\Sales\Index.js" />
+    <Content Include="Scripts\Shared\ImageUpload.js" />
     <Content Include="Scripts\Utils\Global.js" />
     <Content Include="Scripts\Utils\Storage.js" />
     <Content Include="Scripts\Utils\Translations.js" />
@@ -321,10 +322,10 @@
     <Content Include="Views\Admin\Artists.cshtml" />
     <Content Include="Views\Admin\Cover.cshtml" />
     <Content Include="Views\Admin\Content.cshtml" />
-    <Content Include="Views\Admin\IndexDetail.cshtml" />
-    <Content Include="Views\Admin\UsersDetail.cshtml" />
-    <Content Include="Views\Admin\ProductsDetail.cshtml" />
-    <Content Include="Views\Admin\ArtistsDetail.cshtml" />
+    <Content Include="Views\Admin\Detail\Index.cshtml" />
+    <Content Include="Views\Admin\Detail\Users.cshtml" />
+    <Content Include="Views\Admin\Detail\Products.cshtml" />
+    <Content Include="Views\Admin\Detail\Artists.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -332,6 +333,7 @@
     <Content Include="Views\Shared\Loader.cshtml" />
     <Content Include="Views\Home\Conditions.cshtml" />
     <Content Include="Views\Admin\Setting.cshtml" />
+    <Content Include="Views\Shared\Control\ImageUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\" />

@@ -1,27 +1,5 @@
 ﻿<footer data-type="module" data-module="Collective.Home.Footer">
 
-	<div class="shopping-cart">
-        <img src="@Url.Content("~/Images/myColec7iva-logoweb.png")" width="114" height="14" alt="MY COLEC7IVA" />
-        <img data-bind="visible: ShowProduction" class="colectiva-car" src="@Url.Content("~/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
-        <span data-bind="text: ItemCount, visible: ShowProduction" class="redbox"></span>
-    </div>
-
-  	<p data-bind="if: IsLoggedIn()">
-        <span data-key="Welcome">Welcome back</span>&nbsp;
-        <span data-bind="text: FirstName"></span>!
-  	</p>
-
-    <p class="login" data-bind="if: !IsLoggedIn()">
-        <a data-key="LoginAndRegister" data-transform="AllCaps"></a>
-        @*<a data-key="Register" data-transform="AllCaps"></a>&nbsp;*@
-    </p>
-
-  	<p data-bind="if: !IsHomePage() && IsLoggedIn()">
-        <span class="total-cont"data-bind="text: SubTotal"></span>
-        <span class="secure-payment" data-key="SecurePayment">Secure Payment</span>
-        <span class="order-history"  data-key="OrderHistory">Order History</span>
-    </p>
-
     <p>
         <span data-key="Language"></span>: 
         <a><span data-bind="css: { red: IsEnglish() }, click: ChangeLanguage">ENG</span></a> 
@@ -38,13 +16,6 @@
 
   	<small>
         <a><strong data-key="TermsOfService" data-bind="click: GoToConditions"></strong></a>
-@*        <a data-bind="if: IsAdministrator()">
-            <strong data-key="AdminAccess" data-bind="click: GoToAdmin"></strong>
-        </a>*@
         ©2013 COLEC7IVA <span data-key="AllRightsReserved">All rights reserved</span>.
   	</small>
-
 </footer>
-
-
-@Html.Partial("Login")

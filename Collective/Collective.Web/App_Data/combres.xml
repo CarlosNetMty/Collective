@@ -87,6 +87,9 @@
       <resource path="~/scripts/Admin/Cover.js" />
       <resource path="~/scripts/Admin/Setting.js" />
       
+      <!--Shared-->
+      <resource path="~/scripts/Shared/ImageUpload.js" />      
+      
       <!--ViewModels-->
       <resource path="~/scripts/ViewModels/Collection.js" />
       <resource path="~/scripts/ViewModels/Sale.js" />
