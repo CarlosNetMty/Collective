@@ -245,6 +245,7 @@
     <Content Include="Scripts\Framework\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\Framework\jquery.timers.js" />
     <None Include="Scripts\Framework\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Framework\jquery.upload.js" />
     <Content Include="Scripts\Framework\jquery.validate.js" />
     <Content Include="Scripts\Framework\jquery.validate.min.js" />
     <Content Include="Scripts\Framework\jquery.validate.unobtrusive.js" />
@@ -291,7 +292,6 @@
     <Content Include="Scripts\Utils\Utileries.js" />
     <Content Include="Scripts\ViewModels\Collection.js" />
     <Content Include="Scripts\ViewModels\Artist.js" />
-    <Content Include="Scripts\ViewModels\Footer.js" />
     <Content Include="Scripts\ViewModels\Sale.js" />
     <Content Include="Scripts\ViewModels\User.js" />
     <Content Include="Web.config">

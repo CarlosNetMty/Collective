@@ -17,6 +17,7 @@
                 viewModel.Items.push({ title: Collective.Translations.Get("Galleries"), url: "/Home/Gallery" });
                 viewModel.Items.push({ title: Collective.Translations.Get("About"), url: "/Home/About" });
                 viewModel.Items.push({ title: Collective.Translations.Get("Contact"), url: "/Home/Contact" });
+                viewModel.Items.push({ title: "Blog", url: "#" });
             }
             //Language change
             Collective.Global.LanguageCallbacks.add(function () {

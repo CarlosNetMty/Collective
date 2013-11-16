@@ -29,7 +29,7 @@
     <div id="container" data-bind="foreach: Items">                      
         <div data-bind="attr: { class: Filters }">
             <a href="#" data-bind="click: $parent.GoToDetail">
-                <img data-bind="attr: { src: Photo }" width="200">
+                <img data-bind="attr: { src: '/Photos/{0}'.format(Photo) }" width="200">
             </a>
 
 		    <h2 data-bind="text: Artist"></h2>                    

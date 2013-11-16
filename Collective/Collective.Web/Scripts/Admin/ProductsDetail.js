@@ -24,8 +24,7 @@
                 delete model.AvailableArtists;
                 delete model.AvailableTags;
                 delete model.AvailableSizes;
-
-                
+                                
                 model.SelectedTags = model.SelectedTags.join();
                 model.SelectedSizes = model.SelectedSizes.join();
                 model.SelectedFrames = model.SelectedFrames.join();
@@ -33,6 +32,27 @@
                 Collective.Global.Post("/Admin/SaveProduct", model, onSave);
             };
 
+            function setOnChange(key, collection)
+            {
+                //Sets Initial Load
+                $.each(self.View.find("div[data-key={0}] input".format(key)), function (index, item)
+                {
+                    var control = $(item);
+                    control.attr("checked", collection.indexOf(parseInt(control.attr("id"))) >= 0);
+                });
+
+                //Sets Tag Change
+                self.View.find("div[data-key={0}] input".format(key)).bind("change", function ()
+                {
+                    var controlValue = parseInt(this.attributes["id"].nodeValue);
+                    var alreadyAdded = collection.indexOf(controlValue) >= 0;
+
+                    if (this.checked)
+                        collection.push(controlValue);
+                    else
+                        collection.remove(controlValue);
+                });
+            }
 
             //menu initializarion
             function init(data) {
@@ -41,58 +61,13 @@
 
                     Collective.Utils.Navigate("Admin/Products");
                 };
+
                 self.ViewModel.Save = save;
                 ko.applyBindings(self.ViewModel, control.context);
 
-                
-                $.each(self.View.find("div[data-key=Tags] input"), function (index, item)
-                {
-                    var control = $(item);
-                    control.attr("checked", self.ViewModel.SelectedTags.indexOf(parseInt(control.attr("id"))) >= 0);
-                });
-
-                self.View.find("div[data-key=Tags] input").bind("change", function ()
-                {
-                    var controlValue = parseInt(this.attributes["id"].nodeValue);
-                    var alreadyAdded = self.ViewModel.SelectedTags.indexOf(controlValue) >= 0;
-
-                    if (this.checked)
-                        self.ViewModel.SelectedTags.push(controlValue);
-                    else
-                        self.ViewModel.SelectedTags.remove(controlValue);
-                });
-
-                $.each(self.View.find("div[data-key=Sizes] input"), function (index, item) {
-                    var control = $(item);
-                    control.attr("checked", self.ViewModel.SelectedSizes.indexOf(parseInt(control.attr("id"))) >= 0);
-                });
-
-                self.View.find("div[data-key=Sizes] input").bind("change", function () {
-                    var controlValue = parseInt(this.attributes["id"].nodeValue);
-                    var alreadyAdded = self.ViewModel.SelectedSizes.indexOf(controlValue) >= 0;
-
-                    if (this.checked)
-                        self.ViewModel.SelectedSizes.push(controlValue);
-                    else
-                        self.ViewModel.SelectedSizes.remove(controlValue);
-                });
-
-                $.each(self.View.find("div[data-key=Frames] input"), function (index, item) {
-                    var control = $(item);
-                    control.attr("checked", self.ViewModel.SelectedFrames.indexOf(parseInt(control.attr("id"))) >= 0);
-                });
-
-                self.View.find("div[data-key=Frames] input").bind("change", function () {
-                    var controlValue = parseInt(this.attributes["id"].nodeValue);
-                    var alreadyAdded = self.ViewModel.SelectedFrames.indexOf(controlValue) >= 0;
-
-                    if (this.checked)
-                        self.ViewModel.SelectedFrames.push(controlValue);
-                    else
-                        self.ViewModel.SelectedFrames.remove(controlValue);
-                });
-
-
+                setOnChange("Tags", self.ViewModel.SelectedTags);
+                setOnChange("Sizes", self.ViewModel.SelectedSizes);
+                setOnChange("Frames", self.ViewModel.SelectedFrames);
             }
 
             //Get server data (if needed)
@@ -128,9 +103,13 @@ Collective.ViewModels.ProductDetail = function (model) {
     self.Meta.Description = ko.observable(model.Meta.Description || "");
     self.Meta.Tags = ko.observable(model.Meta.Tags || "");
     
+    self.UseAsBackground = ko.observable(model.UseAsCover);
     self.ItemId = ko.observable(model.ItemId);
     self.PhotoURL = ko.observable(model.PhotoURL);
-    self.UseAsBackground = ko.observable(model.UseAsCover);
+    self.PhotoReview = ko.computed(function () {
+
+        return "/Photos/{0}".format(self.PhotoURL());
+    });
 
     self.SelectedTags = ko.observableArray(model.Tags);
     self.SelectedFrames = ko.observableArray(model.Frames);

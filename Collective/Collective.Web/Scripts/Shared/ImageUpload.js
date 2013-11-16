@@ -17,17 +17,12 @@
 
             function post()
             {
-                $.ajax({
-                    data: form.serialize(),
-                    url: self.DataUrl,
-                    dataType: 'json',
-                    type: "POST",
-                    //async: false,
-                    cache: false,
-                    beforeSend: function () { Collective.Utils.Notify("Upload Started", "info"); },
-                    complete: function () { Collective.Utils.Notify("Upload Finished", "info"); },
-                    success: function () { Collective.Utils.Notify("Success on Upload"); }
+                Collective.Utils.Upload(form, "/Home/Upload", function (fileName) {
+
+                    if (fileName)
+                        Collective.Admin.ProductsDetail.ViewModel.PhotoURL(fileName);
                 });
+                
             }
 
             function init()

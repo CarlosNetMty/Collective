@@ -1,17 +1,14 @@
 ﻿<div id="login" class="login-box" data-type="module" data-module="Collective.Home.Login">
     
     <h5 data-key="HeaderLogin" class="login-intro"></h5>
-    <h5 data-key="Login"></h5>
 
     <div data-bind="if: !IsLoggedIn()" class="loginregion">
         <div class="col-left">
-            <label data-key="Email"></label>*<br />
-            <input type="text" data-bind="value: Username" />
+            <input type="text" data-bind="value: Username" data-holder="Email"/>
         </div>
 
         <div class="col-right">
-            <label data-key="Password"></label>*<br />
-	        <input type="password" data-bind="value: Password" />
+	        <input type="password" data-bind="value: Password" data-holder="Password" />
     	</div>            
             
         <button class="next" data-bind="click: RequestLogin">LogIn</button>
@@ -29,7 +26,6 @@
     </p>
 
 	<div class="shopping-cart">
-        <img src="@Url.Content("~/Images/myColec7iva-logoweb.png")" width="114" height="14" alt="MY COLEC7IVA" />
         <img data-bind="visible: ShowProduction" class="colectiva-car" src="@Url.Content("~/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
         <span data-bind="text: ItemCount, visible: ShowProduction" class="redbox"></span>
     </div>
@@ -38,23 +34,17 @@
         <h5 data-key="HeaderRegister"></h5>
     </a>
     
-    <div data-key="Popup" data-bind="with: Register" style="display: none;">
+    <div data-key="Popup" data-bind="with: Register" style="display: none;" id="register">
         <button value="Cancel" data-bind="click: Cancel">X</button>
 
         <div class="col-left">
-            <label data-key="Username"></label>*
-            <input type="text" data-bind="value: Username" />
-                    
-            <label data-key="Password"></label>*
-            <input type="password" data-bind="value: Password" />
+            <input type="text" data-bind="value: Username" data-holder="Username" />
+            <input type="password" data-bind="value: Password" data-holder="Password" />
         </div>
 
         <div class="col-right">
-			<label data-key="Email"></label>*
-    	    <input type="text" data-bind="value: Email" />
-                
-	        <label data-key="ConfirmPassword"></label>*
-            <input type="password" />
+    	    <input type="text" data-bind="value: Email" data-holder="Email" />
+            <input type="password" data-holder="ConfirmPassword" />
         </div>                
         
         @*<button value="Cancel" data-bind="click: Cancel" />*@

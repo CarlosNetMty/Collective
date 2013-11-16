@@ -218,15 +218,18 @@ namespace Collective.Web.Controllers
         [HttpPost]
         public JsonResult Upload() 
         {
-            HttpFileCollectionBase uploaded = HttpContext.Request.Files;
-            string product = HttpContext.Request.Form["id"];
+            return Extensions.Execute(() => {
 
-            if (uploaded.Count > 0) 
-            {
-                HttpPostedFileBase postedFile = uploaded.Get(0);               
-            }
+                HttpFileCollectionBase uploaded = HttpContext.Request.Files;
 
-            return Models.ActionResponse.Succeed.ToJSON();
+                if (uploaded.Count > 0)
+                {
+                    HttpPostedFileBase postedFile = uploaded.Get(0);
+                    return postedFile.SaveAs();
+                }
+
+                throw new ArgumentNullException();
+            });
         }
         
         #endregion

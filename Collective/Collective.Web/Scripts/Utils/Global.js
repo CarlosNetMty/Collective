@@ -66,6 +66,9 @@ Collective.Global.Get = function (module, data, callback) {
             success: function (result) {
                 if ($.isFunction(callback))
                     callback(result);
+            },
+            error: function () {
+                Collective.Utils.Notify("Error on Request", "error");
             }
         });
     }
@@ -78,14 +81,12 @@ Collective.Global.Post = function (url, data, callback) {
         url: url,
         data: data,
         dataType: "json",
-        success: function (response)
-        {
+        success: function (response) {
             if($.isFunction(callback))
                 callback(response);
         },
-        error: function ()
-        {
-            debugger;
+        error: function () {
+            Collective.Utils.Notify("Error on Request", "error");
         }
     });
 
@@ -133,6 +134,11 @@ Collective.Utils.Navigate = function (relativeUrl) {
     window.location = redirectTo;
 };
 
+Collective.Utils.PhotoURL = function (name) {
+
+    return "/Photos/{0}".format(name);
+}
+
 Collective.Utils.IsHomePage = function () {
 
     var pathData = window.location.pathname.split("/");
@@ -174,7 +180,40 @@ Collective.Utils.Notify = function (contentText, type) {
     });
 };
 
+Collective.Utils.Upload = function (form, url, successCallback) {
 
+    function log(message) {
+        console.log("message");
+    }
+
+    var date = new Date();
+    var fileName = "{0}{1}{2}{3}{4}{5}.jpg".format(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds());
+
+    var action = "{0}?enctype=multipart/form-data".format(url);     //%2F
+    form.find("input[name=fileName]").val(fileName);
+
+    $.upload(url, new FormData(form[0])).progress(function (progressEvent, upload) {
+
+        if (progressEvent.lengthComputable) {
+            var percent = Math.round(progressEvent.loaded * 100 / progressEvent.total) + '%';
+            log(percent + '{0} {1}'.format(percent, upload ? "uploaded" : "downloaded"));
+        }
+    }).error(function () {
+
+        fileName = false;
+    }).success(function () {
+        
+        if ($.isFunction(successCallback))
+            successCallback(fileName);
+    });
+
+}
 
 Collective.Utils.OnSave = function (redirectUrl) {
 

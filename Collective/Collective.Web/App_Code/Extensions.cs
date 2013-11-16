@@ -2,6 +2,7 @@
 using Collective.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,44 @@ namespace Collective.Web
             return value.ToString("MMMM dd, yyyy");
         }
 
+        public static byte[] ReadFully(Stream input)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                input.CopyTo(ms);
+                return ms.ToArray();
+            }
+        }
+
+        public static byte[] StreamToByteArray(Stream stream)
+        {
+            if (stream is MemoryStream)
+            {
+                return ((MemoryStream)stream).ToArray();
+            }
+            else
+            {
+                // Jon Skeet's accepted answer 
+                return ReadFully(stream);
+            }
+        }
+
+        public static string SaveAs(this HttpPostedFileBase file) 
+        {
+            DateTime date = DateTime.Now;
+            //string fileName = string.Format("{0}{1}{2}{3}{4}{5}.jpg", 
+            //    date.Month, date.Day, date.Hour, date.Minute, date.Second, date.Millisecond);
+
+            string fileName = HttpContext.Current.Request.Form["fileName"];
+
+            string path = HttpContext.Current.Server.MapPath("~/Photos");
+
+            //file.SaveAs(string.Format("{0}\\{1}", path, fileName));
+            File.WriteAllBytes(string.Format("{0}\\{1}", path, fileName), ReadFully(file.InputStream));
+
+            return fileName;
+        }
+
         public static JsonResult Execute(Action callback) 
         {
             try
@@ -29,6 +68,20 @@ namespace Collective.Web
                 return Models.ActionResponse.Failed.ToJSON();
                 throw ex;
             }; 
+        }
+
+        public static JsonResult Execute(Func<object> callback)
+        {
+            try
+            {
+                Object data = callback.Invoke();
+                return Models.ActionResponse.Succeed.ToJSON(data);
+            }
+            catch (Exception ex)
+            {
+                return Models.ActionResponse.Failed.ToJSON();
+                throw ex;
+            };
         }
 
         public static string ViewName(this string name, int? id) 

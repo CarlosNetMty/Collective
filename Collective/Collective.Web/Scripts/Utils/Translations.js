@@ -2,7 +2,7 @@
 
 Collective.Translations = {
     SPA: {
-        Galleries: "Galerias",
+        Galleries: "Explorar",
         About: "Acerca",
         Contact: "Contacto",
         Language: "Lenguaje",
@@ -40,7 +40,7 @@ Collective.Translations = {
         OrderNow: "Ordena en linea"
     },
     ENG: {
-        Galleries: "Galleries",
+        Galleries: "Browse",
         About: "About",
         Contact: "Contact",
         Language: "Language",
@@ -102,6 +102,22 @@ Collective.Translations = {
                 }
             }
             control.text(text);
+        });
+
+        $.each(view.find("[data-holder]"), function () {
+
+            var control = $(this);
+            var text = translations[control.data("holder")];
+
+            var hasTransform = control.is("[data-transform]");
+            if (hasTransform) {
+                switch (control.data("transform")) {
+                    case "AllCaps":
+                        text = text.toUpperCase();
+                        break;
+                }
+            }
+            control.attr("placeholder", text);
         });
     }
 };

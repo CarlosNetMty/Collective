@@ -1,12 +1,10 @@
-﻿@model int
-
+﻿
 <div data-type="module" data-module="Collective.Shared.ImageUpload">
-    @using(Html.BeginForm("Upload", "Home", new { enctype = "multipart/form-data" })) 
+    @using(Html.BeginForm()) 
     {
-        @Html.Hidden("id", Model)
-        <input type="file" />
+        <input type="file" name="image" />
+        @Html.Hidden("fileName")
     }
 
-    @Html.Hidden("result")
     <input type="submit" value="Upload" />
 </div>

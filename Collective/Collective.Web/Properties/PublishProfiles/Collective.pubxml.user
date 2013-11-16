@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/03/2013 13:45:12</publishTime>
     </File>
     <File Include="App_Data/combres.xml">
-      <publishTime>11/13/2013 21:15:11</publishTime>
+      <publishTime>11/16/2013 14:10:55</publishTime>
     </File>
     <File Include="bin/AjaxMin.dll">
       <publishTime>07/20/2013 13:54:03</publishTime>
@@ -36,7 +36,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/24/2013 15:57:20</publishTime>
     </File>
     <File Include="bin/Collective.Web.dll">
-      <publishTime>11/15/2013 21:53:51</publishTime>
+      <publishTime>11/16/2013 17:01:30</publishTime>
     </File>
     <File Include="bin/Collective.Web.pdb">
       <publishTime>08/24/2013 15:57:20</publishTime>
@@ -204,13 +204,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2013 19:58:30</publishTime>
     </File>
     <File Include="Content/main.css">
-      <publishTime>11/12/2013 22:59:08</publishTime>
+      <publishTime>11/16/2013 15:09:54</publishTime>
     </File>
     <File Include="Content/normalize.css">
       <publishTime>07/28/2013 01:09:20</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>07/20/2013 13:49:15</publishTime>
+      <publishTime>11/16/2013 14:02:49</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>07/20/2013 13:49:15</publishTime>
@@ -363,7 +363,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2013 17:59:01</publishTime>
     </File>
     <File Include="Scripts/Admin/ProductsDetail.js">
-      <publishTime>11/10/2013 23:37:25</publishTime>
+      <publishTime>11/16/2013 16:06:27</publishTime>
     </File>
     <File Include="Scripts/Admin/Setting.js">
       <publishTime>11/09/2013 12:41:11</publishTime>
@@ -437,6 +437,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/Framework/jquery.unobtrusive-ajax.min.js">
       <publishTime>03/28/2012 14:28:23</publishTime>
     </File>
+    <File Include="Scripts/Framework/jquery.upload.js">
+      <publishTime>11/16/2013 14:16:20</publishTime>
+    </File>
     <File Include="Scripts/Framework/jquery.validate.js">
       <publishTime>03/28/2012 14:28:22</publishTime>
     </File>
@@ -501,7 +504,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/06/2013 19:13:48</publishTime>
     </File>
     <File Include="Scripts/Home/Index.js">
-      <publishTime>11/07/2013 20:15:32</publishTime>
+      <publishTime>11/16/2013 16:33:30</publishTime>
     </File>
     <File Include="Scripts/Home/Login.js">
       <publishTime>11/15/2013 21:52:40</publishTime>
@@ -552,16 +555,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2013 15:44:30</publishTime>
     </File>
     <File Include="Scripts/Shared/ImageUpload.js">
-      <publishTime>11/13/2013 21:40:35</publishTime>
+      <publishTime>11/16/2013 16:41:01</publishTime>
     </File>
     <File Include="Scripts/Utils/Global.js">
-      <publishTime>11/15/2013 21:48:26</publishTime>
+      <publishTime>11/16/2013 16:46:22</publishTime>
     </File>
     <File Include="Scripts/Utils/Storage.js">
       <publishTime>07/27/2013 15:30:27</publishTime>
     </File>
     <File Include="Scripts/Utils/Translations.js">
-      <publishTime>11/15/2013 21:27:17</publishTime>
+      <publishTime>11/16/2013 13:40:47</publishTime>
     </File>
     <File Include="Scripts/Utils/Utileries.js">
       <publishTime>10/21/2013 21:16:08</publishTime>
@@ -609,7 +612,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2013 18:51:52</publishTime>
     </File>
     <File Include="Views/Admin/Detail/Products.cshtml">
-      <publishTime>11/13/2013 20:58:16</publishTime>
+      <publishTime>11/16/2013 16:24:09</publishTime>
     </File>
     <File Include="Views/Admin/Detail/Users.cshtml">
       <publishTime>10/21/2013 19:56:04</publishTime>
@@ -669,10 +672,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2013 13:03:32</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
-      <publishTime>11/15/2013 21:40:31</publishTime>
+      <publishTime>11/16/2013 15:29:36</publishTime>
     </File>
     <File Include="Views/Shared/Control/ImageUpload.cshtml">
-      <publishTime>11/13/2013 21:13:54</publishTime>
+      <publishTime>11/16/2013 15:37:50</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>07/20/2013 13:49:15</publishTime>
@@ -684,7 +687,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/04/2013 17:34:17</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/15/2013 21:49:39</publishTime>
+      <publishTime>11/16/2013 14:03:17</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
       <publishTime>08/03/2013 12:25:26</publishTime>

@@ -93,7 +93,6 @@
       <!--ViewModels-->
       <resource path="~/scripts/ViewModels/Collection.js" />
       <resource path="~/scripts/ViewModels/Sale.js" />
-      <resource path="~/scripts/ViewModels/Footer.js" />
       <resource path="~/scripts/ViewModels/User.js" />
       <resource path="~/scripts/ViewModels/Artist.js" />
     </resourceSet>
