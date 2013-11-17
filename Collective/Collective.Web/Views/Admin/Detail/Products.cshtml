@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Administration.cshtml";
 }
 
-
 <div data-type="module" data-module="Collective.Admin.ProductsDetail">
 
     <div class="custom">
@@ -63,8 +62,12 @@
             <label>Meta Tags</label><input type="text" placeholder="" data-bind="value: Tags"> 
         </div>  
 
-        <div class="small-9 columns no-padd" style="width: 100%;">
-            <label>Image URL</label><input type="text" placeholder="" data-bind="value: PhotoURL"> 
+        @Html.Partial("Control/ImageUpload")
+
+        <div class="small-9 columns no-padd" style="width: 100%;" name="photo">
+            <label>Image URL</label>
+            @*<input type="text" placeholder="Photo URL" data-bind="value: PhotoURL"> *@
+            <img data-bind="attr: { src: PhotoReview() }" alt="Preview" width="145px" height="145px" />
         </div>  
 
         <div class="small-12 columns">

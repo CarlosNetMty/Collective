@@ -34,16 +34,7 @@ namespace Collective.Model
         }
         Artist IRepository<Artist>.Update(Context db, Artist dataObject)
         {
-            Artist instance = dataObject;
-            Artist current = ((IRepository<Artist>)this).Get(db, dataObject.ArtistId);
-
-            if (current != null) 
-            {
-                dataObject.Clone(current);
-                instance = current;
-            }
-
-            return Update<Artist>(db, dataObject.ArtistId, db.Artists, instance);
+            return Update<Artist>(db, dataObject.ArtistId, db.Artists, dataObject);
         }
         #endregion
     }

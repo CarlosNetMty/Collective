@@ -20,7 +20,7 @@ namespace Collective.Model
         #endregion
 
         #region Methods
-        public void Clone(IPersistibleObject obj)
+        public void Clone(IPersistibleObject obj, IRepository repository, Context context)
         {
             Sale instance = obj as Sale;
             instance.Date = Date;

@@ -17,6 +17,11 @@
                 Collective.Global.Init(self.View);
             });
 
+            function showRegister()
+            {
+                self.View.find("[data-key='Popup']").toggle();
+            }
+
             //initializarion callback
             function init(data) {
                 self.ViewModel = new Collective.ViewModels.Login();
@@ -24,7 +29,7 @@
                 //cancel function
                 var cancel = function ()
                 {
-                    $(self.View).hide();
+                    self.View.find("[data-key='Popup']").hide();
                     self.ViewModel.Username("");
                     self.ViewModel.Password("");
                     self.ViewModel.Register.Username("");
@@ -33,9 +38,16 @@
                     self.ViewModel.Register.Email("");
                 };
 
+                self.ViewModel.ShowRegister = showRegister;
+
                 //set cancel
                 self.ViewModel.Cancel = cancel;
                 self.ViewModel.Register.Cancel = cancel;
+
+                self.ViewModel.IsHomePage = function ()
+                {
+                    return Collective.Utils.IsHomePage();
+                }
 
                 //actions
                 self.ViewModel.RequestLogin = function ()
@@ -49,10 +61,9 @@
                         Collective.Global.Post("/Home/LogIn/", data, function (response) {
                             if (response && response.IsAuthenticated) {
                                 Collective.Global.CurrentUser(response.User);
-                                $(self.View).hide();
                             }
                         });
-                    } else $(self.View).hide();
+                    }
                 };
 
                 self.ViewModel.Register.RequestRegister = function ()
@@ -66,7 +77,6 @@
                     Collective.Global.Post("/Home/Register/", data, function (response) {
                         if (response && response.IsAuthenticated) {
                             Collective.Global.CurrentUser(response.User);
-                            $(self.View).hide();
                         }
                     });
                 };
@@ -83,6 +93,8 @@
             Collective.Global.Get(this, {}, init);
             //Custom Controls (include translations)
             Collective.Global.Init(this.View);
+            //Get current user
+            Collective.Global.CurrentUser();
         }
     };
 })(jQuery);
@@ -100,7 +112,30 @@ Collective.ViewModels.Login = function () {
     self.Username = ko.observable();
     self.Password = ko.observable();
 
-    self.Register  = new Collective.ViewModels.Register();
+    self.Register = new Collective.ViewModels.Register();
+
+    //Header Items
+    self.FirstName = ko.observable();
+    self.LastName = ko.observable();
+    self.Email = ko.observable();
+    self.IsLoggedIn = ko.observable(false);
+    self.IsAdministrator = ko.observable(false);
+
+    self.UserName = ko.computed(function () {
+        return "{0} {1}".format(self.FirstName(), self.LastName());
+    });
+
+    self.ShoppingCart = new Collective.ViewModels.Sale();
+    self.SubTotal = ko.computed(function () {
+        return "Total: ${0}".format(self.ShoppingCart.SubTotal());
+    });
+    self.ItemCount = ko.computed(function () {
+        return self.ShoppingCart.Details().length;
+    });
+
+    self.ShowProduction = ko.computed(function () {
+        return Collective.Global.ProductionEnabled;
+    });
 }
 
 Collective.ViewModels.Register = function () {

@@ -2,6 +2,12 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+html{ 
+	font-family:Helvetica, Arial, sans-serif; 
+	font-size:82%; 
+	letter-spacing: .08em;
+}
+
 html,
 button,
 input,
@@ -53,7 +59,6 @@ textarea {
     resize: vertical;
 }
 a {
-	text-decoration: underline;
 	color:#fff;
     cursor: pointer
 	}
@@ -82,8 +87,8 @@ body [data-type="Loader"] {
 }	
 .admin {
     position: fixed;
-    right: 20px;
-    top: 20px;
+    right: 6px;
+    top: 6px;
     background: url('../Images/colec7iva_adminBtn.png') no-repeat center center;
     text-indent: -99999px;
     width: 40px;
@@ -152,7 +157,8 @@ header nav li {
 	}
 header nav li a, nav.submenu a{ 
 	text-decoration:none; 
-	color:#fff
+	color:#fff;
+	font-weight: 600;
 	}
 header nav li a:hover, 
 header nav li.active a,
@@ -163,7 +169,7 @@ nav.submenu li.active a{
 	}
 big {
 	color: #f7323f;
-	font-size: 100px;
+	font-size: 6em;
 	font-weight: bold;
 	line-height: 104px;
 	padding: 0px;
@@ -171,7 +177,7 @@ big {
 	height: 90px;
 }
 aside {
-	top: 30%;
+	top: 35%;
 	z-index: 999;
 	 background-color: rgba(0, 0, 0, 0.9);
 	margin-left: 1.5%;
@@ -181,7 +187,7 @@ aside {
 	overflow: hidden;
 }
 aside p{
-	font-size:1.3em;
+	font-size:1em;
 	margin-bottom: 0px
 	}	
 aside p:nth-child(3){
@@ -190,8 +196,13 @@ aside p:nth-child(3){
 
 aside a {
 	display: block;
-	color: #fe0000;
+	color: #f7323f;
 	text-decoration: none;
+<<<<<<< HEAD
+=======
+	font-size: 1em;
+	font-weight: bold;
+>>>>>>> b5b1878f4c25fa8ca670d2c4d0917791836421b9
 }	
 section{
 	position:absolute;
@@ -210,9 +221,14 @@ section hr{
 /* SUBMENU */		
 nav.submenu{
 	position:fixed;
+<<<<<<< HEAD
 	top:170px;
+=======
+	top:160px;
+>>>>>>> b5b1878f4c25fa8ca670d2c4d0917791836421b9
 	padding:0px 0 0 40px;
-	z-index:99999
+	z-index:99999;
+	font-size: 0.8em;
 	}
 nav.submenu a{
 	margin-right:30px
@@ -230,6 +246,11 @@ nav.submenu ul li{
 .home-img{
 	display:none
 	}		
+.red{
+text-decoration: line-through;
+color: #f7323f;
+	}	
+
 /* ==========================================================================
    COLECTIVA - Gallery 
    ========================================================================== */
@@ -243,7 +264,7 @@ aside.gallery h2{
 	color:#f7323f;
 	}
 aside.gallery span{
-	color:red;
+	color:#f7323f;
 	float:left
 	}	
 /* 	Filtering STYLES  */	
@@ -542,7 +563,7 @@ div.credit-card-info input{
 	display:block
 	}
 div.credit-card{
-	border:solid 1px red;
+	border:solid 1px #f7323f;
 	width:50%
 	}	
 section.shopping-cart .col-right{
@@ -627,15 +648,21 @@ footer small{
 footer strong{
 	display: block;
 	}
-
-footer input[type=search]{
+input{
 	border:solid 1px #333;
 	color:#fff;
 	background:#000;
 	height:20px;
 	padding-left:10px;
-	margin-bottom:2em
-	
+	margin-bottom:1em
+	}
+.contact input{
+	border:solid 1px #333;
+	color:#fff;
+	background:#000;
+	height:20px;
+	padding-left:10px;
+	margin-bottom:1em
 	}
 footer input[type=search], .social-media{
 	width:50%;
@@ -1100,8 +1127,10 @@ section.contact .col-right a{
 textarea{
 	width:100%;
 	height:170px;
-	border:none;
-	padding:10px
+	padding:10px;
+	border: 1px solid #333;
+	background-color: black;
+	color: white;
 	}	
 iframe{
 	margin-top:1.6em
@@ -1320,6 +1349,7 @@ iframe{
 }
 
 
+
 #login{
 	position: absolute;
 	margin:0px;
@@ -1334,7 +1364,11 @@ iframe{
 	margin: 3%;
 }		
 #login a{
+<<<<<<< HEAD
 	color: red;
+=======
+	color: #f7323f;
+>>>>>>> b5b1878f4c25fa8ca670d2c4d0917791836421b9
 	text-decoration: none;
 	letter-spacing: 0px
 }
@@ -1343,7 +1377,7 @@ iframe{
 	margin-bottom: .5em; 
 }
 #login button{
-    background-color:red;
+    background-color:#f7323f;
     color:white;
     padding:6px;
     border:none;
@@ -1358,7 +1392,12 @@ iframe{
 	width: 100%;
 	background-color: #000;
 	color: #fff;
+<<<<<<< HEAD
 	height: 20px;
+=======
+	height: 26px;
+	margin-bottom: 1em
+>>>>>>> b5b1878f4c25fa8ca670d2c4d0917791836421b9
 }
 #login .login-intro{
     font-size:13px;

@@ -8,12 +8,16 @@
         
         @RenderSection("Meta", required: false)  
 
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
         @Styles.Render("~/bundles/styles")
         @Scripts.Render("~/bundles/scripts")
     </head>
     <body>
 
-        @Html.Partial("Loader")
+        @*@Html.Partial("Loader")*@
+        @Html.Partial("Login")
         @Html.Partial("Header")
         @RenderBody()
         @Html.Partial("Footer")

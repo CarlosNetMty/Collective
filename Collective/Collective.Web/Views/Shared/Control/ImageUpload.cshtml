@@ -1,0 +1,10 @@
+﻿
+<div data-type="module" data-module="Collective.Shared.ImageUpload">
+    @using(Html.BeginForm()) 
+    {
+        <input type="file" name="image" />
+        @Html.Hidden("fileName")
+    }
+
+    <input type="submit" value="Upload" />
+</div>

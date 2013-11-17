@@ -41,6 +41,7 @@ namespace Collective.Web
                         "~/scripts/framework/jNotify.jquery.js",
                         "~/scripts/framework/jquery.noty.js",
                         "~/scripts/framework/jquery.md5.js",
+                        "~/scripts/framework/jquery.upload.js",
                         "~/scripts/namespace.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/application").Include(
@@ -73,10 +74,11 @@ namespace Collective.Web
                         "~/scripts/admin/ProductsDetail.js",
                         "~/scripts/admin/Cover.js",
                         "~/scripts/admin/Setting.js",
-                        // ****************  Admin  ****************                        
+                        // ****************  Shared  ****************
+                        "~/scripts/shared/ImageUpload.js",
+                        // ****************  ViewModel  ****************                        
                         "~/scripts/viewmodels/Collection.js",
                         "~/scripts/viewmodels/Sale.js",
-                        "~/scripts/viewmodels/Footer.js",
                         "~/scripts/viewmodels/User.js",
                         "~/scripts/viewmodels/Artist.js"));
         }

@@ -16,6 +16,7 @@ namespace Collective.Web.Models
 
         public ActionResponseType Result { protected get; set; }
         public string Message { protected get; set; }
+        public object Data { protected get; set; }
 
         public JsonResult ToJSON() 
         {
@@ -24,6 +25,12 @@ namespace Collective.Web.Models
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = this
             };
+        }
+
+        public JsonResult ToJSON(object data)
+        {
+            Data = data;
+            return ToJSON();
         }
 
         ActionResponse(ActionResponseType type) 

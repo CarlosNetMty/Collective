@@ -14,6 +14,9 @@ namespace Collective.Web
             routes.IgnoreRoute("elmah.axd");
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.RouteExistingFiles = false;
+            routes.IgnoreRoute("Photos/{*pathInfo}");
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

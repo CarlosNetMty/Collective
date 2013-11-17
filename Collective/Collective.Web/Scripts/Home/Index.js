@@ -22,7 +22,7 @@
                 var element = self.ViewModel.Items()[nextIndex];
                 //New Contol Set
                 self.ViewModel.CurrentName(element.Name);
-                self.ViewModel.CurrentImageURL(element.PhotoUrl);
+                self.ViewModel.CurrentImageURL(Collective.Utils.PhotoURL(element.PhotoUrl));
                 self.ViewModel.Artist(element.Artist);
                 self.ViewModel.Id(element.Id);
                 self.ViewModel.Price(element.Price || 0);

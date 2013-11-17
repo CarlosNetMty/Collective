@@ -52,6 +52,9 @@
     <Compile Include="Model\Setting.cs" />
     <Compile Include="Repository\FakeRepository.cs" />
     <Compile Include="Model\Resource.cs" />
+    <Compile Include="Repository\Repository.Actions.cs">
+      <DependentUpon>Repository.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Repository.Setting.cs">
       <DependentUpon>Repository.cs</DependentUpon>
     </Compile>

@@ -2,7 +2,7 @@
 
 Collective.Translations = {
     SPA: {
-        Galleries: "Galerias",
+        Galleries: "Explorar",
         About: "Acerca",
         Contact: "Contacto",
         Language: "Lenguaje",
@@ -25,7 +25,7 @@ Collective.Translations = {
         Password: "Contraseña",
         Email: "Email",
         ConfirmPassword: "Confirmar contraseña",
-        HeaderLogin: "Para continuar es necesario hacer login, si no cuentas con una cuenta registrate!",
+        HeaderLogin: "LogIn y compra en linea",
         HeaderRegister: "No tienes una cuenta? Registrate!",
         LoginAndRegister: "Login & Registro",
         AdminAccess: "Acceso a administración",
@@ -40,7 +40,7 @@ Collective.Translations = {
         OrderNow: "Ordena en linea"
     },
     ENG: {
-        Galleries: "Galleries",
+        Galleries: "Browse",
         About: "About",
         Contact: "Contact",
         Language: "Language",
@@ -63,7 +63,7 @@ Collective.Translations = {
         Password: "Password",
         Email: "Email",
         ConfirmPassword: "Confirm password",
-        HeaderLogin: "In order to proceed with your order. First you need to login or if you don´t have an account, register!",
+        HeaderLogin: "Login & Shop Online",
         HeaderRegister: "Don´t have an Account? Register!",
         LoginAndRegister: "Login & Register",
         AdminAccess: "Admininistration Access",
@@ -102,6 +102,22 @@ Collective.Translations = {
                 }
             }
             control.text(text);
+        });
+
+        $.each(view.find("[data-holder]"), function () {
+
+            var control = $(this);
+            var text = translations[control.data("holder")];
+
+            var hasTransform = control.is("[data-transform]");
+            if (hasTransform) {
+                switch (control.data("transform")) {
+                    case "AllCaps":
+                        text = text.toUpperCase();
+                        break;
+                }
+            }
+            control.attr("placeholder", text);
         });
     }
 };

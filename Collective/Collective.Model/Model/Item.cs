@@ -28,48 +28,33 @@ namespace Collective.Model
         public virtual List<Frame> AvailableFrames { get; set; }
         #endregion
 
-        #region Not Mapped
-        [NotMapped]
-        public virtual string SelectedTags { get; set; }
-        [NotMapped]
-        public virtual string SelectedSizes { get; set; }
-        [NotMapped]
-        public virtual string SelectedFrames { get; set; }
-        #endregion
-
-
         #region Methods
-        public void Clone(IPersistibleObject obj)
+
+        public void Clone(IPersistibleObject obj, IRepository repository, Context context)
         {
             Item instance = obj as Item;
-            instance.PhotoUrl = PhotoUrl;
-            instance.UseAsBackground= UseAsBackground;
+
+            instance.ItemId = ItemId;
             instance.Price = Price;
             instance.Code = Code;
-            instance.Meta.Description = Meta.Description;
+
+            instance.PhotoUrl = PhotoUrl;
             instance.Meta.Tags = Meta.Tags;
             instance.Meta.Title = Meta.Title;
+            instance.UseAsBackground= UseAsBackground;
+            instance.Meta.Description = Meta.Description;
+
             instance.Spanish.Description = Spanish.Description;
-            instance.Spanish.Name = Spanish.Name;
             instance.English.Description = English.Description;
+            instance.Spanish.Name = Spanish.Name;
             instance.English.Name = English.Name;
 
-            instance.Tags.Clear();
-            instance.AvailableFrames.Clear();
-            instance.AvailableSizes.Clear();
+            instance.Artist = repository.Get<Artist>(context, Artist.ArtistId);
 
-            if(string.IsNullOrEmpty(SelectedTags)) SelectedTags = string.Empty;
-            foreach(var item in SelectedTags.Split(','))
-                instance.Tags.Add(new Tag { TagId = int.Parse(item) });
+            instance.AvailableFrames.Load(repository, context, AvailableFrames);
+            instance.AvailableSizes.Load(repository, context, AvailableSizes);
+            instance.Tags.Load(repository, context, Tags);
 
-            if(string.IsNullOrEmpty(SelectedFrames)) SelectedFrames = string.Empty;
-            foreach (var item in SelectedFrames.Split(','))
-                instance.AvailableFrames.Add(new Frame { FrameId = int.Parse(item) });
-
-            if(string.IsNullOrEmpty(SelectedSizes)) SelectedSizes = string.Empty;
-            foreach (var item in SelectedSizes.Split(','))
-                instance.AvailableSizes.Add(new Size { SizeId = int.Parse(item) });
-                
         }
         #endregion 
     }

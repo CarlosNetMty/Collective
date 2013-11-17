@@ -18,6 +18,12 @@ namespace Collective.Model
         /// <returns></returns>
         T Get<T>(int id) where T : IPersistibleObject;
         #endregion
+        #region Attach
+        void Attach(Artist entity);
+        void Attach(Frame entity);
+        void Attach(Size entity);
+        void Attach(Tag entity);
+        #endregion
         #region Update
         /// <summary>
         /// 
