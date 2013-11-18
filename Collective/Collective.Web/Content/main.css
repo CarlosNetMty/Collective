@@ -308,7 +308,7 @@ div.selectOptions{
 	position:absolute;
 	top:27px;
 	left:0;
-	width:198px;
+	width:100%;
 	border:1px solid #333;
 	overflow:hidden;
 	padding-top:2px;
@@ -374,11 +374,11 @@ section.artwork ul{
 	width:100%
 	}
 .artwork header img{ 
-	width:70%;
+	width:64%;
 	float:left
 	}
 .artwork aside{ 
-	width:25%;
+	width:31%;
 	padding:0px;
 	position:relative;
 	float:right;
@@ -1249,8 +1249,8 @@ iframe{
     font-weight: normal;
     margin-bottom: 1.3em;
 }
-#register .col-left,
-#register .col-right{
+body #register .col-left,
+body #register .col-right{
 	width: 47%;
 }
 #register button{
@@ -1289,7 +1289,7 @@ div#overlay {
 	}
 }
 @media screen and (max-height: 700px){
-	header, article, footer, aside, nav.submenu{
+	header, article, footer, aside{
 		display:block;
 		position: relative
 	}
