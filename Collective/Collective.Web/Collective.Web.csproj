@@ -180,6 +180,7 @@
     <Content Include="Images\c7-facebook.png" />
     <Content Include="Images\c7-pinterest.png" />
     <Content Include="Images\c7-twitter.png" />
+    <Content Include="Images\c7_image_not_available.jpg" />
     <Content Include="Images\COLEC7IVA-Admin-Logo.png" />
     <Content Include="Images\colec7iva-logoweb.png" />
     <Content Include="Images\colec7iva_adminBtn.png" />

@@ -277,6 +277,18 @@ namespace Collective.Web.Controllers
 
                 result = (object)data;
             }
+            else 
+            {
+                var data = new 
+                {
+                    AvailableArtists = new List<Option>().LoadFrom<Artist>(Repository, false),
+                    AvailableTags = new List<Option>().LoadFrom<Tag>(Repository, false),
+                    AvailableFrames = new List<Option>().LoadFrom<Frame>(Repository, false),
+                    AvailableSizes = new List<Option>().LoadFrom<Size>(Repository, false)
+                };
+
+                result = (object)data;
+            }
 
             return new JsonResult()
             {

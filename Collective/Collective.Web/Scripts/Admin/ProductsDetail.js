@@ -98,6 +98,8 @@ Collective.ViewModels.ProductDetail = function (model) {
     self.English = ko.observable(model.English);
     self.Code = ko.observable(model.Code);
 
+    if (!model.Meta) model.Meta = {};
+    
     self.Meta = {};
     self.Meta.Title = ko.observable(model.Meta.Title || "");
     self.Meta.Description = ko.observable(model.Meta.Description || "");
@@ -107,6 +109,9 @@ Collective.ViewModels.ProductDetail = function (model) {
     self.ItemId = ko.observable(model.ItemId);
     self.PhotoURL = ko.observable(model.PhotoURL);
     self.PhotoReview = ko.computed(function () {
+
+        if(!self.PhotoURL())
+            return "/Images/c7_image_not_available.jpg";
 
         return "/Photos/{0}".format(self.PhotoURL());
     });
