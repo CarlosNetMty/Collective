@@ -341,11 +341,15 @@ a.selectOption:hover{
 	margin:0px;
 	font-weight:lighter;
 	color:#fff;
-	font-size: 1em
+	font-size: 1em;
+	padding: 0 10px;
 }		
 #container h2{
 	margin-top:1em;
 	color:#f7323f;
+}
+#container img{
+	padding: 10px
 }
 
 /* ==========================================================================
