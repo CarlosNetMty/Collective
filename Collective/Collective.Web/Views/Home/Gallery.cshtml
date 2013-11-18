@@ -26,7 +26,7 @@
 </aside>
 
 <section>
-    <div id="container" data-bind="foreach: Items">                      
+    <div id="container" data-bind="foreach: Items" class="isotope">                      
         <div data-bind="attr: { class: Filters }">
             <a href="#" data-bind="click: $parent.GoToDetail">
                 <img data-bind="attr: { src: '/Photos/{0}'.format(Photo) }" width="200">
