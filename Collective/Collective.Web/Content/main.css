@@ -349,7 +349,7 @@ a.selectOption:hover{
 	color:#f7323f;
 }
 #container img{
-	padding: 10px
+	padding: 0 10px 10px
 }
 
 /* ==========================================================================
@@ -1297,6 +1297,9 @@ div#overlay {
 		display:block;
 		position: relative
 	}
+	nav.submenu{
+		top: 160px;
+	}
 	aside, footer{
 		margin-top:6em
 		}		
@@ -1432,23 +1435,6 @@ div#overlay {
 		}	
 }
 
-<<<<<<< HEAD
-=======
-/*Retina graphics!*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-	   only screen and (min--moz-device-pixel-ratio: 1.5),
-	   only screen and (min-device-pixel-ratio: 1.5){
-
-	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-		background-image: url('../imgs/fancybox_sprite@2x.png');
-		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
-	}
-
-	#fancybox-loading div {
-		background-image: url('../imgs/fancybox_loading@2x.gif');
-		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
-	}
-}
 
 /**** Isotope CSS3 transitions ****/
 
@@ -1460,7 +1446,6 @@ div#overlay {
        -o-transition-duration: 0.8s;
           transition-duration: 0.8s;
 }
-
 .isotope {
   -webkit-transition-property: height, width;
      -moz-transition-property: height, width;
@@ -1468,7 +1453,6 @@ div#overlay {
        -o-transition-property: height, width;
           transition-property: height, width;
 }
-
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
      -moz-transition-property:    -moz-transform, opacity;
@@ -1476,9 +1460,6 @@ div#overlay {
        -o-transition-property:      -o-transform, opacity;
           transition-property:         transform, opacity;
 }
-
-
-
 #login{
 	position: absolute;
 	margin:0px;
