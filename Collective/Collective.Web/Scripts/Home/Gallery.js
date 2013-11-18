@@ -21,11 +21,14 @@
                 self.ViewModel = new Collective.ViewModels.Gallery(data);
                 self.View.find(".fancybox").fancybox({ maxWidth: 450, maxHeight: 500, padding: 50 });
 
+
+
                 //Initial isotope setup
                 var $container = self.View.find("#container");
+
                 $container.imagesLoaded(function () {
-                    $container.isotope({ masonry: { columnWidth: 110, gutterWidth: 0 } });
-                });
+                    $container.isotope({ masonry: { columnWidth: 120, gutterWidth: 10 } });
+                });              
 
                 //Changes the current filter value
                 self.ViewModel.SetValue = function (item, event)
@@ -64,6 +67,7 @@
                 }
 
                 ko.applyBindings(self.ViewModel, control.context);
+                $container.isotope({ filter: '*' });
             }
 
             //Get server data (if needed)
