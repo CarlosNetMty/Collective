@@ -97,6 +97,24 @@ namespace Collective.Web
         #endregion
         #region Data
 
+        public static List<Option> LoadFrom<T>(this List<T> source, bool appendEmpty = true) where T : ICatalogObject
+        {
+            List<Option> collection = new List<Option>();
+
+            if (appendEmpty)
+                collection.Add(new Option { Id = -1, Name = "*" });
+
+            source.ToList().ForEach((item) => {
+                collection.Add(new Option
+                        {
+                            Id = item.GetUniqueIdentifier(),
+                            Name = item.GetDescription()
+                        });
+            });
+
+            return collection;
+        }
+
         public static List<Option> LoadFrom<T>(this List<Option> collection, 
             IRepository repository, bool appendEmpty = true) where T : ICatalogObject
         {

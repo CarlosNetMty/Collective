@@ -134,11 +134,11 @@ namespace Collective.Web.Controllers
                     Tags = instance.Tags.Select(item => item.TagId).ToList(),
                     Frames = instance.AvailableFrames.Select(item => item.FrameId).ToList(),
                     Sizes = instance.AvailableSizes.Select(item => item.SizeId).ToList(),
-
+                                        
                     AvailableArtists = new List<Option>().LoadFrom<Artist>(Repository, false),
-                    AvailableTags = new List<Option>().LoadFrom<Tag>(Repository, false),
-                    AvailableFrames = new List<Option>().LoadFrom<Frame>(Repository, false),
-                    AvailableSizes = new List<Option>().LoadFrom<Size>(Repository, false),
+                    AvailableTags = Extensions.LoadFrom(instance.Tags, false),
+                    AvailableFrames = Extensions.LoadFrom(instance.AvailableFrames, false),
+                    AvailableSizes = Extensions.LoadFrom(instance.AvailableSizes, false),
                     
                     ArtistId = instance.Artist.ArtistId,
                     ArtistName = instance.Artist.Name,
@@ -154,12 +154,6 @@ namespace Collective.Web.Controllers
 
                 result = (object)data;
             }
-
-            //TODO: Code clean
-            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
-            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
-            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
-            ((List<string>)((dynamic)result).Related).Add("/Photos/nydialilian01-home.jpg");
 
             return new JsonResult()
             {
@@ -273,6 +267,13 @@ namespace Collective.Web.Controllers
                 }
             };
         }
+
+        [HttpPost]
+        public JsonResult LogOut(string email, string password) 
+        {
+            return Extensions.Execute(() => { Session.Abandon(); });
+        }
+
         enum LogInResponseType 
         {
             UserDoesNotExist,

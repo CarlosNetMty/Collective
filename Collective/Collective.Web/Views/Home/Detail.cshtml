@@ -34,13 +34,7 @@
             <h4 data-bind="text: Code"></h4>
                 
             <span class="label" data-key="Size"></span>
-            @*<div class='selectBox'>                
-                <a class='selected' data-bind="click: ShowOptions, text: SelectedSizeName"></a>
-                <span class='selectArrow' data-bind="click: ShowOptions"> &#9660 </span>
-                <div class="selectOptions" data-bind="foreach: AvailableSizes">	 
-                    <a class="selectOption" href="#" data-bind="click: $parent.SetSize, text: Name"></a>		  	                                                                             
-                </div>
-            </div>    *@
+
             <div data-bind="foreach: AvailableSizes">
                 <div>
                     <span data-bind="text: Name"></span>
@@ -70,19 +64,7 @@
                     <a href="#" data-key="AddToCart"></a>
     	        </span>     
 		    </div>
-                
-            <div class="collection">
-                <ul>
-                    <li>
-                        <a href="#" data-key="Related">Related</a>
-                    </li>
-                </ul>
-
-                <div data-bind="foreach: Related"> 
-                    <img data-bind="attr: { src: $data }, click: $parent.NavigateToArtist" />
-                </div>
-            </div>  
-                            
+                                            
         </aside>             
     </section>
 
