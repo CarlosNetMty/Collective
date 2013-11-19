@@ -404,11 +404,9 @@ section.artwork ul{
 	margin-bottom:25px;
 	}	
 .artwork aside .selectBox{
-	display:block;
 	float:none;
 	margin:0px;
 	bottom:0px;
-	overflow:hidden;
 	margin-bottom:25px
 	} 
 .artwork aside a.selected{
