@@ -1101,8 +1101,12 @@ input[type="search"]{
    ========================================================================== */
 	
 section.about-us{
-	padding-right:25%
+	padding-right: 25%;
+    width: 100%;
 	}
+section.about-us > div {
+    margin-left: 46%;
+}	
 section.about-us h2{ 
 	margin:0px; 
 	padding:0px; 
