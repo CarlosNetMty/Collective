@@ -17,9 +17,14 @@
                 Collective.Global.Init(self.View);
             });
 
-            function showRegister()
-            {
+            function showRegister() {
                 self.View.find("[data-key='Popup']").toggle();
+            }
+
+            function handleAuthentication(response) {
+                if (response && response.IsAuthenticated) {
+                    Collective.Global.CurrentUser(response.User);
+                }
             }
 
             //initializarion callback
@@ -49,36 +54,33 @@
                     return Collective.Utils.IsHomePage();
                 }
 
-                //actions
-                self.ViewModel.RequestLogin = function ()
-                {
+                //******* LOGOUT ********
+                self.ViewModel.LogOut = function () {
+
+                    Collective.Global.Post("/Home/LogOut/", {}, function () {
+                        Collective.Utils.Navigate("/");
+                    });
+                };
+
+                //******* LOGIN ********
+                self.ViewModel.RequestLogin = function () {
                     var data = {
                         email: this.Username(),
                         password: $.md5(this.Password())
                     };
 
-                    if (!Collective.Global.SuperUserRequest(data)) {
-                        Collective.Global.Post("/Home/LogIn/", data, function (response) {
-                            if (response && response.IsAuthenticated) {
-                                Collective.Global.CurrentUser(response.User);
-                            }
-                        });
-                    }
+                    Collective.Global.Post("/Home/LogIn/", data, handleAuthentication);
                 };
 
-                self.ViewModel.Register.RequestRegister = function ()
-                {
+                //******* REGISTER ********
+                self.ViewModel.Register.RequestRegister = function () {
                     var data = {
                         name: this.Register.Username(),
                         email: this.Register.Email(),
                         password: $.md5(this.Register.Password()),
                     };
 
-                    Collective.Global.Post("/Home/Register/", data, function (response) {
-                        if (response && response.IsAuthenticated) {
-                            Collective.Global.CurrentUser(response.User);
-                        }
-                    });
+                    Collective.Global.Post("/Home/Register/", data, handleAuthentication);
                 };
 
                 self.View.find(".loginregion input").bind("keypress", function (event) {

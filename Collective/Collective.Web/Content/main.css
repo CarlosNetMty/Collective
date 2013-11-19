@@ -349,7 +349,7 @@ a.selectOption:hover{
 	color:#f7323f;
 }
 #container img{
-	padding: 10px
+	padding: 0 10px 10px
 }
 
 /* ==========================================================================
@@ -404,11 +404,9 @@ section.artwork ul{
 	margin-bottom:25px;
 	}	
 .artwork aside .selectBox{
-	display:block;
 	float:none;
 	margin:0px;
 	bottom:0px;
-	overflow:hidden;
 	margin-bottom:25px
 	} 
 .artwork aside a.selected{
@@ -442,6 +440,24 @@ section.artwork ul{
 	text-decoration:none;
 	font-size:1.2em
 	}	
+	
+div.format {
+	display: block;
+	border: 1px solid #333;
+	margin-top: -1px;
+	padding: 4px 0 0px 11px;
+	width: 90%;
+	margin-bottom:1em;
+	position: relative;
+}
+
+.format > input {
+    height: 22px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 23px;
+}
 /* ==========================================================================
    COLECTIVA - Shopping Cart 
    ========================================================================== */
@@ -1083,14 +1099,12 @@ input[type="search"]{
    ========================================================================== */
 	
 section.about-us{
-	padding-right:25%
+	padding-right: 25%;
+    width: 100%;
 	}
-section.about-us h2{ 
-	margin:0px; 
-	padding:0px; 
-	margin-bottom:1em;
-	color:#f7323f
-}
+section.about-us > div {
+    margin-left: 46%;
+}	
 section.about-us legend{
 	text-indent:9999px;
 	height:200px
@@ -1297,13 +1311,14 @@ div#overlay {
 		display:block;
 		position: relative
 	}
+	nav.submenu{
+		top: 160px;
+		position: absolute;
+		padding-top: 0px;
+	}
 	aside, footer{
 		margin-top:6em
 		}		
-	nav.submenu{
-		padding-top: 0px;
-		top: 16px;
-	}	
 	section.artwork aside{
 		margin-top:0px
 	}
@@ -1432,23 +1447,6 @@ div#overlay {
 		}	
 }
 
-<<<<<<< HEAD
-=======
-/*Retina graphics!*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-	   only screen and (min--moz-device-pixel-ratio: 1.5),
-	   only screen and (min-device-pixel-ratio: 1.5){
-
-	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-		background-image: url('../imgs/fancybox_sprite@2x.png');
-		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
-	}
-
-	#fancybox-loading div {
-		background-image: url('../imgs/fancybox_loading@2x.gif');
-		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
-	}
-}
 
 /**** Isotope CSS3 transitions ****/
 
@@ -1460,7 +1458,6 @@ div#overlay {
        -o-transition-duration: 0.8s;
           transition-duration: 0.8s;
 }
-
 .isotope {
   -webkit-transition-property: height, width;
      -moz-transition-property: height, width;
@@ -1468,7 +1465,6 @@ div#overlay {
        -o-transition-property: height, width;
           transition-property: height, width;
 }
-
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
      -moz-transition-property:    -moz-transform, opacity;
@@ -1476,9 +1472,6 @@ div#overlay {
        -o-transition-property:      -o-transform, opacity;
           transition-property:         transform, opacity;
 }
-
-
-
 #login{
 	position: absolute;
 	margin:0px;

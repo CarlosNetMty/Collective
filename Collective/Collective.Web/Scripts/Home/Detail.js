@@ -39,11 +39,6 @@
 
                 self.ViewModel.ShowOptions = function (item, event) { $(event.currentTarget).siblings(".selectOptions").toggle(); }
 
-                //var headTag = $("head");
-                //headTag.append($("<meta name='{0}' content='{1}'>".format("name", self.ViewModel.Meta.Title())));
-                //headTag.append($("<meta name='{0}' content='{1}'>".format("description", self.ViewModel.Meta.Description())));
-                //headTag.append($("<meta name='{0}' content='{1}'>".format("tags", self.ViewModel.Meta.Tags())));
-
                 ko.applyBindings(self.ViewModel, control.context);
             }
 
@@ -88,7 +83,7 @@ Collective.ViewModels.DetailOfProduct = function (model) {
     self.ArtistEnglish = model.ArtistEnglish;
     self.ArtistSpanish = model.ArtistSpanish;
     self.Price = model.Price;
-    self.PhotoUrl = model.PhotoUrl;
+    self.PhotoUrl = "/Photos/{0}".format(model.PhotoUrl);
     self.Code = model.Code;
 
     self.Meta = {};

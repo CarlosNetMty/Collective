@@ -1,6 +1,6 @@
 ﻿<div id="login" class="login-box" data-type="module" data-module="Collective.Home.Login">
     
-    <h5 data-key="HeaderLogin" class="login-intro"></h5>
+    <h5 data-key="HeaderLogin" data-bind="visible: !IsLoggedIn()" class="login-intro"></h5>
 
     <div data-bind="if: !IsLoggedIn()" class="loginregion">
         <div class="col-left">
@@ -16,21 +16,22 @@
 
     <p data-bind="if: IsLoggedIn()">
         <span data-key="Welcome">Welcome back</span>&nbsp;
-        <span data-bind="text: FirstName"></span>!
+        <span data-bind="text: FirstName"></span>!&nbsp;
+        <a data-bind="click: LogOut">Log Out</a>
   	</p>
 
-  	<p data-bind="if: !IsHomePage() && IsLoggedIn()">
+  	<p data-bind="if: !IsHomePage() && IsLoggedIn() && ShowProduction()">
         <span class="total-cont" data-bind="text: SubTotal"></span>
         <span class="secure-payment" data-key="SecurePayment">Secure Payment</span>
         <span class="order-history"  data-key="OrderHistory">Order History</span>
     </p>
 
-	<div class="shopping-cart">
-        <img data-bind="visible: ShowProduction" class="colectiva-car" src="@Url.Content("~/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
-        <span data-bind="text: ItemCount, visible: ShowProduction" class="redbox"></span>
+	<div class="shopping-cart" data-bind="if: ShowProduction()">
+        <img class="colectiva-car" src="@Url.Content("~/Images/C7-cart-icn.png")" width="26" height="20" alt="COLEC7IVA - Cart" />
+        <span data-bind="text: ItemCount" class="redbox"></span>
     </div>
 
-    <a data-bind="click: ShowRegister">
+    <a data-bind="click: ShowRegister, visible: ShowProduction">
         <h5 data-key="HeaderRegister"></h5>
     </a>
     
