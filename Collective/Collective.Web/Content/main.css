@@ -305,7 +305,7 @@ span.selectArrow,a.selected{
 	text-decoration:none;
 }
 div.selectOptions{
-	position:absolute;
+	/*position:absolute;*/
 	top:27px;
 	left:0;
 	width:100%;
