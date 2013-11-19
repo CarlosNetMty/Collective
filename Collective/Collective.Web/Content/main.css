@@ -444,13 +444,22 @@ section.artwork ul{
 	}	
 	
 div.format {
-display: block;
-border: 1px solid #333;
-margin-top: -1px;
-padding: 4px 0 0px 11px;
-width: 90%;
+	display: block;
+	border: 1px solid #333;
+	margin-top: -1px;
+	padding: 4px 0 0px 11px;
+	width: 90%;
+	margin-bottom:1em;
+	position: relative;
 }
 
+.format > input {
+    height: 22px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 23px;
+}
 /* ==========================================================================
    COLECTIVA - Shopping Cart 
    ========================================================================== */
@@ -1308,14 +1317,12 @@ div#overlay {
 	}
 	nav.submenu{
 		top: 160px;
+		position: absolute;
+		padding-top: 0px;
 	}
 	aside, footer{
 		margin-top:6em
 		}		
-	nav.submenu{
-		padding-top: 0px;
-		top: 16px;
-	}	
 	section.artwork aside{
 		margin-top:0px
 	}
