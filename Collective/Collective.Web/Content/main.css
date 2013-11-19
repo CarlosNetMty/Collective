@@ -1107,12 +1107,6 @@ section.about-us{
 section.about-us > div {
     margin-left: 46%;
 }	
-section.about-us h2{ 
-	margin:0px; 
-	padding:0px; 
-	margin-bottom:1em;
-	color:#f7323f
-}
 section.about-us legend{
 	text-indent:9999px;
 	height:200px
